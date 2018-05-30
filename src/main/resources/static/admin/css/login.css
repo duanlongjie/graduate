@@ -1,0 +1,184 @@
+body {
+    background-color: white;
+    font-family: 'Noto Sans SC Sliced', sans-serif;
+}
+
+.login-main {
+    margin-top: 100px;
+}
+
+.nav-links {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    height: auto;
+    border-bottom: 1px solid #e5e5e5
+}
+
+.nav-links li {
+    display: flex
+}
+
+.nav-links li a {
+    padding: 10px 10px 11px;
+    font-size: 14px;
+    line-height: 28px;
+    color: #707070;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap
+}
+
+.nav-links li a:hover, .nav-links li .participants-more .btn-link:hover, .participants-more .nav-links li .btn-link:hover, .nav-links li .user-list-more .btn-link:hover, .user-list-more .nav-links li .btn-link:hover, .nav-links li a:active, .nav-links li a:focus {
+    text-decoration: none;
+    color: #000;
+    border-bottom: 2px solid #c4c4c4
+}
+
+.nav-links li a:hover .badge, .nav-links li .participants-more .btn-link:hover .badge, .participants-more .nav-links li .btn-link:hover .badge, .nav-links li .user-list-more .btn-link:hover .badge, .user-list-more .nav-links li .btn-link:hover .badge, .nav-links li a:active .badge, .nav-links li a:focus .badge {
+    color: #000
+}
+
+.nav-links li.active a {
+    color: #000;
+    font-weight: 600
+}
+
+.nav-links li.active a .badge {
+    color: #000
+}
+
+.login-page .new-session-tabs {
+    display: -webkit-flex;
+    display: flex;
+    box-shadow: 0 0 0 1px #e5e5e5;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px
+}
+
+.login-page .new-session-tabs.custom-provider-tabs {
+    flex-wrap: wrap
+}
+
+.login-page .new-session-tabs.custom-provider-tabs li {
+    min-width: 85px;
+    flex-basis: auto
+}
+
+.login-page .new-session-tabs.custom-provider-tabs li:nth-child(n+5) {
+    border-top: 1px solid #e5e5e5
+}
+
+.login-page .new-session-tabs.custom-provider-tabs a {
+    font-size: 16px
+}
+
+.login-page .new-session-tabs li {
+    flex: 1;
+    text-align: center;
+    border-left: 1px solid #e5e5e5
+}
+
+.login-page .new-session-tabs li:first-of-type {
+    border-left: 0;
+    border-top-left-radius: 4px
+}
+
+.login-page .new-session-tabs li:last-of-type {
+    border-top-right-radius: 4px
+}
+
+.login-page .new-session-tabs li:not(.active) {
+    background-color: #fafafa
+}
+
+.login-page .new-session-tabs li a {
+    width: 100%;
+    font-size: 18px;
+    margin-right: 0
+}
+
+.login-page .new-session-tabs li a:hover, .login-page .new-session-tabs li .participants-more .btn-link:hover, .participants-more .login-page .new-session-tabs li .btn-link:hover, .login-page .new-session-tabs li .user-list-more .btn-link:hover, .user-list-more .login-page .new-session-tabs li .btn-link:hover {
+    border: 1px solid transparent
+}
+
+.login-page .new-session-tabs li.active {
+    border-bottom: 1px solid #e5e5e5
+}
+
+.login-page .new-session-tabs li.active a {
+    border: 0;
+    border-bottom: 2px solid #1f78d1;
+    margin-right: 0;
+    color: #000
+}
+
+.login-page .new-session-tabs li.active a:hover, .login-page .new-session-tabs li.active .participants-more .btn-link:hover, .participants-more .login-page .new-session-tabs li.active .btn-link:hover, .login-page .new-session-tabs li.active .user-list-more .btn-link:hover, .user-list-more .login-page .new-session-tabs li.active .btn-link:hover {
+    border-bottom: 2px solid #1f78d1
+}
+
+.login-page p {
+    font-size: 13px
+}
+
+.login-page .login-box, .login-page .omniauth-container {
+    box-shadow: 0 0 0 1px #e5e5e5;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    padding: 15px
+}
+
+.login-page .login-box .login-heading h3, .login-page .omniauth-container .login-heading h3 {
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0 0 10px
+}
+
+.login-page .login-box .login-footer, .login-page .omniauth-container .login-footer {
+    margin-top: 10px
+}
+
+.login-page .login-box .login-footer p:last-child, .login-page .omniauth-container .login-footer p:last-child {
+    margin-bottom: 0
+}
+
+.login-page .login-box a.forgot, .login-page .omniauth-container a.forgot {
+    float: right;
+    padding-top: 6px
+}
+
+.login-page .login-box .nav .active a, .login-page .omniauth-container .nav .active a {
+    background: transparent
+}
+
+.login-page .login-box .login-body, .login-page .omniauth-container .login-body {
+    font-size: 13px
+}
+
+.login-page .login-box .login-body input + p, .login-page .omniauth-container .login-body input + p {
+    margin-top: 5px
+}
+
+.login-page .login-box .login-body .username .validation-success, .login-page .omniauth-container .login-body .username .validation-success {
+    color: #168f48
+}
+
+.login-page .login-box .login-body .username .validation-error, .login-page .omniauth-container .login-body .username .validation-error {
+    color: #db3b21
+}
+html body hr.footer-fixed {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: #fff;
+}
+html body .footer-container, .devise-layout-html body hr.footer-fixed {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: #fff;
+}

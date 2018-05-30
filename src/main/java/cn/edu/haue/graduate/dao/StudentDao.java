@@ -1,6 +1,6 @@
 package cn.edu.haue.graduate.dao;
 
-import cn.edu.haue.graduate.domain.Student;
+import cn.edu.haue.graduate.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

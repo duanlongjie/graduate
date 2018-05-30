@@ -1,8 +1,8 @@
 package cn.edu.haue.graduate.dao;
 
-import cn.edu.haue.graduate.domain.Course;
-import cn.edu.haue.graduate.domain.Grade;
-import cn.edu.haue.graduate.domain.Student;
+import cn.edu.haue.graduate.entity.Course;
+import cn.edu.haue.graduate.entity.Grade;
+import cn.edu.haue.graduate.entity.Student;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
