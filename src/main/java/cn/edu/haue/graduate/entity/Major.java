@@ -1,5 +1,6 @@
 package cn.edu.haue.graduate.entity;
 
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 

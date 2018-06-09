@@ -1,7 +1,9 @@
 package cn.edu.haue.graduate.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  * 课程实体类
@@ -19,6 +21,9 @@ public class Course {
 
     //课程学分
     private Integer courseCredit;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Major major;
 
     protected Course() {
     }
@@ -60,6 +65,14 @@ public class Course {
 
     public void setCourseCredit(Integer courseCredit) {
         this.courseCredit = courseCredit;
+    }
+
+    public Major getMajor() {
+        return major;
+    }
+
+    public void setMajor(Major major) {
+        this.major = major;
     }
 
     @Override

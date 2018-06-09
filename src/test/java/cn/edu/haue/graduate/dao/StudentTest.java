@@ -34,9 +34,10 @@ public class StudentTest {
     public void add() {
 
         Major major = new Major(201612211, "软件工程");
-
         Course course1 = new Course(112221003, "数据结构", "专业必修课", 5);
         Course course2 = new Course(112233035, "Java EE 开发技术", "专业选修课", 4);
+        course1.setMajor(major);
+        course2.setMajor(major);
         Grade grade1 = new Grade();
         grade1.setCourse(course1);
         grade1.setScore(77);
