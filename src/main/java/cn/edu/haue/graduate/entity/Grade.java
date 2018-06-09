@@ -1,13 +1,15 @@
 package cn.edu.haue.graduate.entity;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  * 成绩实体类
  * Created by 杨晋升 on 2018/5/29.
  */
 @Entity
-@Table
 public class Grade {
 
     @Id

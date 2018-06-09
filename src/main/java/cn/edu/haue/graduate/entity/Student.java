@@ -9,7 +9,6 @@ import java.util.List;
  * Created by 杨晋升 on 2018/5/29.
  */
 @Entity
-@Table
 public class Student {
 
     @Id
@@ -18,6 +17,9 @@ public class Student {
     private String studentName;
 
     private String password;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Major major;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Grade> gradeList = new ArrayList<>();
@@ -63,12 +65,21 @@ public class Student {
         this.gradeList = gradeList;
     }
 
+    public Major getMajor() {
+        return major;
+    }
+
+    public void setMajor(Major major) {
+        this.major = major;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
                 "studentId='" + studentId + '\'' +
                 ", studentName='" + studentName + '\'' +
                 ", password='" + password + '\'' +
+                ", major=" + major +
                 ", gradeList=" + gradeList +
                 '}';
     }
