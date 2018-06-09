@@ -10,8 +10,6 @@ import java.util.List;
 /**
  * Created by 杨晋升 on 2018/5/30.
  */
-@Service
-@Transactional
 public interface StudentService {
     /**
      * 添加以为学生
