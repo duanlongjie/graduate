@@ -9,7 +9,6 @@ import java.util.List;
  * Created by 杨晋升 on 2018/5/30.
  */
 @Entity
-@Table
 public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -2,15 +2,14 @@ package cn.edu.haue.graduate.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * 课程实体类
  * Created by 杨晋升 on 2018/5/29.
  */
 @Entity
-@Table
 public class Course {
+
     @Id
     private Integer courseId;
 
@@ -18,13 +17,17 @@ public class Course {
 
     private String courseType;
 
+    //课程学分
+    private Integer courseCredit;
+
     protected Course() {
     }
 
-    public Course(Integer courseId, String courseName, String courseType) {
+    public Course(Integer courseId, String courseName, String courseType, Integer courseCredit) {
         this.courseId = courseId;
         this.courseName = courseName;
         this.courseType = courseType;
+        this.courseCredit = courseCredit;
     }
 
     public Integer getCourseId() {
@@ -51,12 +54,21 @@ public class Course {
         this.courseType = courseType;
     }
 
+    public Integer getCourseCredit() {
+        return courseCredit;
+    }
+
+    public void setCourseCredit(Integer courseCredit) {
+        this.courseCredit = courseCredit;
+    }
+
     @Override
     public String toString() {
         return "Course{" +
                 "courseId=" + courseId +
                 ", courseName='" + courseName + '\'' +
                 ", courseType='" + courseType + '\'' +
+                ", courseCredit=" + courseCredit +
                 '}';
     }
 }

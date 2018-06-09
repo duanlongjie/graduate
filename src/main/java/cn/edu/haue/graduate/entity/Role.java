@@ -1,13 +1,15 @@
 package cn.edu.haue.graduate.entity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  * 管理员角色实体类
  * Created by 杨晋升 on 2018/5/30.
  */
 @Entity
-@Table
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
