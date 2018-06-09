@@ -16,7 +16,7 @@ public class Grade {
     private String gradeId;
 
     //分数
-    private Integer score;
+    private float score;
 
     //所属课程
     @ManyToOne(cascade = CascadeType.ALL)
@@ -30,11 +30,11 @@ public class Grade {
         this.gradeId = gradeId;
     }
 
-    public Integer getScore() {
+    public float getScore() {
         return score;
     }
 
-    public void setScore(Integer score) {
+    public void setScore(float score) {
         this.score = score;
     }
 

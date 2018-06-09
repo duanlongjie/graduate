@@ -54,11 +54,11 @@ public class Course {
         this.courseType = courseType;
     }
 
-    public Float getCourseCredit() {
+    public float getCourseCredit() {
         return courseCredit;
     }
 
-    public void setCourseCredit(Float courseCredit) {
+    public void setCourseCredit(float courseCredit) {
         this.courseCredit = courseCredit;
     }
 

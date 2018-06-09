@@ -1,8 +1,10 @@
 package cn.edu.haue.graduate.entity;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,13 +22,14 @@ public class Major {
 
     //毕业标准
     //专业必修课
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Course> requiredCourses = new ArrayList<>();
 
     //需要公共课选修课学分
     private float needPublicCredit;
 
     //需要体育课学分
-    private float needPECredit;
+    private float needPeCredit;
 
     //最多重修学分
     private float maxFailCredit;
@@ -34,12 +37,11 @@ public class Major {
     protected Major() {
     }
 
-    public Major(Integer majorID, String majorName, List<Course> requiedCourses, float needPublicCredit, float needPECredit, float maxFailCredit) {
+    public Major(Integer majorID, String majorName, float needPublicCredit, float needPeCredit, float maxFailCredit) {
         MajorID = majorID;
         MajorName = majorName;
-        this.requiredCourses = requiedCourses;
         this.needPublicCredit = needPublicCredit;
-        this.needPECredit = needPECredit;
+        this.needPeCredit = needPeCredit;
         this.maxFailCredit = maxFailCredit;
     }
 
@@ -59,12 +61,12 @@ public class Major {
         MajorName = majorName;
     }
 
-    public List<Course> getRequiedCourses() {
+    public List<Course> getRequiredCourses() {
         return requiredCourses;
     }
 
-    public void setRequiedCourses(List<Course> requiedCourses) {
-        this.requiredCourses = requiedCourses;
+    public void setRequiredCourses(List<Course> requiredCourses) {
+        this.requiredCourses = requiredCourses;
     }
 
     public float getNeedPublicCredit() {
@@ -75,12 +77,12 @@ public class Major {
         this.needPublicCredit = needPublicCredit;
     }
 
-    public float getNeedPECredit() {
-        return needPECredit;
+    public float getneedPeCredit() {
+        return needPeCredit;
     }
 
-    public void setNeedPECredit(float needPECredit) {
-        this.needPECredit = needPECredit;
+    public void setneedPeCredit(float needPeCredit) {
+        this.needPeCredit = needPeCredit;
     }
 
     public float getMaxFailCredit() {
@@ -97,7 +99,7 @@ public class Major {
                 "MajorID=" + MajorID +
                 ", MajorName='" + MajorName + '\'' +
                 ", needPublicCredit=" + needPublicCredit +
-                ", needPECredit=" + needPECredit +
+                ", needPeCredit=" + needPeCredit +
                 ", maxFailCredit=" + maxFailCredit +
                 '}';
     }
