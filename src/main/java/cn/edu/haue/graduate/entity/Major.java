@@ -16,6 +16,9 @@ public class Major {
 
     private String MajorName;
 
+    //毕业标准
+
+
     protected Major() {
     }
 
