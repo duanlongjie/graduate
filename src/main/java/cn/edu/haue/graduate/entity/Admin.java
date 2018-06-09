@@ -18,6 +18,7 @@ public class Admin {
 
     private String password;
 
+    //管理员所属角色
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private List<Role> roleList = new ArrayList<>();
 
@@ -59,7 +60,6 @@ public class Admin {
                 "id='" + id + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", roleList=" + roleList +
                 '}';
     }
 }

@@ -15,8 +15,10 @@ public class Grade {
     @Id
     private String gradeId;
 
+    //分数
     private Integer score;
 
+    //所属课程
     @ManyToOne(cascade = CascadeType.ALL)
     private Course course;
 

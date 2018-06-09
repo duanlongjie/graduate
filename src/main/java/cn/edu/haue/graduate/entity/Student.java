@@ -18,9 +18,11 @@ public class Student {
 
     private String password;
 
+    //所属专业
     @ManyToOne(cascade = CascadeType.ALL)
     private Major major;
 
+    //学生成绩单
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Grade> gradeList = new ArrayList<>();
 
@@ -80,7 +82,6 @@ public class Student {
                 ", studentName='" + studentName + '\'' +
                 ", password='" + password + '\'' +
                 ", major=" + major +
-                ", gradeList=" + gradeList +
                 '}';
     }
 }
