@@ -1,0 +1,97 @@
+package cn.edu.haue.graduate.service.impl;
+
+import cn.edu.haue.graduate.constant.ResultCode;
+import cn.edu.haue.graduate.constant.StudentResultMessage;
+import cn.edu.haue.graduate.dao.StudentDao;
+import cn.edu.haue.graduate.entity.ResultInfo;
+import cn.edu.haue.graduate.entity.Student;
+import cn.edu.haue.graduate.service.StudentService;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import javax.transaction.Transactional;
+import java.util.Optional;
+
+@Service
+@Transactional
+public class StudentServiceImpl implements StudentService {
+    @Resource
+    private StudentDao studentDao;
+    @Override
+    public ResultInfo<Student> addStudent(Student student) {
+        ResultInfo<Student> resultInfo=new ResultInfo<>();
+        String message = checkStudentInfo(student);
+        //信息不合法
+        if(message!= null){
+            resultInfo.setResultMessage(message);
+            resultInfo.setResultCode(ResultCode.RESULT_CODE_FAIL);
+            return resultInfo;
+        }
+        else{
+            studentDao.save(student);
+            resultInfo.setResultObj(student);
+            resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
+            return resultInfo;
+        }
+    }
+
+    @Override
+    public ResultInfo<Student> deleteStudentById(String id) {
+        ResultInfo<Student> resultInfo=new ResultInfo<>();
+        if(id!=null){
+        Optional<Student> optional = studentDao.findById(id);
+        if(optional.get()!=null){
+            studentDao.deleteById(id);
+            resultInfo.setResultObj(optional.get());
+            resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
+            return resultInfo;
+        }
+        }
+        return null;
+    }
+
+    @Override
+    public ResultInfo<Student> getStudentById(String id) {
+        ResultInfo<Student> resultInfo=new ResultInfo<>();
+        if(id!= null){
+            Optional<Student> optional = studentDao.findById(id);
+            Student student = optional.get();
+            resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
+            resultInfo.setResultObj(student);
+            return resultInfo;
+        }
+        return null;
+    }
+
+    @Override
+    public ResultInfo<Student> updateStudent(Student student) {
+        ResultInfo<Student> resultInfo=new ResultInfo<>();
+        Optional<Student> optional = studentDao.findById(student.getStudentId());
+        if(optional.get() ==null){
+            System.out.println("不存在该学生信息！");
+            resultInfo.setResultCode(ResultCode.RESULT_CODE_FAIL);
+            resultInfo.setResultObj(student);
+            return resultInfo;
+        }
+        String message = checkStudentInfo(student);
+        if(message!= null){
+        resultInfo.setResultCode(ResultCode.RESULT_CODE_FAIL);
+        resultInfo.setResultObj(student);
+        return resultInfo;
+        }
+        else{
+            studentDao.save(student);
+            resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
+            resultInfo.setResultObj(student);
+            return resultInfo;
+        }
+    }
+    //检测学生信息 合法性
+    public String checkStudentInfo(Student student){
+        String name = student.getStudentName();
+        if("".equals(name) || name==null){
+            return StudentResultMessage.RESULT_MESSAGE_STU_NAME;
+        }
+        return null;
+    }
+}
