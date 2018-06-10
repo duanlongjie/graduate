@@ -6,7 +6,7 @@ import cn.edu.haue.graduate.entity.Student;
 
 
 /**
- * Created by 杨晋升 on 2018/5/30.
+ * Author:ddl
  */
 public interface StudentService {
     /**
