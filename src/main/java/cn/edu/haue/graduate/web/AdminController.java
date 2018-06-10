@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
 @RequestMapping(path = "/admin")
 public class AdminController {
 
-    Logger logger = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     //登陆页面
     @RequestMapping(value = "/login")
