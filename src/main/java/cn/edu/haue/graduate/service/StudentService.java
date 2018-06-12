@@ -6,7 +6,7 @@ import cn.edu.haue.graduate.entity.Student;
 
 
 /**
- * Author:ddl
+ * Author:dlj
  */
 public interface StudentService {
     /**

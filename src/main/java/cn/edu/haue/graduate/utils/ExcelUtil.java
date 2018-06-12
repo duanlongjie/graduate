@@ -9,16 +9,81 @@ import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
+ * create by dlj
  * Excel 工具类
  */
 public class ExcelUtil {
+    /**
+     *
+     * @param pathName excel 文件所在路径
+     * @param t  实体类型
+     * @param <T> 实体类
+     * @return  将 excel数据封装后 返回
+     */
+    public static <T> List<T> excelToList(String pathName,T t) {
+        //将 excel 表中 数据 存入List
+        List<T> list =new ArrayList<>();
+        InputStream inputStream=null;
+        Workbook book =null;
+        try {
+             inputStream=new FileInputStream(pathName);
+             book=Workbook.getWorkbook(inputStream);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        System.out.println(book);
+        Sheet sheet=book.getSheet(0);//取得第一个工作表，也可用sheet名字获得。
+        int len=sheet.getRows();//取得行数
+        //列数
+        int cloum= sheet.getRow(1).length; //获取列数
+        // 几列 对应 几个 set方法
+            Method[] methods=new Method[cloum];
+        //存储所有的 set方法的集合
+//        List<Method> methods=new ArrayList<>();
+        Method[] methods1 = t.getClass().getMethods();
+        int index=0;
+        for(Method method:methods1){
+            if(method.getName().contains("set")){
+                methods[index]=method;
+                index++;
+            }
+        }
+        for(int i=1;i<len;i++){//从1开始，避免插入标题
+            //System.out.println(i);
+            Cell[] cells = sheet.getRow(i); //获取列数
+            T o=null;
+            try {
+                  o = (T) t.getClass().newInstance();
+            } catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+            for(int j=0;j<cells.length;j++){//打印每行信息
+                String contents = cells[j].getContents();
+                try {
+                    methods[j].invoke(o,contents);
+                } catch (Exception e){
+                    System.out.println(e.getMessage());
+                }
+
+            }
+            list.add(o);
+        }
+
+        return list;
+    }
+
+
+
+
+
+
     /**
      * @MethodName  : listToExcel
      * @Description : 导出Excel（可以导出到本地文件系统，也可以导出到浏览器，可自定义工作表大小）
