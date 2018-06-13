@@ -1,5 +1,6 @@
 package cn.edu.haue.graduate.service;
 
+import cn.edu.haue.graduate.entity.ResultInfo;
 import cn.edu.haue.graduate.entity.Student;
 
 /**
@@ -7,6 +8,6 @@ import cn.edu.haue.graduate.entity.Student;
  */
 public interface GraduateOrNotService {
 
-    public boolean GraduateOrNot(Student student);
+    public ResultInfo<Student> GraduateOrNot(String id);
 
 }

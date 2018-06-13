@@ -6,4 +6,8 @@ package cn.edu.haue.graduate.constant;
  */
 public class CourseType {
 
+    public static final String PE="体育课";
+    public static final String Elective_Course="选修课";
+    public static final String Required_Course="必修课";
+
 }
