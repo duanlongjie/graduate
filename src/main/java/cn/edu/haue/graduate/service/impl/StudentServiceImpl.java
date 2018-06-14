@@ -1,4 +1,4 @@
-package cn.edu.haue.graduate.service.impl;
+package cn.edu.haue.graduate.service.Impl;
 
 import cn.edu.haue.graduate.constant.ResultCode;
 import cn.edu.haue.graduate.constant.StudentResultMessage;

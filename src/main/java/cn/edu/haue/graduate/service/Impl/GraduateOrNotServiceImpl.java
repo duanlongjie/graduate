@@ -1,18 +1,15 @@
 package cn.edu.haue.graduate.service.Impl;
 
-import cn.edu.haue.graduate.dao.CourseDao;
+
 import cn.edu.haue.graduate.dao.MajorDao;
 import cn.edu.haue.graduate.dao.StudentDao;
 import cn.edu.haue.graduate.entity.*;
 import cn.edu.haue.graduate.service.GraduateOrNotService;
-import org.hibernate.validator.constraints.EAN;
-
+import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
-import javax.annotation.Resources;
-import java.util.ArrayList;
+import javax.transaction.Transactional;
 import java.util.List;
 
-import static cn.edu.haue.graduate.constant.AuditResultMessage.*;
 import static cn.edu.haue.graduate.constant.CourseType.Elective_Course;
 import static cn.edu.haue.graduate.constant.CourseType.PE;
 import static cn.edu.haue.graduate.constant.CourseType.Required_Course;
@@ -22,15 +19,14 @@ import static cn.edu.haue.graduate.constant.CourseType.Required_Course;
  * Author: lnp
  * Date: 2018/6/10
  **/
+@Service
+@Transactional
 public class GraduateOrNotServiceImpl implements GraduateOrNotService {
 
     @Resource
     private StudentDao studentDao;
     @Resource
     private MajorDao majorDao;
-    @Resource
-    private CourseDao courseDao;
-
 
     /**
      * 毕业条件审核
@@ -71,23 +67,14 @@ public class GraduateOrNotServiceImpl implements GraduateOrNotService {
             }
         }
         ResultInfo<Student> resultInfo=new ResultInfo<>();
-        List<String> list=new ArrayList<>();
-        if(requiredCoursesCredit<=studentRequiredCredit){
-            list.add(requiredCoursesCredit_Yes);
+        resultInfo.setResultObj(student);
+        float[] array={studentRequiredCredit,studentElectiveCredit,studentPeCredit};
+        resultInfo.setCreditResultMessage(array);
+        if(requiredCoursesCredit<=studentRequiredCredit&&needPeCredit<=studentPeCredit&&needPublicCredit<=studentElectiveCredit){
+            resultInfo.setResultMessage("符合毕业要求");
         }else{
-            list.add(requiredCoursesCredit_No);
+            resultInfo.setResultMessage("不符合毕业要求");
         }
-        if(needPeCredit<=studentPeCredit){
-            list.add(needPeCredit_Yes);
-        }else{
-            list.add(needPeCredit_No);
-        }
-        if(needPublicCredit<=studentElectiveCredit){
-            list.add(needPublicCredit_Yes);
-        }else{
-            list.add(needPublicCredit_No);
-        }
-        System.out.println(resultInfo.getAuditResultMessage());
         return resultInfo;
     }
 }

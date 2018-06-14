@@ -1,0 +1,151 @@
+* {
+	margin: 0;
+	padding: 0;
+	
+}
+.common_title>h1 {
+	/*font-weight: normal;
+    font-size: 16px;
+    text-align: center;
+    line-height: 50px;
+    color: #f1f1f1;
+    background-color: #016eff;
+    position: absolute;*/
+    
+}
+.common_title {
+	height: 50px;
+
+}
+input {
+	outline: none;
+	border: 0px;
+	height: 28px;
+	display: inline-block;
+	border-radius: 5px;
+	
+}
+.l form div:nth-child(1),
+.l form div:nth-child(2),
+.l form div:nth-child(4) {
+	text-align: center;
+}
+.l form div:nth-child(1) input,
+.l form div:nth-child(2) input{
+	width:231px;
+		
+}
+.l {
+	background-color: #F1F1F1;
+	font-size: 14px;
+	margin-top: 33px;
+	
+}
+.l div {
+	padding: 10px;
+	margin-bottom: 5px;
+}
+
+.butt,
+.cod {
+	text-align: center;
+}
+
+.butt input {
+	width: 125px;
+	background-color: #016eff;
+}
+* span {
+	color: #111;
+}
+.code {
+	margin-top: -8px;
+	margin-left: 70px;
+	float: left;
+	/*margin: -6px 60px;
+	margin-right: -30px;*/
+	font-size: 16px;
+	color: #016eff;
+
+	
+}
+.clear {
+	clear: both;
+}
+.l a {
+	display: inline-block;
+	margin-top: 5px;
+	margin-left: -88px;
+}
+i {
+	margin-top: 6px;
+}
+.logo {
+	height: 50px;
+	position: relative;
+	background-color: #016eff;
+}
+.logo img {
+	position: absolute;
+	height: 80%;
+	margin-top: 8px;
+}
+.logo h1 {
+	font-weight: normal;
+    font-size: 16px;
+    text-align: center;
+    line-height: 50px;
+    width: 100%;
+    color: #f1f1f1;
+    position: absolute;	
+}
+.logo input {
+	display: inline-block;
+	background-color: #016eff;
+	position: absolute;
+	text-align: center;
+	height: 30px;
+	width: 100px;
+	margin-left: 269px;
+	margin-top: 10px;
+	color: #f1f1f1;
+	text-decoration: underline;
+	font-size: 16px;
+	border: 1px solid white;
+}
+.exit {
+	text-align: center;
+}
+.exit input {
+	margin-top: 50px;
+	display: inline-block;
+	width:250px;
+	background-color: #016eff;
+}
+.reset {
+	margin-top: 123px;
+	text-align: center;
+}
+.reset a {
+	text-decoration: none;
+	display: inline-block;
+	margin-left: 5px;
+	padding-right: 5px;
+}
+.reset a:first-child {
+	border-right:1px solid gray;
+}
+html {
+	height:100%;
+	background-color: #f1f1f1;
+}
+body {
+    width: 100%;
+    max-width: 720px;
+    min-width: 320px;
+    margin: 0 auto;
+    padding-bottom: 52px;
+    position: relative;
+}
+
+

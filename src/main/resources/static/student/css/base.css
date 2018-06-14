@@ -1,0 +1,268 @@
+/**
+ * 本css基础功能定义与实现
+ * 作者：张明亮
+ * 时间：2018年4月24日16:58:10
+ * 功能：
+ * 1.css初始化
+ * 2.ul去除项目符号
+ * 3.a标签去除下划线
+ * 4.页面最窄320px,最宽不超出720px
+ * 5.公共标题栏定义与实现
+ * 6.公共底部导航栏定义与实现
+ * 7.公共页面内容导航(tab)定义与实现
+ * 8.tab区内部容器定义
+ * 9.信息卡片布局的三种模式1.图片在左（lImg）2.图片在上(tImg)3.没有图片(specific.css覆盖.tIimg)
+ * 
+ * 基本样式规范：
+ * 1.容器之间的间隙为5px
+ * 2.信息卡片padding:10px
+ * 3.主题前景色：#016eff
+ * 4.主题背景色：#F1F1F1
+ * 5.字体标准色值：#111
+ * 6.标准字号：14px
+ * 7.摘要字号：12px
+ * */
+
+/**
+ * 基础css实现
+ * 主题色蓝：016eff
+ * 浅灰：#555;
+ */
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+	font-family: "微软雅黑";
+}
+ul{
+	list-style: none;
+}
+ul::after{
+	content: '.';
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+	display: block;
+	clear: both;
+}
+ul li{
+	font-size: 14px;
+}
+a{
+	text-decoration: none;
+}
+/*页面最窄320px,最宽不超出720px*/
+body{
+	width: 100%;
+	max-width: 720px;
+	min-width: 320px;
+	margin: 0 auto;
+	background-color: #f1f1f1;
+	padding-bottom: 52px;
+	position: relative;
+}
+
+/*公共标题栏定义*/
+.common_title{
+	background-color: #016eff;
+	height: 40px;
+	position: relative;
+	margin-bottom: 5px;
+}
+/*公共标题栏实现*/
+.common_title>h1{
+	font-weight: normal;
+    font-size: 16px;
+    text-align: center;
+    line-height: 40px;
+    color: #f1f1f1;
+}
+.common_title>i{
+	position: absolute;
+	top: 0;
+	left: 12px;
+	line-height: 40px;
+	font-size: 20px;
+	color: #FFFFFF;
+}
+/*公共页面内容导航(tab)定义与实现*/
+.common_contextNav{
+	height: 36px;
+	background-color: #fff;
+	padding: 2px 0px;
+	margin-bottom: 5px;
+}
+.common_contextNav::after{
+	content: '.';
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+	display: block;
+	clear: both;
+}
+.common_contextNav li{
+	float: left;
+	width: 25%;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+	background-color: #fff;
+}
+.common_contextNav .active{
+	border-bottom: 2px solid #016eff;
+	color: #016EFF;
+}
+/*tab区内部容器定义*/
+.common_onlyDisplayOne{
+	width: 100%;
+	position: relative;
+}
+.common_onlyDisplayOne>li{
+	position: absolute;
+	width: 100%;
+	display: none;
+}
+.common_onlyDisplayOne>.active{
+	display: block;
+}
+/**
+ * 公共信息体显示垂直列表容器，图片在卡片中左侧布局模式
+ * 左侧图片绝对定位
+ * 符合左内边边距90px,挤出右侧简介信息
+ * 内边距10px
+ * */
+.common_onlyDisplayOne>li>.lImg{
+	
+}
+.common_onlyDisplayOne>li>.lImg>li{
+	padding: 10px;
+	height: 100px;
+	margin-bottom: 5px;
+	background-color: #fff;
+}
+.common_onlyDisplayOne>li>.lImg>li>a{
+	display: block;
+	font-weight: normal;
+	position: relative;
+	padding-left: 90px;
+}
+.common_onlyDisplayOne>li>.lImg>li>a>span:nth-child(1){
+	display: block;
+	width: 80px;
+	overflow: hidden;
+	position: absolute;
+	left: 0;
+}
+.common_onlyDisplayOne>li>.lImg>li>a>span:nth-child(1) img{
+	width: 100%;
+}
+.common_onlyDisplayOne>li>.lImg>li>a>span:nth-child(2){
+	display: block;
+}
+.common_onlyDisplayOne>li>.lImg>li>a>span:nth-child(2) h1{
+	font-weight: normal;
+	overflow: hidden;  
+    white-space: nowrap;  
+	text-overflow:ellipsis;
+	color: #111;
+	font-size: 14px;
+}
+.common_onlyDisplayOne>li>.lImg>li>a>span:nth-child(2) h2{
+	padding-top: 3px;
+	color: #111;
+	font-size: 13px;
+	font-weight: normal;
+	color: #333;
+	overflow: hidden;  
+    text-overflow:ellipsis;  
+    display:-webkit-box;  
+    -webkit-line-clamp:2;  
+    -webkit-box-orient:vertical; 
+}
+.common_onlyDisplayOne>li>.lImg>li>a>span:nth-child(2)>span{
+	display: block;
+	padding-top: 5px;
+}
+.common_onlyDisplayOne>li>.lImg>li>a>span:nth-child(2)>span>i{
+	color: #333;
+	padding-right: 3px;
+	line-height: 16px;
+	position: relative;
+	top: 1px;
+}
+.common_onlyDisplayOne>li>.lImg>li>a>span:nth-child(2)>span>span{
+	font-size: 12px;
+	padding-right: 10px;
+	color: #333;
+	line-height: 16px;
+}
+/**
+ * 公共信息体显示垂直列表容器，图片在卡片中上侧布局模式
+ * 采用普通文档流上下布局
+ * 图片无内边距
+ * */
+.common_onlyDisplayOne>li>.tImg{
+	margin: 5px 10px 10px 10px;
+}
+.common_onlyDisplayOne>li>.tImg>li{
+	height: 200px;
+	margin-bottom: 5px;
+	background-color: #fff;
+	border-top-right-radius: 8px;
+	border-top-left-radius: 8px;
+}
+.common_onlyDisplayOne>li>.tImg>li>a{
+	display: block;
+	font-weight: normal;
+}
+.common_onlyDisplayOne>li>.tImg>li>a>span:nth-child(1){
+	display: block;
+	height: 100px;
+	overflow: hidden;
+}
+.common_onlyDisplayOne>li>.tImg>li>a>span:nth-child(1) img{
+	width: 100%;
+	border-top-right-radius: 8px;
+	border-top-left-radius: 8px;
+}
+.common_onlyDisplayOne>li>.tImg>li>a>span:nth-child(2){
+	padding: 10px;
+	display: block;
+}
+/*公共底部导航栏定义与实现*/
+.common_bottomNav{
+	height: 55px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: #fff;
+	padding-top: 10px;
+	border-top: thin solid #F1F1F1;
+}
+.common_bottomNav li{
+	float: left;
+	text-align: center;
+	width: 25%;
+}
+.common_bottomNav li a{
+	display: block;
+	color: #555555;
+	font-weight: bold;
+}
+.common_bottomNav li a span{
+	display: block;
+	font-size: 12px;
+	font-weight: normal;
+}
+.common_bottomNav li .active{
+	color: #016EFF;
+}
+.common_bottomNav li a i{
+	font-size: 20px;
+}
+/*针对个别矢量图进行精确调整*/
+.common_bottomNav li a .icon-baoming{
+	font-size: 18px;
+}
