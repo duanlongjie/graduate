@@ -10,7 +10,6 @@ public class ResultInfo<T> {
     private Integer resultCode;
     private String resultMessage;
     private T resultObj;
-    private float[] creditResultMessage;  //毕业审核学分信息
 
     public ResultInfo() {
         //默认是失败的
@@ -41,21 +40,12 @@ public class ResultInfo<T> {
         this.resultObj = resultObj;
     }
 
-    public float[] getCreditResultMessage() {
-        return creditResultMessage;
-    }
-
-    public void setCreditResultMessage(float[] creditResultMessage) {
-        this.creditResultMessage = creditResultMessage;
-    }
-
     @Override
     public String toString() {
         return "ResultInfo{" +
                 "resultCode=" + resultCode +
                 ", resultMessage='" + resultMessage + '\'' +
                 ", resultObj=" + resultObj +
-                ", creditResultMessage=" + Arrays.toString(creditResultMessage) +
                 '}';
     }
 }

@@ -36,7 +36,7 @@ public class GraduateOrNotServiceImpl implements GraduateOrNotService {
      * @return
      */
     @Override
-    public ResultInfo<Student> GraduateOrNot(String id) {
+    public StudentCreditResult GraduateOrNot(String id) {
         Student student=studentDao.getOne(id);
         //获取学生的专业，根据专业的标准来审核毕业条件
         Integer majorId=student.getMajor().getMajorID();
@@ -45,7 +45,9 @@ public class GraduateOrNotServiceImpl implements GraduateOrNotService {
         List<Course> courseList=major.getRequiredCourses();
         float requiredCoursesCredit=0;                      //必修课学分标准
         for(Course course: courseList){
-            requiredCoursesCredit+=course.getCourseCredit();
+            if (Required_Course.equals(course.getCourseType())) { //必修课
+                requiredCoursesCredit+=course.getCourseCredit();
+            }
         }
         float max_fail_credit=major.getMaxFailCredit();     //最多补考学分标准
         float needPeCredit=major.getneedPeCredit();         //体育课学分标准
@@ -74,15 +76,23 @@ public class GraduateOrNotServiceImpl implements GraduateOrNotService {
                 }
             }
         }
-        ResultInfo<Student> resultInfo=new ResultInfo<>();
-        resultInfo.setResultObj(student);
-        float[] array={studentRequiredCredit,studentElectiveCredit,studentPeCredit,studentFailCredit}; //该学生学分信息
-        resultInfo.setCreditResultMessage(array);
+//        ResultInfo<Student> resultInfo=new ResultInfo<>();
+//        resultInfo.setResultObj(student);
+        StudentCreditResult studentCreditResult=new StudentCreditResult();
         if(requiredCoursesCredit<=studentRequiredCredit&&needPeCredit<=studentPeCredit&&needPublicCredit<=studentElectiveCredit){
-            resultInfo.setResultMessage(GraduateOrNot_Yes);
+            studentCreditResult.setGraduateOrNot(GraduateOrNot_Yes);
         }else{
-            resultInfo.setResultMessage(GraduateOrNot_No);
+            studentCreditResult.setGraduateOrNot(GraduateOrNot_No);
         }
-        return resultInfo;
+        studentCreditResult.setName(student.getStudentName());
+        studentCreditResult.setMaxFailCredit(max_fail_credit);
+        studentCreditResult.setRequiredCoursesCredit(requiredCoursesCredit);
+        studentCreditResult.setNeedPublicCredit(needPublicCredit);
+        studentCreditResult.setNeedPeCredit(needPeCredit);
+        studentCreditResult.setStudentFailCredit(studentFailCredit);
+        studentCreditResult.setStudentRequiredCredit(studentRequiredCredit);
+        studentCreditResult.setStudentElectiveCredit(studentElectiveCredit);
+        studentCreditResult.setStudentPeCredit(studentPeCredit);
+        return studentCreditResult;
     }
 }

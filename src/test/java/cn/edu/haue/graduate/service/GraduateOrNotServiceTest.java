@@ -2,6 +2,7 @@ package cn.edu.haue.graduate.service;
 
 import cn.edu.haue.graduate.entity.ResultInfo;
 import cn.edu.haue.graduate.entity.Student;
+import cn.edu.haue.graduate.entity.StudentCreditResult;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,7 +24,7 @@ public class GraduateOrNotServiceTest {
 
     @Test
     public void graduateOrNot() {
-        ResultInfo<Student> resultInfo=graduateOrNotService.GraduateOrNot("201612211415");
-        System.out.println("---------------"+resultInfo);
+        StudentCreditResult studentCreditResult=graduateOrNotService.GraduateOrNot("201612211415");
+        System.out.println("---------------"+studentCreditResult);
     }
 }
