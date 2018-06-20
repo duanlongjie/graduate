@@ -12,32 +12,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 /**
  * Author: lnp
  * Date: 2018/6/15
  **/
-@RequestMapping("/student")
 @Controller
 public class StudentController {
 
     @Resource
     GraduateOrNotService graduateOrNotService;
 
-//    @RequestMapping("/graduationConditions")
-//    public String goToGraduationConditionsPage(Student student, Model model) {
-//        StudentCreditResult studentCreditResult = graduateOrNotService.GraduateOrNot(student.getStudentId());
-//        model.addAttribute("studentCreditResult", studentCreditResult);
-//        System.out.println(studentCreditResult);
-//        return "/student/graduationConditions";
-//    }
-
-    @RequestMapping("/graduationConditions/{id}")
-    public String goToGraduationConditionsPage2(@PathVariable(value = "id") String id, Model model) {
-        StudentCreditResult studentCreditResult = graduateOrNotService.GraduateOrNot(id);
+    @RequestMapping("/student/graduationCon")
+    public String goToGraduationConditionsPage(HttpSession session, Model model) {
+        Student student= (Student) session.getAttribute("student");
+        StudentCreditResult studentCreditResult = graduateOrNotService.GraduateOrNot(student.getStudentId());
         model.addAttribute("studentCreditResult", studentCreditResult);
         System.out.println(studentCreditResult);
-        return "/student/graduationConditions";
+        return "student/graduationConditions";
     }
-
 }

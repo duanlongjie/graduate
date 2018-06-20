@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class StudentLoginController {
@@ -24,12 +25,12 @@ public class StudentLoginController {
     }
 
     //登陆
-    @ResponseBody
     @RequestMapping("/student/login")
-    public ResultInfo<Student> studentLogin(@RequestParam("username")String studentId,@RequestParam("passwords")String passwords){
+    public String studentLogin(@RequestParam("username")String studentId,@RequestParam("passwords")String passwords,HttpSession httpSession){
         System.out.println(studentId +"--" +passwords);
         ResultInfo<Student> studentResultInfo = studentLoginService.studentLogin(studentId, passwords);
-        return studentResultInfo;
+        httpSession.setAttribute("student",studentResultInfo.getResultObj());
+        return "graduationCon";
     }
 
     //修改密码页面
