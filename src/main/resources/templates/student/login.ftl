@@ -71,6 +71,7 @@
                 }, success: function (date) {
                     if (date.resultCode == 1) {
                         alert(date.resultMessage);
+                        window.location.href ="/student/graduationCon?studentId="+date.resultObj.studentId;
                     } else {
                         alert(date.resultMessage);
                         document.getElementById("username").value = "";

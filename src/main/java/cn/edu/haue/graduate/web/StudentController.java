@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,12 +25,13 @@ public class StudentController {
     @Resource
     GraduateOrNotService graduateOrNotService;
 
-    @RequestMapping("/student/graduationCon/{id}")
-    public String goToGraduationConditionsPage(@PathVariable String id,HttpSession session, Model model) {
-        Student student= (Student) session.getAttribute("student");
+    @RequestMapping("/student/graduationCon")
+    public ModelAndView goToGraduationConditionsPage(@RequestParam(value = "studentId") String id) {
+        ModelAndView modelAndView = new ModelAndView("/student/graduationConditions");
         StudentCreditResult studentCreditResult = graduateOrNotService.GraduateOrNot(id);
-        model.addAttribute("studentCreditResult", studentCreditResult);
+        modelAndView.addObject("studentCreditResult", studentCreditResult);
         System.out.println(studentCreditResult);
-        return "student/graduationConditions";
+        return modelAndView;
     }
+
 }

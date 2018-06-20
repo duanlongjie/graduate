@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import javax.websocket.server.PathParam;
 
 @Controller
 @RequestMapping("/student")
@@ -22,8 +23,6 @@ public class StudentLoginController {
 
     @Resource
     private StudentLoginService studentLoginService;
-    @Resource
-    GraduateOrNotService graduateOrNotService;
 
     //主页
     @RequestMapping("/")
@@ -32,17 +31,12 @@ public class StudentLoginController {
     }
 
     //登陆
+    @ResponseBody
     @RequestMapping("login")
-    public String studentLogin(@PathVariable("username") String studentId, @PathVariable("passwords")String passwords, HttpSession httpSession, Model model){
+    public  ResultInfo<Student> studentLogin(@RequestParam("username") String studentId, @RequestParam("passwords")String passwords){
         System.out.println(studentId +"--" +passwords);
         ResultInfo<Student> studentResultInfo = studentLoginService.studentLogin(studentId, passwords);
-        httpSession.setAttribute("student",studentResultInfo.getResultObj());
-        //增加毕业条件数据
-        StudentCreditResult studentCreditResult = graduateOrNotService.GraduateOrNot(studentId);
-        model.addAttribute("studentCreditResult", studentCreditResult);
-        System.out.println(studentCreditResult);
-        return "student/graduationConditions";  //进入首页
-
+        return studentResultInfo;
     }
 
     //修改密码页面
