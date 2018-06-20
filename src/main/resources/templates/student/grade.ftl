@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<!--<link rel="stylesheet" type="text/css" href="css/base.css"/>-->
-		<link rel="stylesheet" type="text/css" href="../../../../../../../../h5-css3Demo/毕业预警页面%20-%20副本/css/specificAP.css"/>
+		<link rel="stylesheet" type="text/css" href="../../static/student/css/specificAP.css"/>
 		<!--<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>-->
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
 		<meta charset="utf-8" />
@@ -31,7 +31,7 @@
 		</header>
 		<section class="ap">
 			<div >
-				<span>悟空同学成绩表如下：</span>
+				<span>${student.studentName}同学成绩表如下：</span>
 			</div>
 		<!--设置学年，学期下拉选择框-->
 				<!--<div>
@@ -71,125 +71,127 @@
 						<td>学分</td>
 						<td>成绩</td>
 					</tr>
+					<#list gradeList as gl>
 					<tr>
-						<td>大学英语1</td>
-						<td>基础课</td>
-						<td>4.0</td>
-						<td >55</td>
+						<td>${gl.course.courseName}</td>
+						<td>${gl.course.courseType}</td>
+						<td>${gl.course.courseCredit}</td>
+						<td >${gl.score}</td>
 					</tr>
-					<tr>
-						<td>军训</td>
-						<td>基础课</td>
-						<td>1.0</td>
-						<td >80</td>
-					</tr>
-					<tr>
-						<td>计算机基础</td>
-						<td>基础课</td>
-						<td>2.0</td>
-						<td >69</td>
-					</tr>
-					<tr>
-						<td>高等数学A1</td>
-						<td>必修课</td>
-						<td>5.0</td>
-						<td >67</td>
-					</tr>
-					<tr>
-						<td>C语言程序设计</td>
-						<td>必修课</td>
-						<td>5.0</td>
-						<td >71</td>
-					</tr>
-					<tr>
-						<td>珠宝鉴赏</td>
-						<td>选修课</td>
-						<td>2.0</td>
-						<td >89</td>
-					</tr>
-					<tr>
-						<td>人体工程</td>
-						<td>体育课</td>
-						<td>1.0</td>
-						<td >72</td>
-					</tr>
-					<tr>
-						<td>思想道德修养与法律基础</td>
-						<td>实践课</td>
-						<td>1.0</td>
-						<td >良</td>
-					</tr>
-					<tr>
-						<td>军事理论与国防教育</td>
-						<td>基础课</td>
-						<td>1.0</td>
-						<td >51</td>
-					</tr>					
-				</table>
-				<table cellspacing="0px">
-					<tr class="special">
-						<td colspan="4" >2016-2017年 第二学期</td>
-					</tr>
-					<tr>
-						<td>课程名</td>
-						<td>课程性质</td>
-						<td>学分</td>
-						<td>成绩</td>
-					</tr>
-					<tr>
-						<td>大学英语1</td>
-						<td>基础课</td>
-						<td>4.0</td>
-						<td >55</td>
-					</tr>
-					<tr>
-						<td>军训</td>
-						<td>基础课</td>
-						<td>1.0</td>
-						<td >80</td>
-					</tr>
-					<tr>
-						<td>计算机基础</td>
-						<td>基础课</td>
-						<td>2.0</td>
-						<td >69</td>
-					</tr>
-					<tr>
-						<td>高等数学A1</td>
-						<td>必修课</td>
-						<td>5.0</td>
-						<td >67</td>
-					</tr>
-					<tr>
-						<td>C语言程序设计</td>
-						<td>必修课</td>
-						<td>5.0</td>
-						<td >71</td>
-					</tr>
-					<tr>
-						<td>珠宝鉴赏</td>
-						<td>选修课</td>
-						<td>2.0</td>
-						<td >89</td>
-					</tr>
-					<tr>
-						<td>人体工程</td>
-						<td>体育课</td>
-						<td>1.0</td>
-						<td >72</td>
-					</tr>
-					<tr>
-						<td>思想道德修养与法律基础</td>
-						<td>实践课</td>
-						<td>1.0</td>
-						<td >良</td>
-					</tr>
-					<tr>
-						<td>军事理论与国防教育</td>
-						<td>基础课</td>
-						<td>1.0</td>
-						<td >51</td>
-					</tr>
+					</#list>
+					<#--<tr>-->
+						<#--<td>军训</td>-->
+						<#--<td>基础课</td>-->
+						<#--<td>1.0</td>-->
+						<#--<td >80</td>-->
+					<#--</tr>-->
+					<#--<tr>-->
+						<#--<td>计算机基础</td>-->
+						<#--<td>基础课</td>-->
+						<#--<td>2.0</td>-->
+						<#--<td >69</td>-->
+					<#--</tr>-->
+					<#--<tr>-->
+						<#--<td>高等数学A1</td>-->
+						<#--<td>必修课</td>-->
+						<#--<td>5.0</td>-->
+						<#--<td >67</td>-->
+					<#--</tr>-->
+					<#--<tr>-->
+						<#--<td>C语言程序设计</td>-->
+						<#--<td>必修课</td>-->
+						<#--<td>5.0</td>-->
+						<#--<td >71</td>-->
+					<#--</tr>-->
+					<#--<tr>-->
+						<#--<td>珠宝鉴赏</td>-->
+						<#--<td>选修课</td>-->
+						<#--<td>2.0</td>-->
+						<#--<td >89</td>-->
+					<#--</tr>-->
+					<#--<tr>-->
+						<#--<td>人体工程</td>-->
+						<#--<td>体育课</td>-->
+						<#--<td>1.0</td>-->
+						<#--<td >72</td>-->
+					<#--</tr>-->
+					<#--<tr>-->
+						<#--<td>思想道德修养与法律基础</td>-->
+						<#--<td>实践课</td>-->
+						<#--<td>1.0</td>-->
+						<#--<td >良</td>-->
+					<#--</tr>-->
+					<#--<tr>-->
+						<#--<td>军事理论与国防教育</td>-->
+						<#--<td>基础课</td>-->
+						<#--<td>1.0</td>-->
+						<#--<td >51</td>-->
+					<#--</tr>					-->
+				<#--</table>-->
+				<#--<table cellspacing="0px">-->
+					<#--<tr class="special">-->
+						<#--<td colspan="4" >2016-2017年 第二学期</td>-->
+					<#--</tr>-->
+					<#--<tr>-->
+						<#--<td>课程名</td>-->
+						<#--<td>课程性质</td>-->
+						<#--<td>学分</td>-->
+						<#--<td>成绩</td>-->
+					<#--</tr>-->
+					<#--<tr>-->
+						<#--<td>大学英语1</td>-->
+						<#--<td>基础课</td>-->
+						<#--<td>4.0</td>-->
+						<#--<td >55</td>-->
+					<#--</tr>-->
+					<#--<tr>-->
+						<#--<td>军训</td>-->
+						<#--<td>基础课</td>-->
+						<#--<td>1.0</td>-->
+						<#--<td >80</td>-->
+					<#--</tr>-->
+					<#--<tr>-->
+						<#--<td>计算机基础</td>-->
+						<#--<td>基础课</td>-->
+						<#--<td>2.0</td>-->
+						<#--<td >69</td>-->
+					<#--</tr>-->
+					<#--<tr>-->
+						<#--<td>高等数学A1</td>-->
+						<#--<td>必修课</td>-->
+						<#--<td>5.0</td>-->
+						<#--<td >67</td>-->
+					<#--</tr>-->
+					<#--<tr>-->
+						<#--<td>C语言程序设计</td>-->
+						<#--<td>必修课</td>-->
+						<#--<td>5.0</td>-->
+						<#--<td >71</td>-->
+					<#--</tr>-->
+					<#--<tr>-->
+						<#--<td>珠宝鉴赏</td>-->
+						<#--<td>选修课</td>-->
+						<#--<td>2.0</td>-->
+						<#--<td >89</td>-->
+					<#--</tr>-->
+					<#--<tr>-->
+						<#--<td>人体工程</td>-->
+						<#--<td>体育课</td>-->
+						<#--<td>1.0</td>-->
+						<#--<td >72</td>-->
+					<#--</tr>-->
+					<#--<tr>-->
+						<#--<td>思想道德修养与法律基础</td>-->
+						<#--<td>实践课</td>-->
+						<#--<td>1.0</td>-->
+						<#--<td >良</td>-->
+					<#--</tr>-->
+					<#--<tr>-->
+						<#--<td>军事理论与国防教育</td>-->
+						<#--<td>基础课</td>-->
+						<#--<td>1.0</td>-->
+						<#--<td >51</td>-->
+					<#--</tr>-->
 
 				</table>
 			</div>

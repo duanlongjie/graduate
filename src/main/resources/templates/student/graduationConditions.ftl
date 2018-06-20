@@ -92,7 +92,7 @@
 				<!--<font><i class="iconfont" id="icon"></i> <span id="tip">提示：您已获得毕业资格。</span></font>-->
 			</div>
 			<div>
-				<a href="grade.ftl" id="dianji">点击查询成绩详情</a>
+				<a href="/grade" id="dianji">点击查询成绩详情</a>
 			</div>
 			<!--<div class="exit">
 				<input type="button" value="点击退出" onclick="window.history.back(-1);"/>
