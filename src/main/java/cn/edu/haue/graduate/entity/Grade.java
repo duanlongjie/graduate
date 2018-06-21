@@ -19,7 +19,7 @@ public class Grade {
     private float score;
 
     //所属课程
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Course course;
 
     public String getGradeId() {
