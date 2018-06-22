@@ -1,7 +1,7 @@
 package cn.edu.haue.graduate.security;
 
 import cn.edu.haue.graduate.entity.Admin;
-import cn.edu.haue.graduate.entity.Role;
+import cn.edu.haue.graduate.entity.MainMenu;
 import cn.edu.haue.graduate.service.AdminService;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -35,9 +35,9 @@ public class AdminUserDetailsService implements UserDetailsService {
         if (admin == null) {
             throw new UsernameNotFoundException("用户名不存在");
         } else {
-            List<Role> roleList = admin.getRoleList();
-            for (Role role : roleList) {
-                authorities.add(new SimpleGrantedAuthority(role.getName()));
+            List<MainMenu> mainMenus = admin.getMainMenuList();
+            for (MainMenu mainMenu : mainMenus) {
+                authorities.add(new SimpleGrantedAuthority(mainMenu.getRole()));
             }
         }
         return new User(admin.getUsername(), admin.getPassword(), authorities);

@@ -18,9 +18,21 @@ public class Admin {
 
     private String password;
 
-    //管理员所属角色
+    //管理员所属具有的角色
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-    private List<Role> roleList = new ArrayList<>();
+    private List<MainMenu> mainMenuList = new ArrayList<>();
+
+    //管理员偏好
+    @ManyToMany
+    private List<SubMenu> preferences = new ArrayList<>();
+
+    protected Admin() {
+    }
+
+    public Admin(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 
     public Integer getId() {
         return id;
@@ -28,6 +40,23 @@ public class Admin {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public List<SubMenu> getPreferences() {
+        return preferences;
+    }
+
+    public void setPreferences(List<SubMenu> preferences) {
+        this.preferences = preferences;
+    }
+
+    public List<MainMenu> getMainMenuList() {
+
+        return mainMenuList;
+    }
+
+    public void setMainMenuList(List<MainMenu> mainMenuList) {
+        this.mainMenuList = mainMenuList;
     }
 
     public String getUsername() {
@@ -46,18 +75,10 @@ public class Admin {
         this.password = password;
     }
 
-    public List<Role> getRoleList() {
-        return roleList;
-    }
-
-    public void setRoleList(List<Role> roleList) {
-        this.roleList = roleList;
-    }
-
     @Override
     public String toString() {
         return "Admin{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';
