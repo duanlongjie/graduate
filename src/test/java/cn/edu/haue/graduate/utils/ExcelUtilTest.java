@@ -1,6 +1,7 @@
 package cn.edu.haue.graduate.utils;
 
 import cn.edu.haue.graduate.entity.Student;
+import cn.edu.haue.graduate.entity.User;
 import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
@@ -51,11 +52,16 @@ public class ExcelUtilTest {
             System.out.println();
         }
     }
-//    @Test
-//    public void testexcelToList() throws Exception{
+
+    @Test
+    public void testexcelToList() throws Exception{
 //        List<User> users = ExcelUtil.<User>excelToList("C:/各种软件/学生表.xls", new User());
 //        for (User user:users){
 //            System.out.println(user);
 //        }
-//    }
+    }
+
+
+
+
 }
