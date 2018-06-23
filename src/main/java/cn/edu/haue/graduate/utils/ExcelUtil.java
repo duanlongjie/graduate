@@ -21,6 +21,82 @@ import java.util.*;
  */
 public class ExcelUtil {
 
+
+    /**
+     *  将excel 文件 内容 转换成 list 集合
+     *  指定 起始列终止列
+     * @param inputStream 含有 excel 文件信息的 输入流
+     * @param columStart  起始列数
+     * @param cloumEnd 终止列数
+     * @param t  要封装到 哪个实体类里面
+     * @param <T> 实体类的类型
+     * @return  返回 实体类List集合
+     */
+    public static <T> List<T> excelToList(InputStream inputStream,T t,Integer columStart,Integer cloumEnd) {
+        //将 excel 表中 数据 存入List
+        List<T> list =new ArrayList<>();
+        Workbook book =null;
+        try {
+            //获取工作簿
+            book=Workbook.getWorkbook(inputStream);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        Sheet sheet=book.getSheet(0);//取得第一个工作表，也可用sheet名字获得。
+        //取得行数
+        int len=sheet.getRows();
+        System.out.println("---------------------len :"+len);
+        //列数
+        int cloum= sheet.getRow(1).length; //获取列数
+        System.out.println("-----------------cloum :"+cloum);
+        // 几列 对应 几个 set方法
+        Method[] methods=new Method[cloum];
+
+        //存储所有的 set方法的集合
+//        List<Method> methods=new ArrayList<>();
+        Method[] methods1 = t.getClass().getMethods();
+        int index=0;
+        //
+        for(Method method:methods1){
+            if(method.getName().contains("set")){
+                //列数比 set方法 个数 少的情况
+                if(index == cloum){
+                    break;
+                }
+                else{
+                    methods[index]=method;
+                    index++;
+                }
+            }
+        }
+
+        System.out.println("--------------------- index : "+index);
+
+        for(int i=1;i<len;i++){//从1开始，避免插入标题  列名
+            //System.out.println(i);
+            Cell[] cells = sheet.getRow(i); //获取该行 元素内容
+            T o=null;
+            try {
+                o = (T)t.getClass().newInstance();
+            } catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+            for(int j=columStart;j<cloumEnd;j++){ // 遍历每列
+                String contents = cells[j].getContents();
+                try {
+                    methods[j].invoke(o,contents);   //调用目标方法
+                } catch (Exception e){
+                    System.out.println(e.getMessage());
+                }
+
+            }
+            list.add(o);
+        }
+        book.close();
+        return list;
+    }
+
+
     /**
      *  将excel 文件 内容 转换成 list 集合
      * @param inputStream 含有 excel 文件信息的 输入流
@@ -44,14 +120,21 @@ public class ExcelUtil {
         int cloum= sheet.getRow(1).length; //获取列数
         // 几列 对应 几个 set方法
         Method[] methods=new Method[cloum];
+
         //存储所有的 set方法的集合
 //        List<Method> methods=new ArrayList<>();
         Method[] methods1 = t.getClass().getMethods();
         int index=0;
         for(Method method:methods1){
             if(method.getName().contains("set")){
+                //列数比 set方法 个数 少的情况
+                if(index == cloum){
+                    break;
+                }
+                else{
                 methods[index]=method;
                 index++;
+                }
             }
         }
         for(int i=1;i<len;i++){//从1开始，避免插入标题  列名

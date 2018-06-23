@@ -1,7 +1,6 @@
 package cn.edu.haue.graduate.utils;
 
 import cn.edu.haue.graduate.entity.Student;
-import cn.edu.haue.graduate.entity.User;
 import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
@@ -59,6 +58,17 @@ public class ExcelUtilTest {
 //        for (User user:users){
 //            System.out.println(user);
 //        }
+    }
+
+    @Test
+    public void testexcelToList02() throws Exception{
+        //InputStream inputStream,T t,Integer columStart,Integer cloumEnd
+        InputStream in = new FileInputStream("C:/sorftwares/软工1641.xls");
+        List<Student> students = ExcelUtil.excelToList(in, new Student(), 1, 3);
+        for (Student s:students){
+            System.out.println(s);
+        }
+
     }
 
 

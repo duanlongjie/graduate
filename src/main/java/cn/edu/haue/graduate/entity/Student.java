@@ -30,7 +30,7 @@ public class Student {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Grade> gradeList = new ArrayList<>();
 
-    protected Student() {
+    public Student() {
     }
 
     public Student(String studentId, String studentName, String password) {
