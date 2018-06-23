@@ -1,0 +1,13 @@
+[
+  {
+    "title": "主页",
+    "icon": "sf-house",
+    "role": "ROLE_DEFAULT",
+    "subMenuList": [
+      {
+        "name": "主页",
+        "href": "/admin/home"
+      }
+    ]
+  }
+]
