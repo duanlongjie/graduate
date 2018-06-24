@@ -3,7 +3,6 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
-		<!--<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>-->
 		<link rel="stylesheet" type="text/css" href="/static/student/css/base.css"/>
 		<link rel="stylesheet" type="text/css" href="/static/student/css/specificGW.css"/>
 		<link rel="stylesheet" type="text/css" href="/static/student/css/iconfonts.css"/>
@@ -27,14 +26,12 @@
 			<nav class="common_title">
 				<div class="logo">
 					<img src="/static/student/img/logo01.png"/>
-					<h1>毕业预警</h1>
 					<div class="caidan">
 					<ul>
 						<li>
 							<dl>
 								<dt><a href="#">...</a></dt>
-								<dd><a href="updatepwd.ftl">重置密码</a></dd>
-								<dd><a href="#">退出登录</a></dd>
+								<dd><a href="/student/logout">退出登录</a></dd>
 							</dl>
 						</li>
 					</ul>
@@ -52,58 +49,47 @@
 					<thead>
 					</thead>
 					<tbody>
-						<tr>
+					<tr>
 							<td>毕业资格和学位资格</td>
 							<td>${studentCreditResult.name}同学</td>
 						</tr>
-						<tr>
-						<td>必修课修满和及格(${studentCreditResult.requiredCoursesCredit}学分)</td>
-						<td>${studentCreditResult.studentRequiredCredit}</td>
+					<tr>
+                        <td>专业必修课：<span id="requiredCoursesCredit">${studentCreditResult.requiredCoursesCredit}</span>学分</td>
+						<td><span id="studentRequiredCredit">${studentCreditResult.studentRequiredCredit}</span></td>
 					</tr>
 					<tr>
-						<td>公共选修课：${studentCreditResult.needPublicCredit}学分</td>
-						<td ><a href="grade.ftl" id="xuanxiu">${studentCreditResult.studentElectiveCredit}</a></td>
+                        <td>公共选修课：<span id="needPublicCredit">${studentCreditResult.needPublicCredit}</span>学分</td>
+						<td ><span id="studentElectiveCredit">${studentCreditResult.studentElectiveCredit}</span></td>
 					</tr>
 					<tr>
-						<td>体育课：${studentCreditResult.needPeCredit}学分</td>
-						<td ><a href="grade.ftl" id="tiyu">${studentCreditResult.studentPeCredit}</a></td>
+                        <td>体育课：<span id="needPeCredit">${studentCreditResult.needPeCredit}</span>学分</td>
+						<td ><span id="studentPeCredit">${studentCreditResult.studentPeCredit}</span></td>
 					</tr>
 					<tr>
 						<td>取得毕业资格</td>
-						<td><a href="grade.ftl" id="zige">${studentCreditResult.graduateOrNot}</a></td>
+						<td><span id="graduateOrNot">${studentCreditResult.graduateOrNot}</span></td>
 					</tr>
 					<tr>
 						<td>重修（补考）学分不超过30学分</td>
-						<td>${studentCreditResult.studentFailCredit}</td>
+                        <td><span id="studentFailCredit">${studentCreditResult.studentFailCredit}</span></td>
 					</tr>
 					<tr>
-						<td>留校查看处分</td>
-						<td id="chufen" onclick="panDuan()">有处分</td>
+						<td>相关处分</td>
+                        <td><span id="chufen">有处分</span></td>
 					</tr>
 					</tbody>			
 				</table>
 			</div>
 			<div>
-				<!--<div class="warn">
-					<i ></i>
-				</div>-->
-				<font><i class="iconfont" id="icon"></i> <span id="tip">警告：您还没有获得毕业资格。</span></font>
-				
-				<!--<font><i class="iconfont" id="icon"></i> <span id="tip">提示：您已获得毕业资格。</span></font>-->
+				<font><i class="iconfont" id="icon"></i> <span id="tip">警告：您还没有获得毕业资格</span></font>
 			</div>
 			<div>
 				<a href="/grade" id="dianji">点击查询成绩详情</a>
 			</div>
-			<!--<div class="exit">
-				<input type="button" value="点击退出" onclick="window.history.back(-1);"/>
-			</div>			-->
-			<!--<div class="per">
-				<span>想对自己说：</span>
-				<textarea  rows="5" cols="35" placeholder="加油吧！同学。"></textarea>
-			</div>-->
+
 		</section>
-		<script type="text/javascript" src="/static/student/js/graduationConditions.js">
-		</script>
+        <script type="text/javascript" src="/static/student/js/jquery-2.1.3.min.js"></script>
+        <script type="text/javascript" src="/static/student/js/graduationConditions.js"></script>
 			
 	</body>
 </html>
