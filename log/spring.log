@@ -1,0 +1,111 @@
+2018-06-23 20:45:50.897  INFO 19900 --- [restartedMain] c.edu.haue.graduate.GraduateApplication  : Starting GraduateApplication on IT-Star with PID 19900 (D:\idea\idea-src\graduate\target\classes started by asus in D:\idea\idea-src\graduate)
+2018-06-23 20:45:50.927  INFO 19900 --- [restartedMain] c.edu.haue.graduate.GraduateApplication  : No active profile set, falling back to default profiles: default
+2018-06-23 20:45:51.137  INFO 19900 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@770d3976: startup date [Sat Jun 23 20:45:51 CST 2018]; root of context hierarchy
+2018-06-23 20:45:53.965  INFO 19900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$78500ec4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-06-23 20:45:54.765  INFO 19900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2018-06-23 20:45:54.805  INFO 19900 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-06-23 20:45:54.805  INFO 19900 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-06-23 20:45:54.825  INFO 19900 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [E:\Java\jdk1.8.0_141\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Users\asus\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\；C:\Program Files\MySQL\MySQL Server 5.7\bin;;JBOSS_HOME%\bin;E:\Java\jdk1.8.0_141\lib;E:\Java\jdk1.8.0_141\bin;C:\Program Files (x86)\Tesseract-OCR;D:\Python\;D:\Maven\apache-maven-3.5.3\bin;D:\Git\cmd;.]
+2018-06-23 20:45:55.025  INFO 19900 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-06-23 20:45:55.025  INFO 19900 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3888 ms
+2018-06-23 20:45:55.465  INFO 19900 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-06-23 20:45:55.465  INFO 19900 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-06-23 20:45:55.465  INFO 19900 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-06-23 20:45:55.465  INFO 19900 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-06-23 20:45:55.475  INFO 19900 --- [localhost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-06-23 20:45:55.475  INFO 19900 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-06-23 20:45:55.475  INFO 19900 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet webServlet mapped to [/h2-console/*]
+2018-06-23 20:45:55.935  INFO 19900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-06-23 20:46:01.717  INFO 19900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-06-23 20:46:01.847  INFO 19900 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-06-23 20:46:01.867  INFO 19900 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-06-23 20:46:01.957  INFO 19900 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.17.Final}
+2018-06-23 20:46:01.957  INFO 19900 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-06-23 20:46:02.097  INFO 19900 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-06-23 20:46:03.077  INFO 19900 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-06-23 20:46:06.519  INFO 19900 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-06-23 20:46:09.141  INFO 19900 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/static/**'], []
+2018-06-23 20:46:09.365  INFO 19900 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@54354d06, org.springframework.security.web.context.SecurityContextPersistenceFilter@429ce6df, org.springframework.security.web.header.HeaderWriterFilter@6e4ce50a, org.springframework.security.web.authentication.logout.LogoutFilter@115934d1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5ef84dc4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4d31726e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@411ea6f9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@8ee6cf8, org.springframework.security.web.session.SessionManagementFilter@1866f09f, org.springframework.security.web.access.ExceptionTranslationFilter@4cdd948a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7b7ba9e5]
+2018-06-23 20:46:09.605  INFO 19900 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-06-23 20:46:10.225  INFO 19900 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@770d3976: startup date [Sat Jun 23 20:45:51 CST 2018]; root of context hierarchy
+2018-06-23 20:46:10.285  WARN 19900 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-06-23 20:46:10.365  INFO 19900 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/home]}" onto public java.lang.String cn.edu.haue.graduate.web.AdminController.home()
+2018-06-23 20:46:10.375  INFO 19900 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.AdminController.login(javax.servlet.http.HttpSession)
+2018-06-23 20:46:10.375  INFO 19900 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/graduationCon]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.StudentController.goToGraduationConditionsPage(java.lang.String)
+2018-06-23 20:46:10.385  INFO 19900 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentLoginController.studentToLogin()
+2018-06-23 20:46:10.385  INFO 19900 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/updatePage]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentLoginController.updateStudent()
+2018-06-23 20:46:10.385  INFO 19900 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/update]}" onto public cn.edu.haue.graduate.entity.ResultInfo<cn.edu.haue.graduate.entity.Student> cn.edu.haue.graduate.web.StudentLoginController.studentUpdate(java.lang.String,java.lang.String,java.lang.String)
+2018-06-23 20:46:10.385  INFO 19900 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/login]}" onto public cn.edu.haue.graduate.entity.ResultInfo<cn.edu.haue.graduate.entity.Student> cn.edu.haue.graduate.web.StudentLoginController.studentLogin(java.lang.String,java.lang.String)
+2018-06-23 20:46:10.395  INFO 19900 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-06-23 20:46:10.405  INFO 19900 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-06-23 20:46:10.455  INFO 19900 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-06-23 20:46:10.455  INFO 19900 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-06-23 20:46:10.935  INFO 19900 --- [restartedMain] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-06-23 20:46:11.606  INFO 19900 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-06-23 20:46:11.686  INFO 19900 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-06-23 20:46:11.696  INFO 19900 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-06-23 20:46:11.706  INFO 19900 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-06-23 20:46:11.776 ERROR 19900 --- [restartedMain] o.apache.catalina.core.StandardService   : Failed to start connector [Connector[HTTP/1.1-80]]
+
+org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-80]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:167) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:256) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:198) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.startWebServer(ServletWebServerApplicationContext.java:300) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.finishRefresh(ServletWebServerApplicationContext.java:162) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:553) [spring-context-5.0.6.RELEASE.jar:5.0.6.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:395) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:327) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1255) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1243) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at cn.edu.haue.graduate.GraduateApplication.main(GraduateApplication.java:10) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_141]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_141]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_141]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_141]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+Caused by: org.apache.catalina.LifecycleException: Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1020) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
+	... 18 common frames omitted
+Caused by: java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_141]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_141]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_141]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_141]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_141]
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1150) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:591) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1018) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
+	... 19 common frames omitted
+
+2018-06-23 20:46:11.776  INFO 19900 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2018-06-23 20:46:11.856  INFO 19900 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-06-23 20:46:11.866 ERROR 19900 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 80 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 80, or configure this application to listen on another port.
+
+2018-06-23 20:46:11.886  INFO 19900 --- [restartedMain] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@770d3976: startup date [Sat Jun 23 20:45:51 CST 2018]; root of context hierarchy
+2018-06-23 20:46:11.896  INFO 19900 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-06-23 20:46:11.896  INFO 19900 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2018-06-23 20:46:11.906  INFO 19900 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-06-23 20:46:11.916  INFO 19900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-06-23 20:46:11.936  INFO 19900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
