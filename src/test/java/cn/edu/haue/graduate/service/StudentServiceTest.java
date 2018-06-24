@@ -17,7 +17,7 @@ public class StudentServiceTest {
     private StudentService studentService;
     @Test
     public void getStudentByIdTest(){
-        ResultInfo<Student> re = studentService.getStudentById("201612211415");
+        ResultInfo<Student> re = studentService.getStudentById("201612211315");
         Student student = re.getResultObj();
         System.out.println(student);
     }

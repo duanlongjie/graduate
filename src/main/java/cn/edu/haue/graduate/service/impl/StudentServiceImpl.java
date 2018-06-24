@@ -2,6 +2,7 @@ package cn.edu.haue.graduate.service.Impl;
 
 import cn.edu.haue.graduate.constant.ResultCode;
 import cn.edu.haue.graduate.constant.StudentResultMessage;
+import cn.edu.haue.graduate.constant.StudentStatus;
 import cn.edu.haue.graduate.dao.StudentDao;
 import cn.edu.haue.graduate.entity.ResultInfo;
 import cn.edu.haue.graduate.entity.Student;
@@ -28,6 +29,8 @@ public class StudentServiceImpl implements StudentService {
             return resultInfo;
         }
         else{
+            //默认 添加的学生是可用的
+            student.setIsDelete(StudentStatus.USEFUL);
             studentDao.save(student);
             resultInfo.setResultObj(student);
             resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
@@ -41,6 +44,9 @@ public class StudentServiceImpl implements StudentService {
         if(id!=null){
         Optional<Student> optional = studentDao.findById(id);
         if(optional.get()!=null){
+            Student student = optional.get();
+            //逻辑删除
+            student.setIsDelete(StudentStatus.DELETE);
             studentDao.deleteById(id);
             resultInfo.setResultObj(optional.get());
             resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
