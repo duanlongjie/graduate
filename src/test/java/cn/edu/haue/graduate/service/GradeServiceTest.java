@@ -20,12 +20,16 @@ import static org.junit.Assert.*;
 @SpringBootTest
 public class GradeServiceTest {
 
-    @Autowired GradeService gradeService;
+    @Autowired
+    private GradeService gradeService;
+
+    @Autowired
+    private StudentService studentService;
 
     @Test
     public void getGradeList(){
-       // Student student = new Student("201612211415","杨晋升","$10$BFdncAFbsht2PMZMls3yNulzGpcK.gG.IVPNR1oABvPYnEsfR0DV2");
-        Student student = new Student("201612211302","李东奎","123");
+        Student student = new Student("201612211415","杨晋升","$10$BFdncAFbsht2PMZMls3yNulzGpcK.gG.IVPNR1oABvPYnEsfR0DV2");
+      //  Student student = new Student("201612211302","李东奎","123");
 
         ResultInfo<List<Grade>> resultInfo = gradeService.getGradeList(student);
         List<Grade> gradeList = resultInfo.getResultObj();
@@ -37,7 +41,7 @@ public class GradeServiceTest {
     @Test
     public void updateGrade() {
         Grade grade = new Grade();
-        grade.setGradeId("b883ca01-fe3f-4455-9ac3-d1f6dce83ead");
+        //grade.setGradeId("b883ca01-fe3f-4455-9ac3-d1f6dce83ead");
         grade.setScore(92f);
         ResultInfo<Grade> gradeResultInfo = gradeService.updateGrade(grade);
         Grade grade1 = gradeResultInfo.getResultObj();
@@ -66,6 +70,15 @@ public class GradeServiceTest {
 
         gradeService.addGrade(grade,student);
         */
+
+    }
+
+    @Test
+    public void studentTest(){
+        ResultInfo<Student> studentById = studentService.getStudentById("201612211415");
+        Student resultObj = studentById.getResultObj();
+        System.out.println(resultObj);
+        System.out.println(resultObj.getGradeList());
 
     }
 }
