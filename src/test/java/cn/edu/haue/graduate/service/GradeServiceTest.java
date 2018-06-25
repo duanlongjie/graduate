@@ -56,7 +56,7 @@ public class GradeServiceTest {
 
     @Test
     public void addGrade() {
-
+/*
        // Student student = new Student("201612211415","杨晋升","$10$BFdncAFbsht2PMZMls3yNulzGpcK.gG.IVPNR1oABvPYnEsfR0DV2");
         Student student = new Student("201612211302","李东奎","123");
         Grade grade = new Grade();
@@ -65,6 +65,7 @@ public class GradeServiceTest {
         grade.setCourse(course);
 
         gradeService.addGrade(grade,student);
+        */
 
     }
 }

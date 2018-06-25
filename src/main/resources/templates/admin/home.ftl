@@ -46,7 +46,7 @@
 <header id="cm-header">
     <nav class="cm-navbar cm-navbar-primary">
         <div class="btn btn-primary md-menu-white hidden-md hidden-lg" data-toggle="cm-menu"></div>
-        <div class="cm-flex"><h1>请填写标题</h1></div>
+        <div class="cm-flex"><h1>主页</h1></div>
         <div class="dropdown pull-right">
             <button class="btn btn-primary md-notifications-white" data-toggle="dropdown"><span
                     class="label label-danger">0</span></button>

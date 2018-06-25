@@ -44,6 +44,7 @@ public class GradeServiceImpl implements GradeService {
     public ResultInfo<Grade> updateGrade(Grade grade) {
         ResultInfo<Grade> resultInfo = new ResultInfo<>();
         try {
+
             //根据id获取成绩
             Grade one = gradeDao.getOne(grade.getGradeId());
             grade.setCourse(one.getCourse());

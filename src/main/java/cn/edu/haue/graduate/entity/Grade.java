@@ -1,9 +1,6 @@
 package cn.edu.haue.graduate.entity;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 /**
  * 成绩实体类
@@ -12,8 +9,8 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Grade {
 
-    @Id
-    private String gradeId;
+    @EmbeddedId
+    private GradeKey gradeId;
 
     //分数
     private float score;
@@ -22,11 +19,14 @@ public class Grade {
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Course course;
 
-    public String getGradeId() {
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private Student student;
+
+    public GradeKey getGradeId() {
         return gradeId;
     }
 
-    public void setGradeId(String gradeId) {
+    public void setGradeId(GradeKey gradeId) {
         this.gradeId = gradeId;
     }
 
@@ -44,6 +44,14 @@ public class Grade {
 
     public void setCourse(Course course) {
         this.course = course;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     @Override

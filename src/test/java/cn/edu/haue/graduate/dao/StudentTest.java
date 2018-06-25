@@ -32,24 +32,32 @@ public class StudentTest {
 
     @Test
     public void add() {
+        /*
+        //1
         Major major = new Major(201612211, "16软件工程", 16, 4, 30);
+        //2
         Course course1 = new Course(112221003, "数据结构", "专业必修课", 5);
         Course course2 = new Course(112233035, "Java EE 开发技术", "专业选修课", 4);
-        major.getRequiredCourses().add(course1);
-        major.getRequiredCourses().add(course2);
+        //3
+        Student student = new Student("201612211415", "杨晋升", PasswordEncrypter.getPasswordEncoder().encode("123"));
+        //4
         Grade grade1 = new Grade();
         grade1.setCourse(course1);
         grade1.setScore(77);
         grade1.setGradeId(UUID.randomUUID().toString());
+
         Grade grade2 = new Grade();
         grade2.setCourse(course2);
         grade2.setScore(96);
         grade2.setGradeId(UUID.randomUUID().toString());
-        Student student = new Student("201612211415", "杨晋升", PasswordEncrypter.getPasswordEncoder().encode("123"));
+        //5
         student.getGradeList().add(grade1);
         student.getGradeList().add(grade2);
         student.setMajor(major);
         studentDao.save(student);
+        //
+        major.getRequiredCourses().add(course1);
+        major.getRequiredCourses().add(course2);*/
     }
 
     @Test

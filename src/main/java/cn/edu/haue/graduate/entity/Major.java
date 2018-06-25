@@ -16,6 +16,7 @@ import java.util.List;
 public class Major {
 
     @Id
+    //学号前9位，就是专业ID
     private Integer MajorID;
 
     private String MajorName;

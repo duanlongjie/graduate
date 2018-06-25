@@ -29,6 +29,11 @@ public class Student {
     protected Student() {
     }
 
+    public Student(String studentId, String studentName) {
+        this.studentId = studentId;
+        this.studentName = studentName;
+    }
+
     public Student(String studentId, String studentName, String password) {
         this.studentId = studentId;
         this.studentName = studentName;

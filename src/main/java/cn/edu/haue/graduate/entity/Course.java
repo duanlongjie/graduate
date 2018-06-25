@@ -1,7 +1,6 @@
 package cn.edu.haue.graduate.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * 课程实体类
@@ -10,12 +9,18 @@ import javax.persistence.Id;
 @Entity
 public class Course {
 
-    @Id
-    private Integer courseId;
+    @EmbeddedId
+    private CourseKey courseId;
 
+    //课程名称
     private String courseName;
 
+    //课程类型
     private String courseType;
+
+    //所属专业
+    @ManyToOne
+    private Major major;
 
     //课程学分
     private float courseCredit;
@@ -23,18 +28,18 @@ public class Course {
     protected Course() {
     }
 
-    public Course(Integer courseId, String courseName, String courseType, float courseCredit) {
-        this.courseId = courseId;
+    public Course(String courseName, String courseType, float courseCredit, Major major) {
         this.courseName = courseName;
         this.courseType = courseType;
+        this.major = major;
         this.courseCredit = courseCredit;
     }
 
-    public Integer getCourseId() {
+    public CourseKey getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(Integer courseId) {
+    public void setCourseId(CourseKey courseId) {
         this.courseId = courseId;
     }
 
@@ -62,10 +67,17 @@ public class Course {
         this.courseCredit = courseCredit;
     }
 
+    public Major getMajor() {
+        return major;
+    }
+
+    public void setMajor(Major major) {
+        this.major = major;
+    }
+
     @Override
     public String toString() {
         return "Course{" +
-                "courseId=" + courseId +
                 ", courseName='" + courseName + '\'' +
                 ", courseType='" + courseType + '\'' +
                 ", courseCredit=" + courseCredit +
