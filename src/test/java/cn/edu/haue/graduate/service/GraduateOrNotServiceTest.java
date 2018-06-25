@@ -24,7 +24,7 @@ public class GraduateOrNotServiceTest {
 
     @Test
     public void graduateOrNot() {
-        StudentCreditResult studentCreditResult=graduateOrNotService.GraduateOrNot("201612211415");
-        System.out.println("---------------"+studentCreditResult);
+        ResultInfo<StudentCreditResult> resultResultInfo=graduateOrNotService.GraduateOrNot("201612211415");
+        System.out.println("---------------"+resultResultInfo.getResultObj());
     }
 }

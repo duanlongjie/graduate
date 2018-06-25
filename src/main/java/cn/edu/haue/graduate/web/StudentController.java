@@ -37,9 +37,9 @@ public class StudentController {
         Student student = (Student) resultInfo.getResultObj();
         session.setAttribute("student",student);
         ModelAndView modelAndView = new ModelAndView("/student/graduationConditions");
-        StudentCreditResult studentCreditResult = graduateOrNotService.GraduateOrNot(id);
-        modelAndView.addObject("studentCreditResult", studentCreditResult);
-        System.out.println(studentCreditResult);
+        ResultInfo<StudentCreditResult> resultResultInfo = graduateOrNotService.GraduateOrNot(id);
+        modelAndView.addObject("studentCreditResult", resultResultInfo.getResultObj());
+        System.out.println(resultResultInfo.getResultObj());
         return modelAndView;
     }
 

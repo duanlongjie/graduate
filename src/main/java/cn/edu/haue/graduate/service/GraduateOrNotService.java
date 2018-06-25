@@ -9,6 +9,6 @@ import cn.edu.haue.graduate.entity.StudentCreditResult;
  */
 public interface GraduateOrNotService {
 
-    public StudentCreditResult GraduateOrNot(String id);
+    public ResultInfo<StudentCreditResult> GraduateOrNot(String id);
 
 }
