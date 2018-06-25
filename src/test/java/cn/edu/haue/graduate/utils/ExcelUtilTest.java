@@ -51,11 +51,27 @@ public class ExcelUtilTest {
             System.out.println();
         }
     }
-//    @Test
-//    public void testexcelToList() throws Exception{
+
+    @Test
+    public void testexcelToList() throws Exception{
 //        List<User> users = ExcelUtil.<User>excelToList("C:/各种软件/学生表.xls", new User());
 //        for (User user:users){
 //            System.out.println(user);
 //        }
-//    }
+    }
+
+    @Test
+    public void testexcelToList02() throws Exception{
+        //InputStream inputStream,T t,Integer columStart,Integer cloumEnd
+        InputStream in = new FileInputStream("C:/sorftwares/软工1641.xls");
+        List<Student> students = ExcelUtil.excelToList(in, new Student(), 1, 3);
+        for (Student s:students){
+            System.out.println(s);
+        }
+
+    }
+
+
+
+
 }

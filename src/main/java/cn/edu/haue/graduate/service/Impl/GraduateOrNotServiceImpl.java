@@ -1,6 +1,7 @@
 package cn.edu.haue.graduate.service.Impl;
 
 
+import cn.edu.haue.graduate.constant.ResultCode;
 import cn.edu.haue.graduate.dao.MajorDao;
 import cn.edu.haue.graduate.dao.StudentDao;
 import cn.edu.haue.graduate.entity.*;
@@ -36,7 +37,7 @@ public class GraduateOrNotServiceImpl implements GraduateOrNotService {
      * @return
      */
     @Override
-    public StudentCreditResult GraduateOrNot(String id) {
+    public ResultInfo<StudentCreditResult> GraduateOrNot(String id) {
         Student student=studentDao.getOne(id);
         //获取学生的专业，根据专业的标准来审核毕业条件
         Integer majorId=student.getMajor().getMajorID();
@@ -72,12 +73,11 @@ public class GraduateOrNotServiceImpl implements GraduateOrNotService {
                 }
             }else {
                 if (Required_Course.equals(courseType)) { //必修课
-                    studentFailCredit++;
+                    studentFailCredit+=grade.getCourse().getCourseCredit();
                 }
             }
         }
-//        ResultInfo<Student> resultInfo=new ResultInfo<>();
-//        resultInfo.setResultObj(student);
+        ResultInfo<StudentCreditResult> resultInfo=new ResultInfo<>();
         StudentCreditResult studentCreditResult=new StudentCreditResult();
         if(requiredCoursesCredit<=studentRequiredCredit&&needPeCredit<=studentPeCredit&&needPublicCredit<=studentElectiveCredit){
             studentCreditResult.setGraduateOrNot(GraduateOrNot_Yes);
@@ -93,6 +93,8 @@ public class GraduateOrNotServiceImpl implements GraduateOrNotService {
         studentCreditResult.setStudentRequiredCredit(studentRequiredCredit);
         studentCreditResult.setStudentElectiveCredit(studentElectiveCredit);
         studentCreditResult.setStudentPeCredit(studentPeCredit);
-        return studentCreditResult;
+        resultInfo.setResultObj(studentCreditResult);
+        resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
+        return resultInfo;
     }
 }

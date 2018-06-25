@@ -2,7 +2,8 @@
 <html>
 	<head>
 		<!--<link rel="stylesheet" type="text/css" href="css/base.css"/>-->
-		<link rel="stylesheet" type="text/css" href="../../static/student/css/specificAP.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/student/css/specificAP.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/student/css/specificl.css"/>
 		<!--<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>-->
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
 		<meta charset="utf-8" />
@@ -12,8 +13,7 @@
 		<header>
 			<nav class="common_title">
 				<div class="logo">
-					<img src="../../../../../../../../h5-css3Demo/毕业预警页面%20-%20副本/img/logo01.png"/>
-					<h1>成绩详情</h1>
+					<img src="/static/student/img/logo01.png"/>
 				<div class="caidan">
 					<ul>
 						<li>
@@ -62,7 +62,7 @@
 			<div class="ap1">
 				<table cellspacing="0px" id="chenji">
 					<tr class="special">
-						<td colspan="4" >2016-2017年 第一学期</td>
+						<td colspan="4" >成绩详情</td>
 					</tr>
 					
 					<tr>
@@ -203,6 +203,5 @@
 				<textarea  rows="5" cols="37" placeholder="多想不如多做。"></textarea>
 			</div>-->
 		</section>
-		<script src="js/academicPerformance.js"></script>
 	</body>
 </html>

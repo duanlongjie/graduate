@@ -1,533 +1,233 @@
-2018-06-25 15:50:58.550  INFO 10572 --- [main] cn.edu.haue.graduate.MainTest            : Starting MainTest on DESKTOP-KHAT3SD with PID 10572 (started by HP in D:\IdeaProjects\graduate)
-2018-06-25 15:50:58.560  INFO 10572 --- [main] cn.edu.haue.graduate.MainTest            : No active profile set, falling back to default profiles: default
-2018-06-25 15:50:58.873  INFO 10572 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@4d15107f: startup date [Mon Jun 25 15:50:58 CST 2018]; root of context hierarchy
-2018-06-25 15:51:01.975  INFO 10572 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2eaa911d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2018-06-25 15:51:02.364  INFO 10572 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2018-06-25 15:51:02.722  INFO 10572 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2018-06-25 15:51:02.804  INFO 10572 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
-2018-06-25 15:51:02.829  INFO 10572 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2018-06-25 09:21:29.390  INFO 16224 --- [main] c.e.h.g.s.GraduateOrNotServiceTest       : Starting GraduateOrNotServiceTest on IT-Star with PID 16224 (started by asus in D:\idea\idea-src\graduate)
+2018-06-25 09:21:29.546  INFO 16224 --- [main] c.e.h.g.s.GraduateOrNotServiceTest       : No active profile set, falling back to default profiles: default
+2018-06-25 09:21:30.060  INFO 16224 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@14fc5f04: startup date [Mon Jun 25 09:21:30 CST 2018]; root of context hierarchy
+2018-06-25 09:21:36.753  INFO 16224 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f3e468b6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-06-25 09:21:37.486  INFO 16224 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-06-25 09:21:38.320  INFO 16224 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-06-25 09:21:38.449  INFO 16224 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-06-25 09:21:38.568  INFO 16224 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2018-06-25 15:51:02.947  INFO 10572 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.17.Final}
-2018-06-25 15:51:02.949  INFO 10572 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2018-06-25 15:51:03.064  INFO 10572 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2018-06-25 15:51:03.296  INFO 10572 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2018-06-25 15:51:07.205  INFO 10572 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2018-06-25 15:51:08.162  INFO 10572 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2018-06-25 15:51:08.681  INFO 10572 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/static/**'], []
-2018-06-25 15:51:08.775  INFO 10572 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1471b98d, org.springframework.security.web.context.SecurityContextPersistenceFilter@46612bfc, org.springframework.security.web.header.HeaderWriterFilter@2b441e56, org.springframework.security.web.authentication.logout.LogoutFilter@159ac15f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@307af381, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@25699aa7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4662752a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5514579e, org.springframework.security.web.session.SessionManagementFilter@111a7973, org.springframework.security.web.access.ExceptionTranslationFilter@6c8efde4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3ffd4b12]
-2018-06-25 15:51:09.146  INFO 10572 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-06-25 15:51:09.498  INFO 10572 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@4d15107f: startup date [Mon Jun 25 15:50:58 CST 2018]; root of context hierarchy
-2018-06-25 15:51:09.549  WARN 10572 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2018-06-25 15:51:09.605  INFO 10572 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/home]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.AdminController.home()
-2018-06-25 15:51:09.606  INFO 10572 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/success]}" onto public java.lang.String cn.edu.haue.graduate.web.AdminController.success()
-2018-06-25 15:51:09.606  INFO 10572 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.AdminController.login(javax.servlet.http.HttpSession)
-2018-06-25 15:51:09.607  INFO 10572 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/grade]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentController.goToGradePage(javax.servlet.http.HttpSession,org.springframework.ui.Model)
-2018-06-25 15:51:09.607  INFO 10572 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/graduationCon]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.StudentController.goToGraduationConditionsPage(java.lang.String,javax.servlet.http.HttpSession)
-2018-06-25 15:51:09.610  INFO 10572 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/login]}" onto public cn.edu.haue.graduate.entity.ResultInfo<cn.edu.haue.graduate.entity.Student> cn.edu.haue.graduate.web.StudentLoginController.studentLogin(java.lang.String,java.lang.String)
-2018-06-25 15:51:09.611  INFO 10572 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/update]}" onto public cn.edu.haue.graduate.entity.ResultInfo<cn.edu.haue.graduate.entity.Student> cn.edu.haue.graduate.web.StudentLoginController.studentUpdate(java.lang.String,java.lang.String,java.lang.String)
-2018-06-25 15:51:09.612  INFO 10572 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/updatePage]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentLoginController.updateStudent()
-2018-06-25 15:51:09.612  INFO 10572 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentLoginController.studentToLogin()
-2018-06-25 15:51:09.614  INFO 10572 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-2018-06-25 15:51:09.615  INFO 10572 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2018-06-25 15:51:09.651  INFO 10572 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-06-25 15:51:09.651  INFO 10572 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-06-25 15:51:10.085  INFO 10572 --- [main] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
-2018-06-25 15:51:10.493  INFO 10572 --- [main] cn.edu.haue.graduate.MainTest            : Started MainTest in 12.58 seconds (JVM running for 14.957)
-2018-06-25 15:51:10.983  INFO 10572 --- [Thread-3] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@4d15107f: startup date [Mon Jun 25 15:50:58 CST 2018]; root of context hierarchy
-2018-06-25 15:51:10.995  INFO 10572 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2018-06-25 15:51:10.997  INFO 10572 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2018-06-25 15:51:11.021  INFO 10572 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2018-06-25 15:54:13.473  INFO 8708 --- [main] cn.edu.haue.graduate.MainTest            : Starting MainTest on DESKTOP-KHAT3SD with PID 8708 (started by HP in D:\IdeaProjects\graduate)
-2018-06-25 15:54:13.474  INFO 8708 --- [main] cn.edu.haue.graduate.MainTest            : No active profile set, falling back to default profiles: default
-2018-06-25 15:54:13.525  INFO 8708 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@4d15107f: startup date [Mon Jun 25 15:54:13 CST 2018]; root of context hierarchy
-2018-06-25 15:54:15.261  INFO 8708 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$fda13305] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2018-06-25 15:54:15.493  INFO 8708 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2018-06-25 15:54:15.778  INFO 8708 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2018-06-25 15:54:15.826  INFO 8708 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
-2018-06-25 15:54:15.843  INFO 8708 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2018-06-25 09:21:38.982  INFO 16224 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.17.Final}
+2018-06-25 09:21:38.985  INFO 16224 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-06-25 09:21:39.242  INFO 16224 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-06-25 09:21:39.768  INFO 16224 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-06-25 09:21:43.344  INFO 16224 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-06-25 09:21:45.282  INFO 16224 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-06-25 09:21:46.310  INFO 16224 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/static/**'], []
+2018-06-25 09:21:46.509  INFO 16224 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1510b9a2, org.springframework.security.web.context.SecurityContextPersistenceFilter@3a109ff7, org.springframework.security.web.header.HeaderWriterFilter@4b4814d0, org.springframework.security.web.authentication.logout.LogoutFilter@6befbb12, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6793f752, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1a2773a8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1cde374, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@76a6f045, org.springframework.security.web.session.SessionManagementFilter@20216016, org.springframework.security.web.access.ExceptionTranslationFilter@440ef8d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@274fdea6]
+2018-06-25 09:21:47.331  INFO 16224 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-06-25 09:21:48.020  INFO 16224 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@14fc5f04: startup date [Mon Jun 25 09:21:30 CST 2018]; root of context hierarchy
+2018-06-25 09:21:48.148  WARN 16224 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-06-25 09:21:48.245  INFO 16224 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/success]}" onto public java.lang.String cn.edu.haue.graduate.web.AdminController.success()
+2018-06-25 09:21:48.248  INFO 16224 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/home]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.AdminController.home()
+2018-06-25 09:21:48.249  INFO 16224 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.AdminController.login(javax.servlet.http.HttpSession)
+2018-06-25 09:21:48.250  INFO 16224 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test]}" onto public java.lang.String cn.edu.haue.graduate.web.FileUpload.test()
+2018-06-25 09:21:48.252  INFO 16224 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/uploadDeal],methods=[POST]}" onto public void cn.edu.haue.graduate.web.FileUpload.uploadDeal(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest)
+2018-06-25 09:21:48.253  INFO 16224 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/grade]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentController.goToGradePage(javax.servlet.http.HttpSession,org.springframework.ui.Model)
+2018-06-25 09:21:48.254  INFO 16224 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/graduationCon]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.StudentController.goToGraduationConditionsPage(java.lang.String,javax.servlet.http.HttpSession)
+2018-06-25 09:21:48.260  INFO 16224 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/update]}" onto public cn.edu.haue.graduate.entity.ResultInfo<cn.edu.haue.graduate.entity.Student> cn.edu.haue.graduate.web.StudentLoginController.studentUpdate(java.lang.String,java.lang.String,java.lang.String)
+2018-06-25 09:21:48.262  INFO 16224 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentLoginController.studentToLogin()
+2018-06-25 09:21:48.264  INFO 16224 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/updatePage]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentLoginController.updateStudent()
+2018-06-25 09:21:48.265  INFO 16224 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/login]}" onto public cn.edu.haue.graduate.entity.ResultInfo<cn.edu.haue.graduate.entity.Student> cn.edu.haue.graduate.web.StudentLoginController.studentLogin(java.lang.String,java.lang.String)
+2018-06-25 09:21:48.273  INFO 16224 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-06-25 09:21:48.276  INFO 16224 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-06-25 09:21:48.339  INFO 16224 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-06-25 09:21:48.340  INFO 16224 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-06-25 09:21:49.350  INFO 16224 --- [main] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-06-25 09:21:50.371  INFO 16224 --- [main] c.e.h.g.s.GraduateOrNotServiceTest       : Started GraduateOrNotServiceTest in 23.916 seconds (JVM running for 29.892)
+2018-06-25 09:21:51.084  INFO 16224 --- [Thread-3] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@14fc5f04: startup date [Mon Jun 25 09:21:30 CST 2018]; root of context hierarchy
+2018-06-25 09:21:51.162  INFO 16224 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-06-25 09:21:51.166  INFO 16224 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-06-25 09:21:51.209  INFO 16224 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-06-25 09:22:54.604  INFO 9964 --- [main] c.e.h.g.s.GraduateOrNotServiceTest       : Starting GraduateOrNotServiceTest on IT-Star with PID 9964 (started by asus in D:\idea\idea-src\graduate)
+2018-06-25 09:22:54.609  INFO 9964 --- [main] c.e.h.g.s.GraduateOrNotServiceTest       : No active profile set, falling back to default profiles: default
+2018-06-25 09:22:54.737  INFO 9964 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@14fc5f04: startup date [Mon Jun 25 09:22:54 CST 2018]; root of context hierarchy
+2018-06-25 09:22:59.158  INFO 9964 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$46342297] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-06-25 09:22:59.734  INFO 9964 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-06-25 09:23:00.409  INFO 9964 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-06-25 09:23:00.517  INFO 9964 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-06-25 09:23:00.557  INFO 9964 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2018-06-25 15:54:15.926  INFO 8708 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.17.Final}
-2018-06-25 15:54:15.928  INFO 8708 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2018-06-25 15:54:15.983  INFO 8708 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2018-06-25 15:54:16.134  INFO 8708 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2018-06-25 15:54:17.381  INFO 8708 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2018-06-25 15:54:18.105  INFO 8708 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2018-06-25 15:54:18.472  INFO 8708 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/static/**'], []
-2018-06-25 15:54:18.566  INFO 8708 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@307af381, org.springframework.security.web.context.SecurityContextPersistenceFilter@267891bf, org.springframework.security.web.header.HeaderWriterFilter@48cdb156, org.springframework.security.web.authentication.logout.LogoutFilter@7b5021d1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@44faa4f2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@111a7973, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@15369d73, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1510b9a2, org.springframework.security.web.session.SessionManagementFilter@54326e9, org.springframework.security.web.access.ExceptionTranslationFilter@388be5fd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5c82031b]
-2018-06-25 15:54:18.858  INFO 8708 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-06-25 15:54:19.168  INFO 8708 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@4d15107f: startup date [Mon Jun 25 15:54:13 CST 2018]; root of context hierarchy
-2018-06-25 15:54:19.222  WARN 8708 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2018-06-25 15:54:19.273  INFO 8708 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/success]}" onto public java.lang.String cn.edu.haue.graduate.web.AdminController.success()
-2018-06-25 15:54:19.274  INFO 8708 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/home]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.AdminController.home()
-2018-06-25 15:54:19.274  INFO 8708 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.AdminController.login(javax.servlet.http.HttpSession)
-2018-06-25 15:54:19.275  INFO 8708 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/graduationCon]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.StudentController.goToGraduationConditionsPage(java.lang.String,javax.servlet.http.HttpSession)
-2018-06-25 15:54:19.275  INFO 8708 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/grade]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentController.goToGradePage(javax.servlet.http.HttpSession,org.springframework.ui.Model)
-2018-06-25 15:54:19.277  INFO 8708 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/login]}" onto public cn.edu.haue.graduate.entity.ResultInfo<cn.edu.haue.graduate.entity.Student> cn.edu.haue.graduate.web.StudentLoginController.studentLogin(java.lang.String,java.lang.String)
-2018-06-25 15:54:19.278  INFO 8708 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/updatePage]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentLoginController.updateStudent()
-2018-06-25 15:54:19.279  INFO 8708 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentLoginController.studentToLogin()
-2018-06-25 15:54:19.279  INFO 8708 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/update]}" onto public cn.edu.haue.graduate.entity.ResultInfo<cn.edu.haue.graduate.entity.Student> cn.edu.haue.graduate.web.StudentLoginController.studentUpdate(java.lang.String,java.lang.String,java.lang.String)
-2018-06-25 15:54:19.282  INFO 8708 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-2018-06-25 15:54:19.283  INFO 8708 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2018-06-25 15:54:19.337  INFO 8708 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-06-25 15:54:19.337  INFO 8708 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-06-25 15:54:19.695  INFO 8708 --- [main] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
-2018-06-25 15:54:20.039  INFO 8708 --- [main] cn.edu.haue.graduate.MainTest            : Started MainTest in 7.053 seconds (JVM running for 8.454)
-2018-06-25 15:54:20.326  INFO 8708 --- [Thread-3] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@4d15107f: startup date [Mon Jun 25 15:54:13 CST 2018]; root of context hierarchy
-2018-06-25 15:54:20.333  INFO 8708 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2018-06-25 15:54:20.336  INFO 8708 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2018-06-25 15:54:20.343  INFO 8708 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2018-06-25 15:56:52.192  INFO 7604 --- [main] cn.edu.haue.graduate.MainTest            : Starting MainTest on DESKTOP-KHAT3SD with PID 7604 (started by HP in D:\IdeaProjects\graduate)
-2018-06-25 15:56:52.194  INFO 7604 --- [main] cn.edu.haue.graduate.MainTest            : No active profile set, falling back to default profiles: default
-2018-06-25 15:56:52.277  INFO 7604 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@4d15107f: startup date [Mon Jun 25 15:56:52 CST 2018]; root of context hierarchy
-2018-06-25 15:56:53.943  INFO 7604 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$82a79db6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2018-06-25 15:56:54.189  INFO 7604 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2018-06-25 15:56:54.483  INFO 7604 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2018-06-25 15:56:54.531  INFO 7604 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
-2018-06-25 15:56:54.548  INFO 7604 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2018-06-25 09:23:00.781  INFO 9964 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.17.Final}
+2018-06-25 09:23:00.784  INFO 9964 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-06-25 09:23:00.870  INFO 9964 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-06-25 09:23:01.295  INFO 9964 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-06-25 09:23:03.899  INFO 9964 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-06-25 09:23:06.079  INFO 9964 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-06-25 09:23:07.627  INFO 9964 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/static/**'], []
+2018-06-25 09:23:07.858  INFO 9964 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4bce62b, org.springframework.security.web.context.SecurityContextPersistenceFilter@3915e7c3, org.springframework.security.web.header.HeaderWriterFilter@dada335, org.springframework.security.web.authentication.logout.LogoutFilter@20216016, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5ebbde60, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7c0df4ab, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6c8efde4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7bf018dd, org.springframework.security.web.session.SessionManagementFilter@70091872, org.springframework.security.web.access.ExceptionTranslationFilter@18c880ea, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@681de87f]
+2018-06-25 09:23:08.597  INFO 9964 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-06-25 09:23:09.353  INFO 9964 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@14fc5f04: startup date [Mon Jun 25 09:22:54 CST 2018]; root of context hierarchy
+2018-06-25 09:23:09.481  WARN 9964 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-06-25 09:23:09.601  INFO 9964 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/home]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.AdminController.home()
+2018-06-25 09:23:09.604  INFO 9964 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/success]}" onto public java.lang.String cn.edu.haue.graduate.web.AdminController.success()
+2018-06-25 09:23:09.606  INFO 9964 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.AdminController.login(javax.servlet.http.HttpSession)
+2018-06-25 09:23:09.607  INFO 9964 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test]}" onto public java.lang.String cn.edu.haue.graduate.web.FileUpload.test()
+2018-06-25 09:23:09.608  INFO 9964 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/uploadDeal],methods=[POST]}" onto public void cn.edu.haue.graduate.web.FileUpload.uploadDeal(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest)
+2018-06-25 09:23:09.611  INFO 9964 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/grade]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentController.goToGradePage(javax.servlet.http.HttpSession,org.springframework.ui.Model)
+2018-06-25 09:23:09.614  INFO 9964 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/graduationCon]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.StudentController.goToGraduationConditionsPage(java.lang.String,javax.servlet.http.HttpSession)
+2018-06-25 09:23:09.635  INFO 9964 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/login]}" onto public cn.edu.haue.graduate.entity.ResultInfo<cn.edu.haue.graduate.entity.Student> cn.edu.haue.graduate.web.StudentLoginController.studentLogin(java.lang.String,java.lang.String)
+2018-06-25 09:23:09.636  INFO 9964 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/updatePage]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentLoginController.updateStudent()
+2018-06-25 09:23:09.639  INFO 9964 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentLoginController.studentToLogin()
+2018-06-25 09:23:09.640  INFO 9964 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/update]}" onto public cn.edu.haue.graduate.entity.ResultInfo<cn.edu.haue.graduate.entity.Student> cn.edu.haue.graduate.web.StudentLoginController.studentUpdate(java.lang.String,java.lang.String,java.lang.String)
+2018-06-25 09:23:09.667  INFO 9964 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-06-25 09:23:09.669  INFO 9964 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-06-25 09:23:09.739  INFO 9964 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-06-25 09:23:09.740  INFO 9964 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-06-25 09:23:10.709  INFO 9964 --- [main] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-06-25 09:23:11.799  INFO 9964 --- [main] c.e.h.g.s.GraduateOrNotServiceTest       : Started GraduateOrNotServiceTest in 18.737 seconds (JVM running for 23.01)
+2018-06-25 09:23:12.522  INFO 9964 --- [Thread-3] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@14fc5f04: startup date [Mon Jun 25 09:22:54 CST 2018]; root of context hierarchy
+2018-06-25 09:23:12.538  INFO 9964 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-06-25 09:23:12.555  INFO 9964 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-06-25 09:23:12.578  INFO 9964 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-06-25 09:25:03.539  INFO 1532 --- [main] c.e.h.g.s.GraduateOrNotServiceTest       : Starting GraduateOrNotServiceTest on IT-Star with PID 1532 (started by asus in D:\idea\idea-src\graduate)
+2018-06-25 09:25:03.553  INFO 1532 --- [main] c.e.h.g.s.GraduateOrNotServiceTest       : No active profile set, falling back to default profiles: default
+2018-06-25 09:25:03.886  INFO 1532 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@14fc5f04: startup date [Mon Jun 25 09:25:03 CST 2018]; root of context hierarchy
+2018-06-25 09:25:08.080  INFO 1532 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$dc81ee95] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-06-25 09:25:08.588  INFO 1532 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-06-25 09:25:09.306  INFO 1532 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-06-25 09:25:09.400  INFO 1532 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-06-25 09:25:09.439  INFO 1532 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2018-06-25 15:56:54.627  INFO 7604 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.17.Final}
-2018-06-25 15:56:54.628  INFO 7604 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2018-06-25 15:56:54.673  INFO 7604 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2018-06-25 15:56:54.832  INFO 7604 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2018-06-25 15:56:56.041  INFO 7604 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2018-06-25 15:56:56.758  INFO 7604 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2018-06-25 15:56:57.153  INFO 7604 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/static/**'], []
-2018-06-25 15:56:57.248  INFO 7604 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@59e7564b, org.springframework.security.web.context.SecurityContextPersistenceFilter@20216016, org.springframework.security.web.header.HeaderWriterFilter@5e9bf744, org.springframework.security.web.authentication.logout.LogoutFilter@514377fc, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@69b3886f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@267891bf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@25699aa7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@482ba4b1, org.springframework.security.web.session.SessionManagementFilter@4b4814d0, org.springframework.security.web.access.ExceptionTranslationFilter@7c0df4ab, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@15a8cebd]
-2018-06-25 15:56:57.554  INFO 7604 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-06-25 15:56:57.863  INFO 7604 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@4d15107f: startup date [Mon Jun 25 15:56:52 CST 2018]; root of context hierarchy
-2018-06-25 15:56:57.917  WARN 7604 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2018-06-25 15:56:57.959  INFO 7604 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/home]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.AdminController.home()
-2018-06-25 15:56:57.961  INFO 7604 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/success]}" onto public java.lang.String cn.edu.haue.graduate.web.AdminController.success()
-2018-06-25 15:56:57.962  INFO 7604 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.AdminController.login(javax.servlet.http.HttpSession)
-2018-06-25 15:56:57.962  INFO 7604 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/graduationCon]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.StudentController.goToGraduationConditionsPage(java.lang.String,javax.servlet.http.HttpSession)
-2018-06-25 15:56:57.963  INFO 7604 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/grade]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentController.goToGradePage(javax.servlet.http.HttpSession,org.springframework.ui.Model)
-2018-06-25 15:56:57.964  INFO 7604 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentLoginController.studentToLogin()
-2018-06-25 15:56:57.965  INFO 7604 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/update]}" onto public cn.edu.haue.graduate.entity.ResultInfo<cn.edu.haue.graduate.entity.Student> cn.edu.haue.graduate.web.StudentLoginController.studentUpdate(java.lang.String,java.lang.String,java.lang.String)
-2018-06-25 15:56:57.966  INFO 7604 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/updatePage]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentLoginController.updateStudent()
-2018-06-25 15:56:57.966  INFO 7604 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/login]}" onto public cn.edu.haue.graduate.entity.ResultInfo<cn.edu.haue.graduate.entity.Student> cn.edu.haue.graduate.web.StudentLoginController.studentLogin(java.lang.String,java.lang.String)
-2018-06-25 15:56:57.968  INFO 7604 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-2018-06-25 15:56:57.969  INFO 7604 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2018-06-25 15:56:58.004  INFO 7604 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-06-25 15:56:58.004  INFO 7604 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-06-25 15:56:58.437  INFO 7604 --- [main] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
-2018-06-25 15:56:58.767  INFO 7604 --- [main] cn.edu.haue.graduate.MainTest            : Started MainTest in 7.078 seconds (JVM running for 8.39)
-2018-06-25 15:56:58.935 ERROR 7604 --- [main] o.h.i.ExceptionMapperStandardImpl        : HHH000346: Error during managed flush [org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : cn.edu.haue.graduate.entity.Course.major -> cn.edu.haue.graduate.entity.Major]
-2018-06-25 15:56:58.955  INFO 7604 --- [Thread-3] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@4d15107f: startup date [Mon Jun 25 15:56:52 CST 2018]; root of context hierarchy
-2018-06-25 15:56:58.966  INFO 7604 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2018-06-25 15:56:58.968  INFO 7604 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2018-06-25 15:56:58.974  INFO 7604 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2018-06-25 15:58:24.990  INFO 4924 --- [main] cn.edu.haue.graduate.MainTest            : Starting MainTest on DESKTOP-KHAT3SD with PID 4924 (started by HP in D:\IdeaProjects\graduate)
-2018-06-25 15:58:24.992  INFO 4924 --- [main] cn.edu.haue.graduate.MainTest            : No active profile set, falling back to default profiles: default
-2018-06-25 15:58:25.069  INFO 4924 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@7b4c50bc: startup date [Mon Jun 25 15:58:25 CST 2018]; root of context hierarchy
-2018-06-25 15:58:26.698  INFO 4924 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$782ac032] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2018-06-25 15:58:26.941  INFO 4924 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2018-06-25 15:58:27.233  INFO 4924 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2018-06-25 15:58:27.280  INFO 4924 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
-2018-06-25 15:58:27.298  INFO 4924 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2018-06-25 09:25:09.656  INFO 1532 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.17.Final}
+2018-06-25 09:25:09.664  INFO 1532 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-06-25 09:25:09.755  INFO 1532 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-06-25 09:25:10.205  INFO 1532 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-06-25 09:25:12.711  INFO 1532 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-06-25 09:25:14.993  INFO 1532 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-06-25 09:25:16.197  INFO 1532 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/static/**'], []
+2018-06-25 09:25:16.574  INFO 1532 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7bf018dd, org.springframework.security.web.context.SecurityContextPersistenceFilter@167a21b, org.springframework.security.web.header.HeaderWriterFilter@716f94c1, org.springframework.security.web.authentication.logout.LogoutFilter@2b441e56, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@a056b26, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2e362407, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@24e5389c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@15a8cebd, org.springframework.security.web.session.SessionManagementFilter@105db94d, org.springframework.security.web.access.ExceptionTranslationFilter@5ac044ef, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2eb1c615]
+2018-06-25 09:25:17.590  INFO 1532 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-06-25 09:25:18.868  INFO 1532 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@14fc5f04: startup date [Mon Jun 25 09:25:03 CST 2018]; root of context hierarchy
+2018-06-25 09:25:19.025  WARN 1532 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-06-25 09:25:19.179  INFO 1532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/success]}" onto public java.lang.String cn.edu.haue.graduate.web.AdminController.success()
+2018-06-25 09:25:19.182  INFO 1532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/home]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.AdminController.home()
+2018-06-25 09:25:19.183  INFO 1532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.AdminController.login(javax.servlet.http.HttpSession)
+2018-06-25 09:25:19.187  INFO 1532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test]}" onto public java.lang.String cn.edu.haue.graduate.web.FileUpload.test()
+2018-06-25 09:25:19.188  INFO 1532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/uploadDeal],methods=[POST]}" onto public void cn.edu.haue.graduate.web.FileUpload.uploadDeal(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest)
+2018-06-25 09:25:19.189  INFO 1532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/graduationCon]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.StudentController.goToGraduationConditionsPage(java.lang.String,javax.servlet.http.HttpSession)
+2018-06-25 09:25:19.190  INFO 1532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/grade]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentController.goToGradePage(javax.servlet.http.HttpSession,org.springframework.ui.Model)
+2018-06-25 09:25:19.208  INFO 1532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentLoginController.studentToLogin()
+2018-06-25 09:25:19.209  INFO 1532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/updatePage]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentLoginController.updateStudent()
+2018-06-25 09:25:19.213  INFO 1532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/login]}" onto public cn.edu.haue.graduate.entity.ResultInfo<cn.edu.haue.graduate.entity.Student> cn.edu.haue.graduate.web.StudentLoginController.studentLogin(java.lang.String,java.lang.String)
+2018-06-25 09:25:19.213  INFO 1532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/update]}" onto public cn.edu.haue.graduate.entity.ResultInfo<cn.edu.haue.graduate.entity.Student> cn.edu.haue.graduate.web.StudentLoginController.studentUpdate(java.lang.String,java.lang.String,java.lang.String)
+2018-06-25 09:25:19.235  INFO 1532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-06-25 09:25:19.240  INFO 1532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-06-25 09:25:19.314  INFO 1532 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-06-25 09:25:19.315  INFO 1532 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-06-25 09:25:20.330  INFO 1532 --- [main] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-06-25 09:25:21.430  INFO 1532 --- [main] c.e.h.g.s.GraduateOrNotServiceTest       : Started GraduateOrNotServiceTest in 20.246 seconds (JVM running for 24.122)
+2018-06-25 09:25:22.005  INFO 1532 --- [Thread-3] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@14fc5f04: startup date [Mon Jun 25 09:25:03 CST 2018]; root of context hierarchy
+2018-06-25 09:25:22.027  INFO 1532 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-06-25 09:25:22.030  INFO 1532 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-06-25 09:25:22.060  INFO 1532 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-06-25 09:25:46.217  INFO 16280 --- [main] c.e.h.g.s.GraduateOrNotServiceTest       : Starting GraduateOrNotServiceTest on IT-Star with PID 16280 (started by asus in D:\idea\idea-src\graduate)
+2018-06-25 09:25:46.235  INFO 16280 --- [main] c.e.h.g.s.GraduateOrNotServiceTest       : No active profile set, falling back to default profiles: default
+2018-06-25 09:25:46.390  INFO 16280 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@14fc5f04: startup date [Mon Jun 25 09:25:46 CST 2018]; root of context hierarchy
+2018-06-25 09:25:50.994  INFO 16280 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2eaa911d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-06-25 09:25:51.570  INFO 16280 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-06-25 09:25:52.256  INFO 16280 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-06-25 09:25:52.361  INFO 16280 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-06-25 09:25:52.412  INFO 16280 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2018-06-25 15:58:27.380  INFO 4924 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.17.Final}
-2018-06-25 15:58:27.382  INFO 4924 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2018-06-25 15:58:27.431  INFO 4924 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2018-06-25 15:58:27.589  INFO 4924 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2018-06-25 15:58:28.829  INFO 4924 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2018-06-25 15:58:29.526  INFO 4924 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2018-06-25 15:58:29.889  INFO 4924 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/static/**'], []
-2018-06-25 15:58:29.994  INFO 4924 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1216eb3f, org.springframework.security.web.context.SecurityContextPersistenceFilter@54326e9, org.springframework.security.web.header.HeaderWriterFilter@3b170235, org.springframework.security.web.authentication.logout.LogoutFilter@693f2213, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3cc3f13e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2b441e56, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4f213a2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@59e7564b, org.springframework.security.web.session.SessionManagementFilter@48cdb156, org.springframework.security.web.access.ExceptionTranslationFilter@167a21b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7bf018dd]
-2018-06-25 15:58:30.301  INFO 4924 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-06-25 15:58:30.640  INFO 4924 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@7b4c50bc: startup date [Mon Jun 25 15:58:25 CST 2018]; root of context hierarchy
-2018-06-25 15:58:30.697  WARN 4924 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2018-06-25 15:58:30.752  INFO 4924 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/success]}" onto public java.lang.String cn.edu.haue.graduate.web.AdminController.success()
-2018-06-25 15:58:30.754  INFO 4924 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/home]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.AdminController.home()
-2018-06-25 15:58:30.754  INFO 4924 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.AdminController.login(javax.servlet.http.HttpSession)
-2018-06-25 15:58:30.755  INFO 4924 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/graduationCon]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.StudentController.goToGraduationConditionsPage(java.lang.String,javax.servlet.http.HttpSession)
-2018-06-25 15:58:30.755  INFO 4924 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/grade]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentController.goToGradePage(javax.servlet.http.HttpSession,org.springframework.ui.Model)
-2018-06-25 15:58:30.757  INFO 4924 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/login]}" onto public cn.edu.haue.graduate.entity.ResultInfo<cn.edu.haue.graduate.entity.Student> cn.edu.haue.graduate.web.StudentLoginController.studentLogin(java.lang.String,java.lang.String)
-2018-06-25 15:58:30.757  INFO 4924 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/update]}" onto public cn.edu.haue.graduate.entity.ResultInfo<cn.edu.haue.graduate.entity.Student> cn.edu.haue.graduate.web.StudentLoginController.studentUpdate(java.lang.String,java.lang.String,java.lang.String)
-2018-06-25 15:58:30.758  INFO 4924 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentLoginController.studentToLogin()
-2018-06-25 15:58:30.758  INFO 4924 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/updatePage]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentLoginController.updateStudent()
-2018-06-25 15:58:30.761  INFO 4924 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-2018-06-25 15:58:30.762  INFO 4924 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2018-06-25 15:58:30.801  INFO 4924 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-06-25 15:58:30.801  INFO 4924 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-06-25 15:58:31.273  INFO 4924 --- [main] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
-2018-06-25 15:58:31.612  INFO 4924 --- [main] cn.edu.haue.graduate.MainTest            : Started MainTest in 7.206 seconds (JVM running for 8.494)
-2018-06-25 15:58:31.964  INFO 4924 --- [Thread-3] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@7b4c50bc: startup date [Mon Jun 25 15:58:25 CST 2018]; root of context hierarchy
-2018-06-25 15:58:31.971  INFO 4924 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2018-06-25 15:58:31.973  INFO 4924 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2018-06-25 15:58:31.978  INFO 4924 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2018-06-25 16:01:03.204  INFO 1576 --- [main] cn.edu.haue.graduate.MainTest            : Starting MainTest on DESKTOP-KHAT3SD with PID 1576 (started by HP in D:\IdeaProjects\graduate)
-2018-06-25 16:01:03.206  INFO 1576 --- [main] cn.edu.haue.graduate.MainTest            : No active profile set, falling back to default profiles: default
-2018-06-25 16:01:03.313  INFO 1576 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@7b4c50bc: startup date [Mon Jun 25 16:01:03 CST 2018]; root of context hierarchy
-2018-06-25 16:01:04.916  INFO 1576 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$18662442] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2018-06-25 16:01:05.155  INFO 1576 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2018-06-25 16:01:05.444  INFO 1576 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2018-06-25 16:01:05.496  INFO 1576 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
-2018-06-25 16:01:05.516  INFO 1576 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2018-06-25 09:25:52.710  INFO 16280 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.17.Final}
+2018-06-25 09:25:52.715  INFO 16280 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-06-25 09:25:52.828  INFO 16280 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-06-25 09:25:53.186  INFO 16280 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-06-25 09:25:55.976  INFO 16280 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-06-25 09:25:58.368  INFO 16280 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-06-25 09:25:59.675  INFO 16280 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/static/**'], []
+2018-06-25 09:25:59.975  INFO 16280 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@59e7564b, org.springframework.security.web.context.SecurityContextPersistenceFilter@20216016, org.springframework.security.web.header.HeaderWriterFilter@5e9bf744, org.springframework.security.web.authentication.logout.LogoutFilter@514377fc, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@69b3886f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@267891bf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@25699aa7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@482ba4b1, org.springframework.security.web.session.SessionManagementFilter@4b4814d0, org.springframework.security.web.access.ExceptionTranslationFilter@7c0df4ab, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@15a8cebd]
+2018-06-25 09:26:01.188  INFO 16280 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-06-25 09:26:02.006  INFO 16280 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@14fc5f04: startup date [Mon Jun 25 09:25:46 CST 2018]; root of context hierarchy
+2018-06-25 09:26:02.229  WARN 16280 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-06-25 09:26:02.339  INFO 16280 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/home]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.AdminController.home()
+2018-06-25 09:26:02.342  INFO 16280 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/success]}" onto public java.lang.String cn.edu.haue.graduate.web.AdminController.success()
+2018-06-25 09:26:02.344  INFO 16280 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.AdminController.login(javax.servlet.http.HttpSession)
+2018-06-25 09:26:02.345  INFO 16280 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test]}" onto public java.lang.String cn.edu.haue.graduate.web.FileUpload.test()
+2018-06-25 09:26:02.346  INFO 16280 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/uploadDeal],methods=[POST]}" onto public void cn.edu.haue.graduate.web.FileUpload.uploadDeal(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest)
+2018-06-25 09:26:02.348  INFO 16280 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/grade]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentController.goToGradePage(javax.servlet.http.HttpSession,org.springframework.ui.Model)
+2018-06-25 09:26:02.348  INFO 16280 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/graduationCon]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.StudentController.goToGraduationConditionsPage(java.lang.String,javax.servlet.http.HttpSession)
+2018-06-25 09:26:02.354  INFO 16280 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/login]}" onto public cn.edu.haue.graduate.entity.ResultInfo<cn.edu.haue.graduate.entity.Student> cn.edu.haue.graduate.web.StudentLoginController.studentLogin(java.lang.String,java.lang.String)
+2018-06-25 09:26:02.354  INFO 16280 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/update]}" onto public cn.edu.haue.graduate.entity.ResultInfo<cn.edu.haue.graduate.entity.Student> cn.edu.haue.graduate.web.StudentLoginController.studentUpdate(java.lang.String,java.lang.String,java.lang.String)
+2018-06-25 09:26:02.356  INFO 16280 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/updatePage]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentLoginController.updateStudent()
+2018-06-25 09:26:02.356  INFO 16280 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentLoginController.studentToLogin()
+2018-06-25 09:26:02.363  INFO 16280 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-06-25 09:26:02.365  INFO 16280 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-06-25 09:26:02.463  INFO 16280 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-06-25 09:26:02.464  INFO 16280 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-06-25 09:26:03.470  INFO 16280 --- [main] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-06-25 09:26:04.615  INFO 16280 --- [main] c.e.h.g.s.GraduateOrNotServiceTest       : Started GraduateOrNotServiceTest in 20.193 seconds (JVM running for 23.646)
+2018-06-25 09:26:05.176  INFO 16280 --- [Thread-3] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@14fc5f04: startup date [Mon Jun 25 09:25:46 CST 2018]; root of context hierarchy
+2018-06-25 09:26:05.215  INFO 16280 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-06-25 09:26:05.220  INFO 16280 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-06-25 09:26:05.241  INFO 16280 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-06-25 09:26:51.061  INFO 16572 --- [restartedMain] c.edu.haue.graduate.GraduateApplication  : Starting GraduateApplication on IT-Star with PID 16572 (D:\idea\idea-src\graduate\target\classes started by asus in D:\idea\idea-src\graduate)
+2018-06-25 09:26:51.065  INFO 16572 --- [restartedMain] c.edu.haue.graduate.GraduateApplication  : No active profile set, falling back to default profiles: default
+2018-06-25 09:26:51.150  INFO 16572 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3d7a7c49: startup date [Mon Jun 25 09:26:51 CST 2018]; root of context hierarchy
+2018-06-25 09:26:54.050  INFO 16572 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c640e87f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-06-25 09:26:56.286  INFO 16572 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2018-06-25 09:26:56.377  INFO 16572 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-06-25 09:26:56.378  INFO 16572 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-06-25 09:26:56.396  INFO 16572 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [E:\Java\jdk1.8.0_141\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\WINDOWS\system32\config\systemprofile\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\；C:\Program Files\MySQL\MySQL Server 5.7\bin;;JBOSS_HOME%\bin;E:\Java\jdk1.8.0_141\lib;E:\Java\jdk1.8.0_141\bin;C:\Program Files (x86)\Tesseract-OCR;D:\Python\;D:\Maven\apache-maven-3.5.3\bin;D:\Git\cmd;.]
+2018-06-25 09:26:56.997  INFO 16572 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-06-25 09:26:56.997  INFO 16572 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5847 ms
+2018-06-25 09:26:57.355  INFO 16572 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-06-25 09:26:57.357  INFO 16572 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-06-25 09:26:57.358  INFO 16572 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-06-25 09:26:57.358  INFO 16572 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-06-25 09:26:57.360  INFO 16572 --- [localhost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-06-25 09:26:57.362  INFO 16572 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-06-25 09:26:57.365  INFO 16572 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet webServlet mapped to [/h2-console/*]
+2018-06-25 09:26:57.780  INFO 16572 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-06-25 09:26:58.318  INFO 16572 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-06-25 09:26:58.400  INFO 16572 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-06-25 09:26:58.425  INFO 16572 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2018-06-25 16:01:05.599  INFO 1576 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.17.Final}
-2018-06-25 16:01:05.600  INFO 1576 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2018-06-25 16:01:05.645  INFO 1576 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2018-06-25 16:01:05.788  INFO 1576 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2018-06-25 16:01:07.012  INFO 1576 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2018-06-25 16:01:07.721  INFO 1576 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2018-06-25 16:01:08.086  INFO 1576 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/static/**'], []
-2018-06-25 16:01:08.181  INFO 1576 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3cc3f13e, org.springframework.security.web.context.SecurityContextPersistenceFilter@5e9bf744, org.springframework.security.web.header.HeaderWriterFilter@17fbfb02, org.springframework.security.web.authentication.logout.LogoutFilter@1cde374, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2a484710, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@48cdb156, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3a109ff7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@69b3886f, org.springframework.security.web.session.SessionManagementFilter@6c8efde4, org.springframework.security.web.access.ExceptionTranslationFilter@53feeac9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@a056b26]
-2018-06-25 16:01:08.475  INFO 1576 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-06-25 16:01:08.791  INFO 1576 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@7b4c50bc: startup date [Mon Jun 25 16:01:03 CST 2018]; root of context hierarchy
-2018-06-25 16:01:08.840  WARN 1576 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2018-06-25 16:01:08.882  INFO 1576 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/home]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.AdminController.home()
-2018-06-25 16:01:08.883  INFO 1576 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/success]}" onto public java.lang.String cn.edu.haue.graduate.web.AdminController.success()
-2018-06-25 16:01:08.884  INFO 1576 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.AdminController.login(javax.servlet.http.HttpSession)
-2018-06-25 16:01:08.885  INFO 1576 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/grade]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentController.goToGradePage(javax.servlet.http.HttpSession,org.springframework.ui.Model)
-2018-06-25 16:01:08.886  INFO 1576 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/graduationCon]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.StudentController.goToGraduationConditionsPage(java.lang.String,javax.servlet.http.HttpSession)
-2018-06-25 16:01:08.892  INFO 1576 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/login]}" onto public cn.edu.haue.graduate.entity.ResultInfo<cn.edu.haue.graduate.entity.Student> cn.edu.haue.graduate.web.StudentLoginController.studentLogin(java.lang.String,java.lang.String)
-2018-06-25 16:01:08.893  INFO 1576 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentLoginController.studentToLogin()
-2018-06-25 16:01:08.893  INFO 1576 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/updatePage]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentLoginController.updateStudent()
-2018-06-25 16:01:08.893  INFO 1576 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/update]}" onto public cn.edu.haue.graduate.entity.ResultInfo<cn.edu.haue.graduate.entity.Student> cn.edu.haue.graduate.web.StudentLoginController.studentUpdate(java.lang.String,java.lang.String,java.lang.String)
-2018-06-25 16:01:08.896  INFO 1576 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-2018-06-25 16:01:08.897  INFO 1576 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2018-06-25 16:01:08.928  INFO 1576 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-06-25 16:01:08.928  INFO 1576 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-06-25 16:01:09.288  INFO 1576 --- [main] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
-2018-06-25 16:01:09.614  INFO 1576 --- [main] cn.edu.haue.graduate.MainTest            : Started MainTest in 6.955 seconds (JVM running for 8.27)
-2018-06-25 16:01:09.919  INFO 1576 --- [Thread-3] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@7b4c50bc: startup date [Mon Jun 25 16:01:03 CST 2018]; root of context hierarchy
-2018-06-25 16:01:09.929  INFO 1576 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2018-06-25 16:01:09.931  INFO 1576 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2018-06-25 16:01:09.948  INFO 1576 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2018-06-25 16:02:17.266  INFO 6300 --- [main] cn.edu.haue.graduate.MainTest            : Starting MainTest on DESKTOP-KHAT3SD with PID 6300 (started by HP in D:\IdeaProjects\graduate)
-2018-06-25 16:02:17.267  INFO 6300 --- [main] cn.edu.haue.graduate.MainTest            : No active profile set, falling back to default profiles: default
-2018-06-25 16:02:17.314  INFO 6300 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@7b4c50bc: startup date [Mon Jun 25 16:02:17 CST 2018]; root of context hierarchy
-2018-06-25 16:02:18.928  INFO 6300 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2f7b86ba] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2018-06-25 16:02:19.173  INFO 6300 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2018-06-25 16:02:19.464  INFO 6300 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2018-06-25 16:02:19.512  INFO 6300 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
-2018-06-25 16:02:19.529  INFO 6300 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
-	name: default
-	...]
-2018-06-25 16:02:19.611  INFO 6300 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.17.Final}
-2018-06-25 16:02:19.612  INFO 6300 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2018-06-25 16:02:19.656  INFO 6300 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2018-06-25 16:02:19.809  INFO 6300 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2018-06-25 16:02:21.045  INFO 6300 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2018-06-25 16:02:21.763  INFO 6300 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2018-06-25 16:02:22.129  INFO 6300 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/static/**'], []
-2018-06-25 16:02:22.230  INFO 6300 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@69b3886f, org.springframework.security.web.context.SecurityContextPersistenceFilter@45e140ae, org.springframework.security.web.header.HeaderWriterFilter@8f2e3e6, org.springframework.security.web.authentication.logout.LogoutFilter@6818fd48, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@661e1399, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4b4814d0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@111a7973, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@53d30d23, org.springframework.security.web.session.SessionManagementFilter@24e5389c, org.springframework.security.web.access.ExceptionTranslationFilter@70091872, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2a5abd3c]
-2018-06-25 16:02:22.521  INFO 6300 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-06-25 16:02:22.859  INFO 6300 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@7b4c50bc: startup date [Mon Jun 25 16:02:17 CST 2018]; root of context hierarchy
-2018-06-25 16:02:22.918  WARN 6300 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2018-06-25 16:02:22.967  INFO 6300 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/home]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.AdminController.home()
-2018-06-25 16:02:22.968  INFO 6300 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/success]}" onto public java.lang.String cn.edu.haue.graduate.web.AdminController.success()
-2018-06-25 16:02:22.969  INFO 6300 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.AdminController.login(javax.servlet.http.HttpSession)
-2018-06-25 16:02:22.969  INFO 6300 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/graduationCon]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.StudentController.goToGraduationConditionsPage(java.lang.String,javax.servlet.http.HttpSession)
-2018-06-25 16:02:22.970  INFO 6300 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/grade]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentController.goToGradePage(javax.servlet.http.HttpSession,org.springframework.ui.Model)
-2018-06-25 16:02:22.972  INFO 6300 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/update]}" onto public cn.edu.haue.graduate.entity.ResultInfo<cn.edu.haue.graduate.entity.Student> cn.edu.haue.graduate.web.StudentLoginController.studentUpdate(java.lang.String,java.lang.String,java.lang.String)
-2018-06-25 16:02:22.972  INFO 6300 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/login]}" onto public cn.edu.haue.graduate.entity.ResultInfo<cn.edu.haue.graduate.entity.Student> cn.edu.haue.graduate.web.StudentLoginController.studentLogin(java.lang.String,java.lang.String)
-2018-06-25 16:02:22.972  INFO 6300 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentLoginController.studentToLogin()
-2018-06-25 16:02:22.973  INFO 6300 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/updatePage]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentLoginController.updateStudent()
-2018-06-25 16:02:22.975  INFO 6300 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-2018-06-25 16:02:22.976  INFO 6300 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2018-06-25 16:02:23.011  INFO 6300 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-06-25 16:02:23.012  INFO 6300 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-06-25 16:02:23.373  INFO 6300 --- [main] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
-2018-06-25 16:02:23.721  INFO 6300 --- [main] cn.edu.haue.graduate.MainTest            : Started MainTest in 7.042 seconds (JVM running for 8.314)
-2018-06-25 16:02:24.026  WARN 6300 --- [main] o.h.e.loading.internal.LoadContexts      : HHH000100: Fail-safe cleanup (collections) : org.hibernate.engine.loading.internal.CollectionLoadContext@60844992<rs=HikariProxyResultSet@1450133081 wrapping com.mysql.jdbc.JDBC42ResultSet@39dda56f>
-2018-06-25 16:02:24.027  WARN 6300 --- [main] o.h.e.l.internal.CollectionLoadContext   : HHH000160: On CollectionLoadContext#cleanup, localLoadingCollectionKeys contained [1] entries
-2018-06-25 16:02:24.051  INFO 6300 --- [Thread-3] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@7b4c50bc: startup date [Mon Jun 25 16:02:17 CST 2018]; root of context hierarchy
-2018-06-25 16:02:24.058  INFO 6300 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2018-06-25 16:02:24.060  INFO 6300 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2018-06-25 16:02:24.065  INFO 6300 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2018-06-25 16:11:17.732  INFO 3232 --- [main] cn.edu.haue.graduate.MainTest            : Starting MainTest on DESKTOP-KHAT3SD with PID 3232 (started by HP in D:\IdeaProjects\graduate)
-2018-06-25 16:11:17.735  INFO 3232 --- [main] cn.edu.haue.graduate.MainTest            : No active profile set, falling back to default profiles: default
-2018-06-25 16:11:17.807  INFO 3232 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@7b4c50bc: startup date [Mon Jun 25 16:11:17 CST 2018]; root of context hierarchy
-2018-06-25 16:11:19.561  INFO 3232 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$82a79db6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2018-06-25 16:11:19.807  INFO 3232 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2018-06-25 16:11:20.100  INFO 3232 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2018-06-25 16:11:20.150  INFO 3232 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
-2018-06-25 16:11:20.167  INFO 3232 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
-	name: default
-	...]
-2018-06-25 16:11:20.250  INFO 3232 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.17.Final}
-2018-06-25 16:11:20.251  INFO 3232 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2018-06-25 16:11:20.296  INFO 3232 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2018-06-25 16:11:20.440  INFO 3232 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2018-06-25 16:11:20.778  WARN 3232 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: No identifier specified for entity: cn.edu.haue.graduate.entity.Course
-2018-06-25 16:11:20.779  INFO 3232 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2018-06-25 16:11:20.787  INFO 3232 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2018-06-25 16:11:20.796  INFO 3232 --- [main] ConditionEvaluationReportLoggingListener : 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2018-06-25 16:11:20.816 ERROR 3232 --- [main] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: No identifier specified for entity: cn.edu.haue.graduate.entity.Course
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1706) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:579) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:501) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1089) ~[spring-context-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:859) ~[spring-context-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) ~[spring-context-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:395) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:327) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
-	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:139) [spring-boot-test-2.0.2.RELEASE.jar:2.0.2.RELEASE]
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
-	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.12.jar:4.12]
-	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68) [junit-rt.jar:na]
-	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47) [junit-rt.jar:na]
-	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242) [junit-rt.jar:na]
-	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70) [junit-rt.jar:na]
-Caused by: org.hibernate.AnnotationException: No identifier specified for entity: cn.edu.haue.graduate.entity.Course
-	at org.hibernate.cfg.InheritanceState.determineDefaultAccessType(InheritanceState.java:266) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.cfg.InheritanceState.getElementsToProcess(InheritanceState.java:211) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:731) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.boot.model.source.internal.annotations.AnnotationMetadataSourceProcessorImpl.processEntityHierarchies(AnnotationMetadataSourceProcessorImpl.java:249) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess$1.processEntityHierarchies(MetadataBuildingProcess.java:222) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:265) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:861) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:888) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:57) ~[spring-orm-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:390) ~[spring-orm-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:377) ~[spring-orm-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1765) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1702) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	... 39 common frames omitted
-
-2018-06-25 16:11:20.825 ERROR 3232 --- [main] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@557caf28] to prepare test instance [cn.edu.haue.graduate.MainTest@3a2d3909]
-
-java.lang.IllegalStateException: Failed to load ApplicationContext
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125) ~[spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108) ~[spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190) ~[spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132) ~[spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246) ~[spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
-	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.12.jar:4.12]
-	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68) [junit-rt.jar:na]
-	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47) [junit-rt.jar:na]
-	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242) [junit-rt.jar:na]
-	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70) [junit-rt.jar:na]
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: No identifier specified for entity: cn.edu.haue.graduate.entity.Course
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1706) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:579) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:501) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1089) ~[spring-context-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:859) ~[spring-context-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) ~[spring-context-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:395) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:327) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
-	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:139) ~[spring-boot-test-2.0.2.RELEASE.jar:2.0.2.RELEASE]
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117) ~[spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	... 24 common frames omitted
-Caused by: org.hibernate.AnnotationException: No identifier specified for entity: cn.edu.haue.graduate.entity.Course
-	at org.hibernate.cfg.InheritanceState.determineDefaultAccessType(InheritanceState.java:266) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.cfg.InheritanceState.getElementsToProcess(InheritanceState.java:211) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:731) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.boot.model.source.internal.annotations.AnnotationMetadataSourceProcessorImpl.processEntityHierarchies(AnnotationMetadataSourceProcessorImpl.java:249) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess$1.processEntityHierarchies(MetadataBuildingProcess.java:222) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:265) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:861) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:888) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:57) ~[spring-orm-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:390) ~[spring-orm-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:377) ~[spring-orm-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1765) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1702) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	... 39 common frames omitted
-
-2018-06-25 16:11:44.844  INFO 6932 --- [main] cn.edu.haue.graduate.MainTest            : Starting MainTest on DESKTOP-KHAT3SD with PID 6932 (started by HP in D:\IdeaProjects\graduate)
-2018-06-25 16:11:44.846  INFO 6932 --- [main] cn.edu.haue.graduate.MainTest            : No active profile set, falling back to default profiles: default
-2018-06-25 16:11:44.887  INFO 6932 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@25df00a0: startup date [Mon Jun 25 16:11:44 CST 2018]; root of context hierarchy
-2018-06-25 16:11:46.568  INFO 6932 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$6822080d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2018-06-25 16:11:46.812  INFO 6932 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2018-06-25 16:11:47.099  INFO 6932 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2018-06-25 16:11:47.147  INFO 6932 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
-2018-06-25 16:11:47.164  INFO 6932 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
-	name: default
-	...]
-2018-06-25 16:11:47.241  INFO 6932 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.17.Final}
-2018-06-25 16:11:47.242  INFO 6932 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2018-06-25 16:11:47.284  INFO 6932 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2018-06-25 16:11:47.442  INFO 6932 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2018-06-25 16:11:47.780  WARN 6932 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: No identifier specified for entity: cn.edu.haue.graduate.entity.Course
-2018-06-25 16:11:47.782  INFO 6932 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2018-06-25 16:11:47.787  INFO 6932 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2018-06-25 16:11:47.796  INFO 6932 --- [main] ConditionEvaluationReportLoggingListener : 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2018-06-25 16:11:47.802 ERROR 6932 --- [main] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: No identifier specified for entity: cn.edu.haue.graduate.entity.Course
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1706) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:579) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:501) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1089) ~[spring-context-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:859) ~[spring-context-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) ~[spring-context-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:395) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:327) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
-	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:139) [spring-boot-test-2.0.2.RELEASE.jar:2.0.2.RELEASE]
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
-	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.12.jar:4.12]
-	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68) [junit-rt.jar:na]
-	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47) [junit-rt.jar:na]
-	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242) [junit-rt.jar:na]
-	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70) [junit-rt.jar:na]
-Caused by: org.hibernate.AnnotationException: No identifier specified for entity: cn.edu.haue.graduate.entity.Course
-	at org.hibernate.cfg.InheritanceState.determineDefaultAccessType(InheritanceState.java:266) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.cfg.InheritanceState.getElementsToProcess(InheritanceState.java:211) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:731) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.boot.model.source.internal.annotations.AnnotationMetadataSourceProcessorImpl.processEntityHierarchies(AnnotationMetadataSourceProcessorImpl.java:249) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess$1.processEntityHierarchies(MetadataBuildingProcess.java:222) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:265) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:861) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:888) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:57) ~[spring-orm-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:390) ~[spring-orm-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:377) ~[spring-orm-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1765) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1702) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	... 39 common frames omitted
-
-2018-06-25 16:11:47.811 ERROR 6932 --- [main] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@557caf28] to prepare test instance [cn.edu.haue.graduate.MainTest@4fd05028]
-
-java.lang.IllegalStateException: Failed to load ApplicationContext
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125) ~[spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108) ~[spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190) ~[spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132) ~[spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246) ~[spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
-	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190) [spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.12.jar:4.12]
-	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68) [junit-rt.jar:na]
-	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47) [junit-rt.jar:na]
-	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242) [junit-rt.jar:na]
-	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70) [junit-rt.jar:na]
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: No identifier specified for entity: cn.edu.haue.graduate.entity.Course
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1706) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:579) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:501) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1089) ~[spring-context-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:859) ~[spring-context-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) ~[spring-context-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:395) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:327) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
-	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:139) ~[spring-boot-test-2.0.2.RELEASE.jar:2.0.2.RELEASE]
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117) ~[spring-test-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	... 24 common frames omitted
-Caused by: org.hibernate.AnnotationException: No identifier specified for entity: cn.edu.haue.graduate.entity.Course
-	at org.hibernate.cfg.InheritanceState.determineDefaultAccessType(InheritanceState.java:266) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.cfg.InheritanceState.getElementsToProcess(InheritanceState.java:211) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:731) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.boot.model.source.internal.annotations.AnnotationMetadataSourceProcessorImpl.processEntityHierarchies(AnnotationMetadataSourceProcessorImpl.java:249) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess$1.processEntityHierarchies(MetadataBuildingProcess.java:222) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:265) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:861) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:888) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:57) ~[spring-orm-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:390) ~[spring-orm-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:377) ~[spring-orm-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1765) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1702) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-	... 39 common frames omitted
-
+2018-06-25 09:26:58.532  INFO 16572 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.17.Final}
+2018-06-25 09:26:58.536  INFO 16572 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-06-25 09:26:58.650  INFO 16572 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-06-25 09:27:01.456  INFO 16572 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-06-25 09:27:02.984  INFO 16572 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-06-25 09:27:03.893  INFO 16572 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-06-25 09:27:04.359  INFO 16572 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/static/**'], []
+2018-06-25 09:27:04.496  INFO 16572 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4794f26c, org.springframework.security.web.context.SecurityContextPersistenceFilter@1ed1ae1a, org.springframework.security.web.header.HeaderWriterFilter@710618f0, org.springframework.security.web.authentication.logout.LogoutFilter@4e111bbc, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5e210f9d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@34f37f04, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@69ac4e64, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5c25d587, org.springframework.security.web.session.SessionManagementFilter@90c4df4, org.springframework.security.web.access.ExceptionTranslationFilter@59d6b063, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@21752042]
+2018-06-25 09:27:04.685  INFO 16572 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-06-25 09:27:05.116  INFO 16572 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3d7a7c49: startup date [Mon Jun 25 09:26:51 CST 2018]; root of context hierarchy
+2018-06-25 09:27:05.170  WARN 16572 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-06-25 09:27:05.224  INFO 16572 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/success]}" onto public java.lang.String cn.edu.haue.graduate.web.AdminController.success()
+2018-06-25 09:27:05.225  INFO 16572 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/home]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.AdminController.home()
+2018-06-25 09:27:05.228  INFO 16572 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.AdminController.login(javax.servlet.http.HttpSession)
+2018-06-25 09:27:05.229  INFO 16572 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test]}" onto public java.lang.String cn.edu.haue.graduate.web.FileUpload.test()
+2018-06-25 09:27:05.230  INFO 16572 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/uploadDeal],methods=[POST]}" onto public void cn.edu.haue.graduate.web.FileUpload.uploadDeal(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest)
+2018-06-25 09:27:05.232  INFO 16572 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/graduationCon]}" onto public org.springframework.web.servlet.ModelAndView cn.edu.haue.graduate.web.StudentController.goToGraduationConditionsPage(java.lang.String,javax.servlet.http.HttpSession)
+2018-06-25 09:27:05.233  INFO 16572 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/grade]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentController.goToGradePage(javax.servlet.http.HttpSession,org.springframework.ui.Model)
+2018-06-25 09:27:05.237  INFO 16572 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/login]}" onto public cn.edu.haue.graduate.entity.ResultInfo<cn.edu.haue.graduate.entity.Student> cn.edu.haue.graduate.web.StudentLoginController.studentLogin(java.lang.String,java.lang.String)
+2018-06-25 09:27:05.237  INFO 16572 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentLoginController.studentToLogin()
+2018-06-25 09:27:05.238  INFO 16572 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/update]}" onto public cn.edu.haue.graduate.entity.ResultInfo<cn.edu.haue.graduate.entity.Student> cn.edu.haue.graduate.web.StudentLoginController.studentUpdate(java.lang.String,java.lang.String,java.lang.String)
+2018-06-25 09:27:05.238  INFO 16572 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/student/updatePage]}" onto public java.lang.String cn.edu.haue.graduate.web.StudentLoginController.updateStudent()
+2018-06-25 09:27:05.243  INFO 16572 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-06-25 09:27:05.244  INFO 16572 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-06-25 09:27:05.288  INFO 16572 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-06-25 09:27:05.288  INFO 16572 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-06-25 09:27:05.942  INFO 16572 --- [restartedMain] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-06-25 09:27:06.658  INFO 16572 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-06-25 09:27:06.739  INFO 16572 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-06-25 09:27:06.742  INFO 16572 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-06-25 09:27:06.755  INFO 16572 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-06-25 09:27:06.857  INFO 16572 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2018-06-25 09:27:06.866  INFO 16572 --- [restartedMain] c.edu.haue.graduate.GraduateApplication  : Started GraduateApplication in 16.86 seconds (JVM running for 21.497)
+2018-06-25 09:28:05.236  INFO 16572 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-06-25 09:28:05.237  INFO 16572 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-06-25 09:28:05.273  INFO 16572 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 36 ms
+2018-06-25 09:28:05.348  WARN 16572 --- [http-nio-80-exec-1] o.s.web.servlet.PageNotFound             : No mapping found for HTTP request with URI [/student] in DispatcherServlet with name 'dispatcherServlet'
+2018-06-25 09:28:16.995  WARN 16572 --- [http-nio-80-exec-5] o.s.web.servlet.PageNotFound             : No mapping found for HTTP request with URI [/] in DispatcherServlet with name 'dispatcherServlet'
+2018-06-25 09:29:05.723  WARN 16572 --- [http-nio-80-exec-5] o.s.web.servlet.PageNotFound             : No mapping found for HTTP request with URI [/student] in DispatcherServlet with name 'dispatcherServlet'
+2018-06-25 09:29:46.268  WARN 16572 --- [http-nio-80-exec-9] o.s.web.servlet.PageNotFound             : No mapping found for HTTP request with URI [/student] in DispatcherServlet with name 'dispatcherServlet'
+2018-06-25 09:30:49.203  WARN 16572 --- [http-nio-80-exec-5] o.s.web.servlet.PageNotFound             : No mapping found for HTTP request with URI [/graduationWarning.html] in DispatcherServlet with name 'dispatcherServlet'
+2018-06-25 09:31:27.587  WARN 16572 --- [http-nio-80-exec-10] o.s.web.servlet.PageNotFound             : No mapping found for HTTP request with URI [/student/logout] in DispatcherServlet with name 'dispatcherServlet'
