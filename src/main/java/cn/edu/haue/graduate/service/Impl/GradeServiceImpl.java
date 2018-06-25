@@ -46,8 +46,8 @@ public class GradeServiceImpl implements GradeService {
         try {
 
             //根据id获取成绩
-            Grade one = gradeDao.getOne(grade.getGradeId());
-            grade.setCourse(one.getCourse());
+            //Grade one = gradeDao.getOne(grade.getGradeId());
+           // grade.setCourse(one.getCourse());
             //将成绩保存
             Grade save = gradeDao.save(grade);
             resultInfo.setResultObj(save);
@@ -69,7 +69,7 @@ public class GradeServiceImpl implements GradeService {
             Student one = studentDao.getOne(student.getStudentId());
             //查询学生成绩列表
             List<Grade> gradeList = one.getGradeList();
-            grade.setGradeId(UUID.randomUUID().toString());
+            //grade.setGradeId(UUID.randomUUID().toString());
             //添加学生的成绩
             gradeList.add(grade);
 
