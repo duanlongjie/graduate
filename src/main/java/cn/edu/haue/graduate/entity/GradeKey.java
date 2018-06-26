@@ -10,6 +10,9 @@ public class GradeKey implements Serializable {
     //所属课程
     private String courseName;
 
+    //所属课程类型
+    private String courseType;
+
     //所属学生
     private String studentId;
 
@@ -22,6 +25,14 @@ public class GradeKey implements Serializable {
 
     public void setCourseName(String courseName) {
         this.courseName = courseName;
+    }
+
+    public String getCourseType() {
+        return courseType;
+    }
+
+    public void setCourseType(String courseType) {
+        this.courseType = courseType;
     }
 
     public String getStudentId() {
@@ -41,12 +52,15 @@ public class GradeKey implements Serializable {
 
         if (getCourseName() != null ? !getCourseName().equals(gradeKey.getCourseName()) : gradeKey.getCourseName() != null)
             return false;
+        if (getCourseType() != null ? !getCourseType().equals(gradeKey.getCourseType()) : gradeKey.getCourseType() != null)
+            return false;
         return getStudentId() != null ? getStudentId().equals(gradeKey.getStudentId()) : gradeKey.getStudentId() == null;
     }
 
     @Override
     public int hashCode() {
         int result = getCourseName() != null ? getCourseName().hashCode() : 0;
+        result = 31 * result + (getCourseType() != null ? getCourseType().hashCode() : 0);
         result = 31 * result + (getStudentId() != null ? getStudentId().hashCode() : 0);
         return result;
     }

@@ -48,10 +48,20 @@ public class AdminController {
     //首页
     @RequestMapping(value = "/home")
     @PreAuthorize("hasAnyRole()")
-    @ResponseBody
     public ModelAndView home() {
         logger.info("admin登陆");
         ModelAndView modelAndView = new ModelAndView("/admin/home");
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Admin admin = adminService.getAdminByUsername(authentication.getName());
+        modelAndView.addObject("currentAdmin", admin);
+        return modelAndView;
+    }
+
+    //账户设置页
+    @RequestMapping(value = "/account_settings")
+    @PreAuthorize("hasAnyRole()")
+    public ModelAndView account_settings() {
+        ModelAndView modelAndView = new ModelAndView("/admin/account_settings");
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Admin admin = adminService.getAdminByUsername(authentication.getName());
         modelAndView.addObject("currentAdmin", admin);

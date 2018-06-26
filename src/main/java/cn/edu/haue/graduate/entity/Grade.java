@@ -10,10 +10,15 @@ import javax.persistence.*;
 @IdClass(GradeKey.class)
 public class Grade {
 
-    //所属课程
+    //所属课程名字
     @Id
     @Column(length = 32)
     private String courseName;
+
+    //所属课程类型
+    @Id
+    @Column(length = 32)
+    private String courseType;
 
     //所属学生
     @Id
@@ -26,8 +31,9 @@ public class Grade {
     public Grade() {
     }
 
-    public Grade(String courseName, String studentId, float score) {
+    public Grade(String courseName, String courseType, String studentId, float score) {
         this.courseName = courseName;
+        this.courseType = courseType;
         this.studentId = studentId;
         this.score = score;
     }
@@ -38,6 +44,14 @@ public class Grade {
 
     public void setCourseName(String courseName) {
         this.courseName = courseName;
+    }
+
+    public String getCourseType() {
+        return courseType;
+    }
+
+    public void setCourseType(String courseType) {
+        this.courseType = courseType;
     }
 
     public String getStudentId() {
@@ -60,6 +74,7 @@ public class Grade {
     public String toString() {
         return "Grade{" +
                 "courseName='" + courseName + '\'' +
+                ", courseType='" + courseType + '\'' +
                 ", studentId='" + studentId + '\'' +
                 ", score=" + score +
                 '}';

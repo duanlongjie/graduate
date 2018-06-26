@@ -11,9 +11,6 @@ import java.util.List;
 @Entity
 public class Admin {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-
     private String username;
 
     private String password;
@@ -32,14 +29,6 @@ public class Admin {
     public Admin(String username, String password) {
         this.username = username;
         this.password = password;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public List<SubMenu> getPreferences() {
@@ -78,7 +67,6 @@ public class Admin {
     @Override
     public String toString() {
         return "Admin{" +
-                "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';

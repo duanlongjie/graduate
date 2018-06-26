@@ -19,7 +19,7 @@ import java.util.List;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class DataTest {
+public class MenuTest {
     @Resource
     private MainMenuDao mainMenuDao;
 
