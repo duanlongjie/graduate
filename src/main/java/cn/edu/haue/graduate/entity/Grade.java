@@ -12,13 +12,13 @@ public class Grade {
 
     //所属课程
     @Id
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Course course;
+    @Column(length = 32)
+    private String courseName;
 
     //所属学生
     @Id
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Student student;
+    @Column(length = 12)
+    private String studentId;
 
     //分数
     private float score;
@@ -26,26 +26,26 @@ public class Grade {
     public Grade() {
     }
 
-    public Grade(Course course, Student student, float score) {
-        this.course = course;
-        this.student = student;
+    public Grade(String courseName, String studentId, float score) {
+        this.courseName = courseName;
+        this.studentId = studentId;
         this.score = score;
     }
 
-    public Course getCourse() {
-        return course;
+    public String getCourseName() {
+        return courseName;
     }
 
-    public void setCourse(Course course) {
-        this.course = course;
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 
-    public Student getStudent() {
-        return student;
+    public String getStudentId() {
+        return studentId;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 
     public float getScore() {
@@ -59,8 +59,8 @@ public class Grade {
     @Override
     public String toString() {
         return "Grade{" +
-                "course=" + course +
-                ", student=" + student +
+                "courseName='" + courseName + '\'' +
+                ", studentId='" + studentId + '\'' +
                 ", score=" + score +
                 '}';
     }

@@ -10,6 +10,7 @@ public class Course {
     @Column(length = 32)
     private String courseName;
     @Id
+    @Column(length = 32)
     private String majorName;
 
     //课程类型

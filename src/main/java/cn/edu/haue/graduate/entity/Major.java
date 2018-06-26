@@ -4,21 +4,24 @@ package cn.edu.haue.graduate.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 
 /**
  * 专业实体类
  * Created by 杨晋升 on 2018/6/9.
  */
 @Entity
+@IdClass(MajorKey.class)
 public class Major {
 
-    //学号前9位，就是专业ID
+    //专业名称
     @Id
-    @Column(length = 9)
-    private String MajorID;
-
-    private String MajorName;
-
+    @Column(length = 32)
+    private String majorName;
+    //专业年级
+    @Id
+    @Column(length = 32)
+    private String majorYears;
     //毕业标准
 
     //需要公共课选修课学分
@@ -33,28 +36,17 @@ public class Major {
     protected Major() {
     }
 
-    public Major(String majorID, String majorName, float needPublicCredit, float needPeCredit, float maxFailCredit) {
-        MajorID = majorID;
-        MajorName = majorName;
-        this.needPublicCredit = needPublicCredit;
-        this.needPeCredit = needPeCredit;
-        this.maxFailCredit = maxFailCredit;
-    }
-
-    public String getMajorID() {
-        return MajorID;
-    }
-
-    public void setMajorID(String majorID) {
-        MajorID = majorID;
+    public Major(String majorName, String majorYears) {
+        this.majorName = majorName;
+        this.majorYears = majorYears;
     }
 
     public String getMajorName() {
-        return MajorName;
+        return majorName;
     }
 
     public void setMajorName(String majorName) {
-        MajorName = majorName;
+        this.majorName = majorName;
     }
 
     public float getNeedPublicCredit() {
@@ -81,11 +73,19 @@ public class Major {
         this.maxFailCredit = maxFailCredit;
     }
 
+    public String getMajorYears() {
+        return majorYears;
+    }
+
+    public void setMajorYears(String majorYears) {
+        this.majorYears = majorYears;
+    }
+
     @Override
     public String toString() {
         return "Major{" +
-                "MajorID='" + MajorID + '\'' +
-                ", MajorName='" + MajorName + '\'' +
+                "majorName='" + majorName + '\'' +
+                ", majorYears='" + majorYears + '\'' +
                 ", needPublicCredit=" + needPublicCredit +
                 ", needPeCredit=" + needPeCredit +
                 ", maxFailCredit=" + maxFailCredit +

@@ -8,33 +8,28 @@ import java.io.Serializable;
  */
 public class GradeKey implements Serializable {
     //所属课程
-    private Course course;
+    private String courseName;
 
     //所属学生
-    private Student student;
+    private String studentId;
 
     public GradeKey() {
     }
 
-    public GradeKey(Course course, Student student) {
-        this.course = course;
-        this.student = student;
+    public String getCourseName() {
+        return courseName;
     }
 
-    public Course getCourse() {
-        return course;
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 
-    public void setCourse(Course course) {
-        this.course = course;
+    public String getStudentId() {
+        return studentId;
     }
 
-    public Student getStudent() {
-        return student;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 
     @Override
@@ -44,15 +39,15 @@ public class GradeKey implements Serializable {
 
         GradeKey gradeKey = (GradeKey) o;
 
-        if (getCourse() != null ? !getCourse().equals(gradeKey.getCourse()) : gradeKey.getCourse() != null)
+        if (getCourseName() != null ? !getCourseName().equals(gradeKey.getCourseName()) : gradeKey.getCourseName() != null)
             return false;
-        return getStudent() != null ? getStudent().equals(gradeKey.getStudent()) : gradeKey.getStudent() == null;
+        return getStudentId() != null ? getStudentId().equals(gradeKey.getStudentId()) : gradeKey.getStudentId() == null;
     }
 
     @Override
     public int hashCode() {
-        int result = getCourse() != null ? getCourse().hashCode() : 0;
-        result = 31 * result + (getStudent() != null ? getStudent().hashCode() : 0);
+        int result = getCourseName() != null ? getCourseName().hashCode() : 0;
+        result = 31 * result + (getStudentId() != null ? getStudentId().hashCode() : 0);
         return result;
     }
 }
