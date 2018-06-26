@@ -19,4 +19,6 @@ public interface StudentDao extends JpaRepository<Student, String> {
      */
     List<Student> getAllByIsDelete(Integer isDelete);
 
+
+
 }

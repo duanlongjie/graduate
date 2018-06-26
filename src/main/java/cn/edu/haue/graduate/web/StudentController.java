@@ -4,6 +4,7 @@ import cn.edu.haue.graduate.entity.*;
 import cn.edu.haue.graduate.service.GraduateOrNotService;
 import cn.edu.haue.graduate.service.StudentService;
 import cn.edu.haue.graduate.utils.ExcelUtil;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -56,10 +57,18 @@ public class StudentController {
 
     // 跳转 学生列表页   分页显示
     @RequestMapping("admin/student_list")
-    public String getStudentList(Model model){
-        ResultInfo<List<Student>> resultInfo = studentService.getAllStudent();
-        List<Student> students = resultInfo.getResultObj();
+    public String getStudentList(Model model,HttpSession session, Integer pager){
+        if (pager == null) {
+            pager = 0;
+        }
+        ResultInfo<Page<Student>> resultInfo = studentService.findAllByPage(pager, 5);
+        Page<Student> page = resultInfo.getResultObj();
+        List<Student> students = page.getContent();
+        int totalPages = page.getTotalPages();
         model.addAttribute("students",students);
+        model.addAttribute("currentPage", pager + 1);
+        model.addAttribute("totalPage", totalPages);
+//        model.addAttribute("currentAdmin", administratorService.findAdminByUid((Integer) session.getAttribute("currentUid")).getResultObj());
         return "/admin/student";
     }
 }

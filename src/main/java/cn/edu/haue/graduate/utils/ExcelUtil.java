@@ -1,5 +1,6 @@
 package cn.edu.haue.graduate.utils;
 
+import cn.edu.haue.graduate.constant.StudentStatus;
 import cn.edu.haue.graduate.entity.Grade;
 import cn.edu.haue.graduate.entity.Student;
 import cn.edu.haue.graduate.exceptions.ExcelException;
@@ -61,7 +62,7 @@ public class ExcelUtil {
 
             Cell[] cs = sheet.getRow(i);
             Student s = new Student();
-
+            s.setIsDelete(StudentStatus.USEFUL);
             for(int j= 0;j<endCloum;j++){
                 for(String k:mapping.keySet()){
                     //如果 表头信息

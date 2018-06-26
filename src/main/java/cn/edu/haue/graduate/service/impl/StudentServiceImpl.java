@@ -7,6 +7,9 @@ import cn.edu.haue.graduate.dao.StudentDao;
 import cn.edu.haue.graduate.entity.ResultInfo;
 import cn.edu.haue.graduate.entity.Student;
 import cn.edu.haue.graduate.service.StudentService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -99,6 +102,16 @@ public class StudentServiceImpl implements StudentService {
         ResultInfo<List<Student>> resultInfo = new ResultInfo<>();
         List<Student> students = studentDao.getAllByIsDelete(StudentStatus.USEFUL);
         resultInfo.setResultObj(students);
+        return resultInfo;
+    }
+
+    @Override
+    public ResultInfo<Page<Student>> findAllByPage(Integer pageNo, Integer pageSize) {
+        ResultInfo<Page<Student>> resultInfo =new ResultInfo<>();
+        Pageable pageable =new PageRequest(pageNo,pageSize);
+        Page<Student> page = studentDao.findAll(pageable);
+        resultInfo.setResultObj(page);
+        resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
         return resultInfo;
     }
 

@@ -3,6 +3,7 @@ package cn.edu.haue.graduate.service;
 
 import cn.edu.haue.graduate.entity.ResultInfo;
 import cn.edu.haue.graduate.entity.Student;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -44,5 +45,8 @@ public interface StudentService {
      * @return 返回所有学生列表信息
      */
     ResultInfo<List<Student>> getAllStudent();
+
+
+    ResultInfo<Page<Student>> findAllByPage(Integer pageNo,Integer pageSize);
 
 }

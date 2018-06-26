@@ -6,6 +6,7 @@ import cn.edu.haue.graduate.entity.Student;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
@@ -60,6 +61,16 @@ public class StudentServiceTest {
         List<Student> students = resultInfo.getResultObj();
         for (Student student: students){
             System.out.println(student);
+        }
+    }
+
+    @Test
+    public void findAllByPageTest(){
+        ResultInfo<Page<Student>> resultInfo = studentService.findAllByPage(0, 5);
+        Page<Student> page = resultInfo.getResultObj();
+        List<Student> students = page.getContent();
+        for(Student s: students){
+            System.out.println(s);
         }
     }
 }

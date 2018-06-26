@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="${request.contextPath}/static/admin/css/small-n-flat.css">
     <link rel="stylesheet" type="text/css" href="${request.contextPath}/static/admin/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="${request.contextPath}/static/admin/css/select2.min.css">
+    <link href="${request.contextPath}/static/admin/css/jquery.pagination.css" rel="stylesheet"/>
     <title>云棋牌管理后台</title>
 </head>
 <body class="cm-no-transition cm-1-navbar cm-2-navbar">
@@ -60,8 +61,8 @@
         <div class="cm-flex">
             <div class="cm-breadcrumb-container">
                 <ol class="breadcrumb">
-                    <li><a href="#">../</a></li>
-                    <li><a href="#">..</a></li>
+                    <li><a href="#">学生数据</a></li>
+                    <li><a href="#">学生数据展示</a></li>
                 </ol>
             </div>
         </div>
@@ -91,11 +92,12 @@
                     </div>
 
                     <div class="table-responsive">
-                        <table class="table table-condensed table-hover">
+                        <table class="table table-condensed table-hover table-striped">
                             <thead>
-                            <tr>
+                            <tr class="success">
                                 <td>id</td>
                                 <td>学生姓名</td>
+                                <td>当前获得学分</td>
                                 <td>操作</td>
                             </tr>
                             </thead>
@@ -104,6 +106,7 @@
                             <tr>
                                 <td>${s.studentId}</td>
                                 <td>${s.studentName}</td>
+                                <td>${s.acquireCredit}</td>
                                 <td>
                                     <button id="updateButton" type="button" class="btn btn-info" data-toggle="modal"
                                             data-target="#delete"
@@ -165,26 +168,24 @@
     <script src="${request.contextPath}/static/admin/js/bootstrap.js"></script>
     <script src="${request.contextPath}/static/admin/js/clearmin.js"></script>
     <script src="${request.contextPath}/static/admin/js/select2.min.js"></script>
+    <script src="${request.contextPath}/static/admin/js/studentPager.js"></script>
+    <script  type="text/javascript">
+        $(function() {
+            $("#pagination3").pagination({
+                currentPage :${currentPage},
+                totalPage :${totalPage},
+                isShow : true,
+                homePageText : "首页",
+                endPageText : "尾页",
+                prevPageText : "上一页",
+                nextPageText : "下一页",
+                /*callback : function(current) {
+                    $("#current3").text(current)
+                }*/
+            });
+        })
+    </script>
 
-    <#--<script  type="text/javascript">-->
-        <#--&lt;#&ndash;$(function() {&ndash;&gt;-->
-            <#--&lt;#&ndash;$("#pagination3").pagination({&ndash;&gt;-->
-                <#--&lt;#&ndash;currentPage :${currentPage},&ndash;&gt;-->
-                <#--&lt;#&ndash;totalPage :${totalPage},&ndash;&gt;-->
-                <#--&lt;#&ndash;isShow : true,&ndash;&gt;-->
-                <#--&lt;#&ndash;homePageText : "首页",&ndash;&gt;-->
-                <#--&lt;#&ndash;endPageText : "尾页",&ndash;&gt;-->
-                <#--&lt;#&ndash;prevPageText : "上一页",&ndash;&gt;-->
-                <#--&lt;#&ndash;nextPageText : "下一页",&ndash;&gt;-->
-                <#--&lt;#&ndash;/*callback : function(current) {&ndash;&gt;-->
-                    <#--&lt;#&ndash;$("#current3").text(current)&ndash;&gt;-->
-                <#--&lt;#&ndash;}*/&ndash;&gt;-->
-            <#--&lt;#&ndash;});&ndash;&gt;-->
-        <#--&lt;#&ndash;})&ndash;&gt;-->
-    <#--</script>-->
 
-    <#--<script type="text/javascript">-->
-
-    <#--// </script>-->
 </body>
 </html>

@@ -98,8 +98,6 @@ public class ExcelUtilTest {
     public void test01() throws Exception{
         //1、读取excel文件名，如16软件工程
 
-//        Major major = new Major("201612211", "16软件工程", 16, 4, 30);
-//        majorDao.save(major);
         List<Course> list = new ArrayList<>();
 
         //2、读取表首行，课程信息，如Java EE 开发技术/专业选修课/4和线性代数A/专业必修课/3

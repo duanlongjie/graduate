@@ -28,7 +28,7 @@ public class Student {
     private Major major;
 
     //学生成绩单
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL,fetch=FetchType.EAGER)
     private List<Grade> gradeList = new ArrayList<>();
 
     public Student() {
