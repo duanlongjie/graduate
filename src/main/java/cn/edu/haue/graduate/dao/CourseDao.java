@@ -1,12 +1,13 @@
 package cn.edu.haue.graduate.dao;
 
 import cn.edu.haue.graduate.entity.Course;
+import cn.edu.haue.graduate.entity.CourseKey;
 import cn.edu.haue.graduate.entity.Major;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * Created by 杨晋升 on 2018/5/29.
  */
-public interface CourseDao extends JpaRepository<Course, Integer> {
-    Course findCourseByCourseNameAndAndMajor(String courseName, Major major);
+public interface CourseDao extends JpaRepository<Course, CourseKey> {
+    Course findCourseByCourseName(String courseName);
 }

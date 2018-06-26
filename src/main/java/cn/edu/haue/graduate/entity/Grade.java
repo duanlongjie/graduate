@@ -7,34 +7,28 @@ import javax.persistence.*;
  * Created by 杨晋升 on 2018/5/29.
  */
 @Entity
+@IdClass(GradeKey.class)
 public class Grade {
 
-    @EmbeddedId
-    private GradeKey gradeId;
+    //所属课程
+    @Id
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Course course;
+
+    //所属学生
+    @Id
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Student student;
 
     //分数
     private float score;
 
-    //所属课程
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    private Course course;
-
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    private Student student;
-
-    public GradeKey getGradeId() {
-        return gradeId;
+    public Grade() {
     }
 
-    public void setGradeId(GradeKey gradeId) {
-        this.gradeId = gradeId;
-    }
-
-    public float getScore() {
-        return score;
-    }
-
-    public void setScore(float score) {
+    public Grade(Course course, Student student, float score) {
+        this.course = course;
+        this.student = student;
         this.score = score;
     }
 
@@ -54,12 +48,20 @@ public class Grade {
         this.student = student;
     }
 
+    public float getScore() {
+        return score;
+    }
+
+    public void setScore(float score) {
+        this.score = score;
+    }
+
     @Override
     public String toString() {
         return "Grade{" +
-                "gradeId='" + gradeId + '\'' +
+                "course=" + course +
+                ", student=" + student +
                 ", score=" + score +
-                ", course=" + course +
                 '}';
     }
 }

@@ -12,6 +12,7 @@ import java.util.List;
 public class Student {
 
     @Id
+    @Column(length = 12)
     private String studentId;
 
     private String studentName;
@@ -68,22 +69,6 @@ public class Student {
         this.password = password;
     }
 
-    public List<Grade> getGradeList() {
-        return gradeList;
-    }
-
-    public void setGradeList(List<Grade> gradeList) {
-        this.gradeList = gradeList;
-    }
-
-    public Major getMajor() {
-        return major;
-    }
-
-    public void setMajor(Major major) {
-        this.major = major;
-    }
-
     public Integer getIsDelete() {
         return isDelete;
     }
@@ -100,6 +85,22 @@ public class Student {
         this.acquireCredit = acquireCredit;
     }
 
+    public Major getMajor() {
+        return major;
+    }
+
+    public void setMajor(Major major) {
+        this.major = major;
+    }
+
+    public List<Grade> getGradeList() {
+        return gradeList;
+    }
+
+    public void setGradeList(List<Grade> gradeList) {
+        this.gradeList = gradeList;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -109,7 +110,6 @@ public class Student {
                 ", isDelete=" + isDelete +
                 ", acquireCredit=" + acquireCredit +
                 ", major=" + major +
-                ", gradeList=" + gradeList +
                 '}';
     }
 }

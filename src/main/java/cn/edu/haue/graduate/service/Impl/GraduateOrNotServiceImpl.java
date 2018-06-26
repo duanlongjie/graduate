@@ -7,6 +7,7 @@ import cn.edu.haue.graduate.dao.StudentDao;
 import cn.edu.haue.graduate.entity.*;
 import cn.edu.haue.graduate.service.GraduateOrNotService;
 import org.springframework.stereotype.Service;
+
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
 import java.util.List;
@@ -33,55 +34,58 @@ public class GraduateOrNotServiceImpl implements GraduateOrNotService {
 
     /**
      * 毕业条件审核
+     *
      * @param id
      * @return
      */
     @Override
     public ResultInfo<StudentCreditResult> GraduateOrNot(String id) {
-        Student student=studentDao.getOne(id);
+        ResultInfo<StudentCreditResult> resultInfo = new ResultInfo<>();
+        /*
+        Student student = studentDao.getOne(id);
         //获取学生的专业，根据专业的标准来审核毕业条件
-        Integer majorId=student.getMajor().getMajorID();
+        String majorId = student.getMajor().getMajorID();
         //根据专业id去查找出该专业毕业的标准
-        Major major=majorDao.getOne(majorId);
-        List<Course> courseList=major.getRequiredCourses();
-        float requiredCoursesCredit=0;                      //必修课学分标准
-        for(Course course: courseList){
+        Major major = majorDao.getOne(majorId);
+
+        List<Course> courseList = major.getRequiredCourses();
+        float requiredCoursesCredit = 0;                      //必修课学分标准
+        for (Course course : courseList) {
             if (Required_Course.equals(course.getCourseType())) { //必修课
-                requiredCoursesCredit+=course.getCourseCredit();
+                requiredCoursesCredit += course.getCourseCredit();
             }
         }
-        float max_fail_credit=major.getMaxFailCredit();     //最多补考学分标准
-        float needPeCredit=major.getneedPeCredit();         //体育课学分标准
-        float needPublicCredit=major.getNeedPublicCredit(); //公共选修课学分标准
+        float max_fail_credit = major.getMaxFailCredit();     //最多补考学分标准
+        float needPeCredit = major.getNeedPeCredit();       //体育课学分标准
+        float needPublicCredit = major.getNeedPublicCredit(); //公共选修课学分标准
 
-        List<Grade> gradeList=student.getGradeList();
-        float studentPeCredit=0;       //该学生体育课学分
-        float studentElectiveCredit=0; //该学生选修课学分
-        float studentRequiredCredit=0; //该学生必修课学分
-        float studentFailCredit=0;     //该学生补考学分
-        for(Grade grade:gradeList){
-            String courseType=grade.getCourse().getCourseType();
-            if(grade.getScore()>=60) {
+        List<Grade> gradeList = student.getGradeList();
+        float studentPeCredit = 0;       //该学生体育课学分
+        float studentElectiveCredit = 0; //该学生选修课学分
+        float studentRequiredCredit = 0; //该学生必修课学分
+        float studentFailCredit = 0;     //该学生补考学分
+        for (Grade grade : gradeList) {
+            String courseType = grade.getCourse().getCourseType();
+            if (grade.getScore() >= 60) {
                 if (PE.equals(courseType)) {             //体育课
                     studentPeCredit += grade.getCourse().getCourseCredit();
                 }
                 if (Elective_Course.equals(courseType)) { //选修课
                     studentElectiveCredit += grade.getCourse().getCourseCredit();
 
-                }else if (Required_Course.equals(courseType)) { //必修课
+                } else if (Required_Course.equals(courseType)) { //必修课
                     studentRequiredCredit += grade.getCourse().getCourseCredit();
                 }
-            }else {
+            } else {
                 if (Required_Course.equals(courseType)) { //必修课
-                    studentFailCredit+=grade.getCourse().getCourseCredit();
+                    studentFailCredit += grade.getCourse().getCourseCredit();
                 }
             }
         }
-        ResultInfo<StudentCreditResult> resultInfo=new ResultInfo<>();
-        StudentCreditResult studentCreditResult=new StudentCreditResult();
-        if(requiredCoursesCredit<=studentRequiredCredit&&needPeCredit<=studentPeCredit&&needPublicCredit<=studentElectiveCredit){
+        StudentCreditResult studentCreditResult = new StudentCreditResult();
+        if (requiredCoursesCredit <= studentRequiredCredit && needPeCredit <= studentPeCredit && needPublicCredit <= studentElectiveCredit) {
             studentCreditResult.setGraduateOrNot(GraduateOrNot_Yes);
-        }else{
+        } else {
             studentCreditResult.setGraduateOrNot(GraduateOrNot_No);
         }
         studentCreditResult.setName(student.getStudentName());
@@ -95,6 +99,9 @@ public class GraduateOrNotServiceImpl implements GraduateOrNotService {
         studentCreditResult.setStudentPeCredit(studentPeCredit);
         resultInfo.setResultObj(studentCreditResult);
         resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
+        */
         return resultInfo;
+
     }
+
 }

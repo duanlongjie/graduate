@@ -1,12 +1,9 @@
 package cn.edu.haue.graduate.entity;
 
 
-import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 专业实体类
@@ -15,16 +12,14 @@ import java.util.List;
 @Entity
 public class Major {
 
-    @Id
     //学号前9位，就是专业ID
-    private Integer MajorID;
+    @Id
+    @Column(length = 9)
+    private String MajorID;
 
     private String MajorName;
 
     //毕业标准
-    //专业必修课
-    @ManyToMany(cascade = CascadeType.ALL)
-    private List<Course> requiredCourses = new ArrayList<>();
 
     //需要公共课选修课学分
     private float needPublicCredit;
@@ -38,7 +33,7 @@ public class Major {
     protected Major() {
     }
 
-    public Major(Integer majorID, String majorName, float needPublicCredit, float needPeCredit, float maxFailCredit) {
+    public Major(String majorID, String majorName, float needPublicCredit, float needPeCredit, float maxFailCredit) {
         MajorID = majorID;
         MajorName = majorName;
         this.needPublicCredit = needPublicCredit;
@@ -46,11 +41,11 @@ public class Major {
         this.maxFailCredit = maxFailCredit;
     }
 
-    public Integer getMajorID() {
+    public String getMajorID() {
         return MajorID;
     }
 
-    public void setMajorID(Integer majorID) {
+    public void setMajorID(String majorID) {
         MajorID = majorID;
     }
 
@@ -62,14 +57,6 @@ public class Major {
         MajorName = majorName;
     }
 
-    public List<Course> getRequiredCourses() {
-        return requiredCourses;
-    }
-
-    public void setRequiredCourses(List<Course> requiredCourses) {
-        this.requiredCourses = requiredCourses;
-    }
-
     public float getNeedPublicCredit() {
         return needPublicCredit;
     }
@@ -78,11 +65,11 @@ public class Major {
         this.needPublicCredit = needPublicCredit;
     }
 
-    public float getneedPeCredit() {
+    public float getNeedPeCredit() {
         return needPeCredit;
     }
 
-    public void setneedPeCredit(float needPeCredit) {
+    public void setNeedPeCredit(float needPeCredit) {
         this.needPeCredit = needPeCredit;
     }
 
@@ -97,7 +84,7 @@ public class Major {
     @Override
     public String toString() {
         return "Major{" +
-                "MajorID=" + MajorID +
+                "MajorID='" + MajorID + '\'' +
                 ", MajorName='" + MajorName + '\'' +
                 ", needPublicCredit=" + needPublicCredit +
                 ", needPeCredit=" + needPeCredit +

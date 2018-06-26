@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Author: lnp
  * Date: 2018/6/13
  **/
-public interface MajorDao extends JpaRepository<Major,Integer> {
+public interface MajorDao extends JpaRepository<Major, String> {
 }

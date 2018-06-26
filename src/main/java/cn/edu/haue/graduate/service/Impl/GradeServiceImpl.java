@@ -27,6 +27,7 @@ public class GradeServiceImpl implements GradeService {
     @Override
     public ResultInfo<List<Grade>> getGradeList(Student student) {
         ResultInfo<List<Grade>> resultInfo = new ResultInfo<>();
+        /*
         try {
             //根据学生id查询成绩
             List<Grade> gradeList = gradeDao.getGradeList(student.getStudentId());
@@ -36,7 +37,7 @@ public class GradeServiceImpl implements GradeService {
             e.printStackTrace();
             resultInfo.setResultCode(ResultCode.RESULT_CODE_FAIL);
         }
-
+*/
         return resultInfo;
     }
 
@@ -86,7 +87,9 @@ public class GradeServiceImpl implements GradeService {
 
     @Override
     public ResultInfo<Grade> delGrade(String id, Student student) {
+
         ResultInfo<Grade> resultInfo = new ResultInfo<>();
+        /*
         try {
             //删除学生和成绩的关联关系
             Student one = studentDao.getOne(student.getStudentId());
@@ -100,7 +103,7 @@ public class GradeServiceImpl implements GradeService {
             studentDao.save(one);
 
             //根据id删除成绩
-            gradeDao.deleteById(id);
+            gradeDao.delete();
 
             resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
 
@@ -109,7 +112,7 @@ public class GradeServiceImpl implements GradeService {
             e.printStackTrace();
             resultInfo.setResultCode(ResultCode.RESULT_CODE_FAIL);
         }
-
+*/
         return resultInfo;
     }
 }

@@ -1,18 +1,10 @@
 package cn.edu.haue.graduate.entity;
 
-import javax.persistence.Embeddable;
 import java.io.Serializable;
 
-/**
- * 课程联合主键实体类
- * Created by 杨晋升 on 2018/6/25.
- */
-@Embeddable
 public class CourseKey implements Serializable {
-
     private String courseName;
-
-    private Major major;
+    private String majorName;
 
     public String getCourseName() {
         return courseName;
@@ -22,19 +14,30 @@ public class CourseKey implements Serializable {
         this.courseName = courseName;
     }
 
-    public Major getMajor() {
-        return major;
+    public String getMajorName() {
+        return majorName;
     }
 
-    public void setMajor(Major major) {
-        this.major = major;
+    public void setMajorName(String majorName) {
+        this.majorName = majorName;
     }
 
     @Override
-    public String toString() {
-        return "CourseKey{" +
-                "courseName='" + courseName + '\'' +
-                ", major=" + major +
-                '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CourseKey)) return false;
+
+        CourseKey courseKey = (CourseKey) o;
+
+        if (getCourseName() != null ? !getCourseName().equals(courseKey.getCourseName()) : courseKey.getCourseName() != null)
+            return false;
+        return getMajorName() != null ? getMajorName().equals(courseKey.getMajorName()) : courseKey.getMajorName() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getCourseName() != null ? getCourseName().hashCode() : 0;
+        result = 31 * result + (getMajorName() != null ? getMajorName().hashCode() : 0);
+        return result;
     }
 }

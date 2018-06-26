@@ -39,16 +39,6 @@ public class GradeServiceTest {
     }
 
     @Test
-    public void updateGrade() {
-        Grade grade = new Grade();
-        //grade.setGradeId("b883ca01-fe3f-4455-9ac3-d1f6dce83ead");
-        grade.setScore(92f);
-        ResultInfo<Grade> gradeResultInfo = gradeService.updateGrade(grade);
-        Grade grade1 = gradeResultInfo.getResultObj();
-        System.out.println(grade1);
-    }
-
-    @Test
     public void delGrade() {
         //Student student = new Student("201612211415","杨晋升","$10$BFdncAFbsht2PMZMls3yNulzGpcK.gG.IVPNR1oABvPYnEsfR0DV2");
         Student student = new Student("201612211302","李东奎","123");
