@@ -4,6 +4,8 @@ package cn.edu.haue.graduate.service;
 import cn.edu.haue.graduate.entity.ResultInfo;
 import cn.edu.haue.graduate.entity.Student;
 
+import java.util.List;
+
 
 /**
  * Author:dlj
@@ -36,5 +38,11 @@ public interface StudentService {
      * @return 返回修改后的学生信息
      */
     ResultInfo<Student> updateStudent(Student student);
+
+    /**
+     *  获取所有学生列表 (没有删除的)
+     * @return 返回所有学生列表信息
+     */
+    ResultInfo<List<Student>> getAllStudent();
 
 }

@@ -1,11 +1,9 @@
 package cn.edu.haue.graduate.web;
 
-import cn.edu.haue.graduate.entity.Grade;
-import cn.edu.haue.graduate.entity.ResultInfo;
-import cn.edu.haue.graduate.entity.Student;
-import cn.edu.haue.graduate.entity.StudentCreditResult;
+import cn.edu.haue.graduate.entity.*;
 import cn.edu.haue.graduate.service.GraduateOrNotService;
 import cn.edu.haue.graduate.service.StudentService;
+import cn.edu.haue.graduate.utils.ExcelUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -54,5 +52,14 @@ public class StudentController {
         model.addAttribute("student", student);
         System.out.println(gradeList);
         return "/student/grade";
+    }
+
+    // 跳转 学生列表页   分页显示
+    @RequestMapping("admin/student_list")
+    public String getStudentList(Model model){
+        ResultInfo<List<Student>> resultInfo = studentService.getAllStudent();
+        List<Student> students = resultInfo.getResultObj();
+        model.addAttribute("students",students);
+        return "/admin/student";
     }
 }

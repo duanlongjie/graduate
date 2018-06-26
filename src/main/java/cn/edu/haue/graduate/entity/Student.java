@@ -21,7 +21,7 @@ public class Student {
     /**标志 0:可用 1: 删除*/
     private Integer isDelete;
     /**学生已经获得的学分*/
-    private Integer acquireCredit;
+    private Float acquireCredit;
 
     //所属专业
     @ManyToOne(cascade = CascadeType.ALL)
@@ -77,13 +77,6 @@ public class Student {
         this.isDelete = isDelete;
     }
 
-    public Integer getAcquireCredit() {
-        return acquireCredit;
-    }
-
-    public void setAcquireCredit(Integer acquireCredit) {
-        this.acquireCredit = acquireCredit;
-    }
 
     public Major getMajor() {
         return major;
@@ -101,6 +94,14 @@ public class Student {
         this.gradeList = gradeList;
     }
 
+    public Float getAcquireCredit() {
+        return acquireCredit;
+    }
+
+    public void setAcquireCredit(Float acquireCredit) {
+        this.acquireCredit = acquireCredit;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -109,6 +110,8 @@ public class Student {
                 ", password='" + password + '\'' +
                 ", isDelete=" + isDelete +
                 ", acquireCredit=" + acquireCredit +
+                ", major=" + major +
+                ", gradeList=" + gradeList +
                 '}';
     }
 }

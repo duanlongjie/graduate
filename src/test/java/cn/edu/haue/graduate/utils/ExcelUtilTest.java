@@ -1,17 +1,40 @@
 package cn.edu.haue.graduate.utils;
 
+import cn.edu.haue.graduate.dao.CourseDao;
+import cn.edu.haue.graduate.dao.GradeDao;
+import cn.edu.haue.graduate.dao.MajorDao;
+import cn.edu.haue.graduate.dao.StudentDao;
+import cn.edu.haue.graduate.entity.Course;
+import cn.edu.haue.graduate.entity.Grade;
+import cn.edu.haue.graduate.entity.Major;
 import cn.edu.haue.graduate.entity.Student;
 import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.annotation.Resource;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
+import java.util.*;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class ExcelUtilTest {
+
+    @Resource
+    private StudentDao studentDao;
+
+    @Resource
+    private CourseDao courseDao;
+
+    @Resource
+    private GradeDao gradeDao;
+
+    @Resource
+    private MajorDao majorDao;
     //测试将  数据写入excel表格
     @Test
     public void test1() throws Exception{
@@ -64,14 +87,94 @@ public class ExcelUtilTest {
     public void testexcelToList02() throws Exception{
         //InputStream inputStream,T t,Integer columStart,Integer cloumEnd
         InputStream in = new FileInputStream("C:/sorftwares/软工1641.xls");
-        List<Student> students = ExcelUtil.excelToList(in, new Student(), 1, 3);
-        for (Student s:students){
-            System.out.println(s);
-        }
+        List<Student> students = ExcelUtil.excelToList(in, new Student(), 0, 4);
+//        for (Student s:students){
+//            System.out.println(s);
+//        }
 
     }
 
+    @Test
+    public void test01() throws Exception{
+        //1、读取excel文件名，如16软件工程
+
+//        Major major = new Major("201612211", "16软件工程", 16, 4, 30);
+//        majorDao.save(major);
+        List<Course> list = new ArrayList<>();
+
+        //2、读取表首行，课程信息，如Java EE 开发技术/专业选修课/4和线性代数A/专业必修课/3
+       //InputStream inputStream,T t,Integer columStart,Integer cloumEnd
+        InputStream in =new FileInputStream("C:/sorftwares/软工1641.xls");
+//        Integer cloums = ExcelUtil.getCloums(in);
 
 
+        List<String> filedNames = ExcelUtil.getFiledNames(in, 2,4,63);
+        for (String s:filedNames){
+            System.out.println(s);
+            String[] split = s.split("/");
+
+
+            System.out.println(split.length);
+            Course course = new Course(split[0],"16软件工程",split[1],Float.parseFloat(split[2]));
+            courseDao.save(course);
+            list.add(course);
+        }
+
+        for(Course c: list){
+            System.out.println(c);
+        }
+//
+//        3、读下一行
+//        3.1、读该行前三列，如：1	201612211101	来亮亮,舍弃序号
+        Student student1 = new Student("201612211101", "来亮亮");
+        //3.2、继续读该行后面的列，有数据就停下来，获取该数据的所属列和所属行，如数据73属于列Java EE 开发技术/专业选修课/4
+//        Grade grade1 = new Grade(courseDao.findCourseByCourseName("Java EE 开发技术"), student1, 73);
+        //3.3、继续读该行后面的列，有数据就停下来，获取该数据的所属列，如数据60属于列线性代数A/专业必修课/3
+//        Grade grade2 = new Grade(courseDao.findCourseByCourseName("线性代数A"), student1, 60);
+        //3.4、把该行数据读完，得到grade1、grade2、grade3.........,把他们设置为该行学生的分数,然后存学生
+//        student1.getGradeList().add(grade1);
+//        student1.getGradeList().add(grade2);
+//        studentDao.save(student1);
+//        4、继续读取下一行.........
+    }
+
+    @Test
+    public void test03() throws  Exception{
+        InputStream in =new FileInputStream("C:/sorftwares/软工1641.xls");
+
+//        ExcelUtil
+    }
+
+    //导入学生
+    @Test
+    public void  save() throws Exception{
+//        Student s =new Student();
+//        s.setIsDelete(0);s.setPassword("123");s.setStudentId("201612211122");
+//        Grade g= new Grade("高数","201612211122",89);
+//        s.getGradeList().add(g);
+//        studentDao.save(s);
+
+        InputStream in =new FileInputStream("C:/sorftwares/软工1641.xls");
+        Map<String,String> map =new HashMap<>();
+        map.put("学号","studentId"); map.put("姓名","studentName");
+        map.put("获得学分","acquireCredit");
+        List<Student> students = ExcelUtil.getStudentsInfo(in, 2, 0, 4, map);
+        for(Student s:students){
+            studentDao.save(s);
+            if(s.getStudentName().equals("段龙杰")){
+                System.out.println(s);
+
+                List<Grade> gradeList =
+                        s.getGradeList();
+                for(Grade g:gradeList){
+                    System.out.println(g);
+                }
+            }
+
+            System.out.println("--------------------------------------------------------");
+            System.out.println("--------------------------------------------------------");
+        }
+
+    }
 
 }

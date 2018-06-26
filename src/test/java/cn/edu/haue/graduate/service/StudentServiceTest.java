@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -50,5 +51,15 @@ public class StudentServiceTest {
     @Test
     public void deleteStudentByIdTest(){
         ResultInfo<Student> resultInfo = studentService.deleteStudentById("201612211122");
+    }
+
+    @Test
+    public void getAllStudentByIsDeleteTest(){
+        ResultInfo<List<Student>> resultInfo =
+                studentService.getAllStudent();
+        List<Student> students = resultInfo.getResultObj();
+        for (Student student: students){
+            System.out.println(student);
+        }
     }
 }

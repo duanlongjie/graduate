@@ -1,5 +1,7 @@
 package cn.edu.haue.graduate.utils;
 
+import cn.edu.haue.graduate.entity.Grade;
+import cn.edu.haue.graduate.entity.Student;
 import cn.edu.haue.graduate.exceptions.ExcelException;
 import jxl.Cell;
 import jxl.Sheet;
@@ -7,6 +9,7 @@ import jxl.Workbook;
 import jxl.write.Label;
 import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
+import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
@@ -20,6 +23,155 @@ import java.util.*;
  * Excel 工具类
  */
 public class ExcelUtil {
+    /**
+     *  获取 学生信息集合 以及 学生对应的 分数集合
+     * @param in  excel 表所对应的 输入流
+     * @param row  表头所在列数
+     * @param startCloum 学生信息开始列数
+     * @param endCloum  学生信息结束列
+     * @param mapping  excel 表头和 学生 属性的映射关系 map
+     * @param <T>
+     * @return  返回学生集合
+     * @throws Exception
+     */
+    public static <T> List<Student> getStudentsInfo (InputStream in ,
+                            Integer row,Integer startCloum,Integer endCloum,
+                            Map<String,String> mapping) throws  Exception{
+        Workbook book= null;
+        try {
+            book=Workbook.getWorkbook(in);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        Sheet sheet = book.getSheet(0);
+
+        // 获取表头行
+        Cell[] cells = sheet.getRow(row);
+        //存放 表头信息的数组
+        String [] fns = new String[cells.length];
+
+        for(int i=0; i<cells.length; i++){
+          fns[i]=cells[i].getContents();
+        }
+        //存放学生信息的集合
+        List<Student> students =new ArrayList<>();
+        //遍历学生成绩行
+        for(int i=row+1; i<sheet.getRows(); i++){
+
+            Cell[] cs = sheet.getRow(i);
+            Student s = new Student();
+
+            for(int j= 0;j<endCloum;j++){
+                for(String k:mapping.keySet()){
+                    //如果 表头信息
+                    if(fns[j].equals(k)){
+                        String value = mapping.get(fns[j]);
+                        //将 属性和 excel表头 映射的信息值 set进去
+                        BeanUtils.setProperty(s,value,cs[j].getContents());
+                    }
+                }
+            }
+            //遍历成绩
+            for(int j=endCloum; j<sheet.getColumns();j++){
+                String goldstr = cs[j].getContents();
+                float gold;
+                //成绩非空
+                if(!"".equals(goldstr)){
+                    if("优".equals(goldstr)){
+                        gold=90;
+                    }
+                  else  if("良".equals(goldstr)){
+                        gold=80;
+                    }
+                    else  if("中".equals(goldstr)){
+                        gold=70;
+                    }
+                    else  if("及格".equals(goldstr)){
+                        gold=60;
+                    }
+                    else {
+                    gold = Float.parseFloat(goldstr);
+                    }
+                    Grade grade =new Grade(fns[j].split("/")[0],fns[j].split("/")[1],s.getStudentId(),gold);
+                    s.getGradeList().add(grade);
+                }
+
+            }
+            students.add(s);
+
+        }
+        return students;
+    }
+
+    /**
+     * 获取 excel表 的列数
+     * @param inputStream
+     * @return
+     */
+    public static  Integer getCloums(InputStream inputStream){
+        Workbook book= null;
+        try {
+            book=Workbook.getWorkbook(inputStream);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+       return book.getSheet(0).getColumns();
+    }
+    /**
+     * 获取 表头内容集合
+     * @param inputStream  文件的输入流
+     * @param row  表头所在行
+     * @param startCloum 起始列
+     * @param endCloum 终止列
+     * @return 表头内容的集合
+     */
+    public static  List<String> getFiledNames(InputStream inputStream, Integer row,Integer startCloum,Integer endCloum){
+
+        List<String> fileds =new ArrayList<>();
+        Workbook book= null;
+        try {
+            book=Workbook.getWorkbook(inputStream);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        Sheet sheet = book.getSheet(0);
+        Cell[] cells = sheet.getRow(row);
+        for(int i =startCloum; i<endCloum; i++){
+            String contents = cells[i].getContents();
+            fileds.add(contents);
+        }
+
+        return fileds;
+    }
+
+
+    /**
+     * 获取表头名称集合
+     * @param inputStream excel 文件输入流
+     * @param row 表头所在行
+     * @return 表头集合
+     */
+    public static  List<String> getFiledNames(InputStream inputStream, Integer row){
+        List<String> fileds =new ArrayList<>();
+        Workbook book= null;
+        try {
+            book=Workbook.getWorkbook(inputStream);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        Sheet sheet = book.getSheet(0);
+        Cell[] cells = sheet.getRow(row);
+        for(int i =0; i<cells.length; i++){
+            String contents = cells[i].getContents();
+            fileds.add(contents);
+        }
+        return fileds;
+    }
 
 
     /**
@@ -72,8 +224,8 @@ public class ExcelUtil {
 
         System.out.println("--------------------- index : "+index);
 
+        //遍历行数
         for(int i=1;i<len;i++){//从1开始，避免插入标题  列名
-            //System.out.println(i);
             Cell[] cells = sheet.getRow(i); //获取该行 元素内容
             T o=null;
             try {
@@ -83,6 +235,10 @@ public class ExcelUtil {
             }
             for(int j=columStart;j<cloumEnd;j++){ // 遍历每列
                 String contents = cells[j].getContents();
+                System.out.print(contents+"  ");
+//                for(){
+//
+//                }
                 try {
                     methods[j].invoke(o,contents);   //调用目标方法
                 } catch (Exception e){
@@ -90,6 +246,7 @@ public class ExcelUtil {
                 }
 
             }
+            System.out.println();
             list.add(o);
         }
         book.close();
@@ -414,26 +571,32 @@ public class ExcelUtil {
             Workbook wb=Workbook.getWorkbook(in);
             //获取工作表
             Sheet sheet=wb.getSheet(sheetName);
-
+            int rows = sheet.getRows();
+            int realRows =rows;
             //获取工作表的有效行数
-            int realRows=0;
-            for(int i=0;i<sheet.getRows();i++){
-
-                int nullCols=0;
-                for(int j=0;j<sheet.getColumns();j++){
-                    Cell currentCell = sheet.getCell(j, i);
-//                    Cell currentCell=sheet.getCell(j,i);
-                    if(currentCell==null || "".equals(currentCell.getContents().toString())){
-                        nullCols++;
-                    }
-                }
-
-                if(nullCols==sheet.getColumns()){
-                    break;
-                }else{
-                    realRows++;
-                }
-            }
+//            int realRows=0;
+//            for(int i=0;i<sheet.getRows();i++){
+//
+//                int nullCols=0;
+//                for(int j=0;j<sheet.getColumns();j++){
+//                    Cell currentCell = sheet.getCell(j, i);
+//                    if(currentCell.getContents()==null || "".equals(currentCell.getContents().toString())){
+//                        nullCols++;
+//                    }
+//                    if(currentCell.getContents()!=""){
+//                        realRows++;
+//                        break;
+//                    }
+//                    }
+//
+//                if(nullCols==sheet.getColumns()){
+//                    break;
+//                }else{
+//                    realRows++;
+//                }
+//            }
+//
+//            System.out.println(realRows+"==============");
 
 
             //如果Excel中没有数据则提示错误
@@ -442,7 +605,12 @@ public class ExcelUtil {
             }
 
 
-            Cell[] firstRow=sheet.getRow(0);
+            Cell[] firstRow=sheet.getRow(2);
+            for (int i =0; i<firstRow.length; i++){
+                System.out.print(firstRow[i].getContents()+" " );
+
+            }
+            System.out.println();
 
             String[] excelFieldNames=new String[firstRow.length];
 
