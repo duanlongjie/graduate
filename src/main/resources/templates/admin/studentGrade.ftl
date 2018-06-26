@@ -79,14 +79,16 @@
                     <div class="panel-body">
 
                         <div>
-                            <span style="font-size: 19px">学生数据展示</span>
+                            <span style="font-size: 19px">
+                                <td>学号:</td>
+                                <td>${student.studentId}</td>
+                                  </span><br>
+                            <span style="font-size: 19px">
+                                <td>学生姓名:</td>
+                                <td>${student.studentName}</td>
+                                   </span>
 
-                            <div align="right">
-                            <button id="updateButton" type="button" class="btn btn-info text-right" data-toggle="modal"
-                                    data-target="#delete"
-                                    data-whatever="">添加
-                            </button>
-                        </div>
+
                         </div>
 
                     </div>
@@ -95,34 +97,17 @@
                         <table class="table table-condensed table-hover table-striped">
                             <thead>
                             <tr class="success">
-                                <td>id</td>
-                                <td>学生姓名</td>
-                                <td>当前获得学分</td>
-                                <td>操作</td>
+                                <td>课程</td>
+                                <td>课程类型</td>
+                                <td>分数</td>
                             </tr>
                             </thead>
                             <tbody id="tbody">
-                            <#list students as s>
+                            <#list grades as g>
                             <tr>
-                                <td>${s.studentId}</td>
-                                <td>${s.studentName}</td>
-                                <td>${s.acquireCredit}</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a class="btn btn-success" href="studentGrade?id=${s.studentId}">成绩单</a>
-
-                                        <button id="updateButton" type="button" class="btn btn-info" data-toggle="modal"
-                                                data-target="#delete"
-                                                data-whatever="">修改
-                                        </button>
-                                        <button id="updateButton" type="button" class="btn btn-danger" data-toggle="modal"
-                                                data-target="#delete"
-                                                data-whatever="">删除
-                                        </button>
-
-                                        </div>
-
-                                </td>
+                                <td>${g.courseName}</td>
+                                <td>${g.courseType}</td>
+                                <td>${g.score}</td>
                             </tr>
                             </#list>
                             </tbody>
@@ -176,20 +161,6 @@
     <script src="${request.contextPath}/static/admin/js/select2.min.js"></script>
     <script src="${request.contextPath}/static/admin/js/studentPager.js"></script>
     <script  type="text/javascript">
-        $(function() {
-            $("#pagination3").pagination({
-                currentPage :${currentPage},
-                totalPage :${totalPage},
-                isShow : true,
-                homePageText : "首页",
-                endPageText : "尾页",
-                prevPageText : "上一页",
-                nextPageText : "下一页",
-                /*callback : function(current) {
-                    $("#current3").text(current)
-                }*/
-            });
-        })
     </script>
 
 

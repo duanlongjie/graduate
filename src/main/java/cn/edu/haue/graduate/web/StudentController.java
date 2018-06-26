@@ -71,4 +71,14 @@ public class StudentController {
 //        model.addAttribute("currentAdmin", administratorService.findAdminByUid((Integer) session.getAttribute("currentUid")).getResultObj());
         return "/admin/student";
     }
+
+    @RequestMapping("admin/studentGrade")
+    public String s(Model model,String id){
+        ResultInfo<Student> resultInfo = studentService.getStudentById(id);
+        Student student = resultInfo.getResultObj();
+        List<Grade> grades = student.getGradeList();
+        model.addAttribute("student",student);
+        model.addAttribute("grades",grades);
+        return "/admin/studentGrade";
+    }
 }

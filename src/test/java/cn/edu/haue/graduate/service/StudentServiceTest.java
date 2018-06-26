@@ -26,8 +26,14 @@ public class StudentServiceTest {
 
     @Test
     public void getStudentGradeByIdTest(){
-        ResultInfo<Student> re = studentService.getStudentById("201612211415");
+        ResultInfo<Student> re = studentService.getStudentById("201612211106");
         Student student = re.getResultObj();
+
+        System.out.println(student);
+        List<Grade> gradeList = student.getGradeList();
+        for (Grade g:gradeList){
+            System.out.println(g);
+        }
 //        System.out.println(student.getGradeList());
         /*
         for(Grade x:student.getGradeList()){
