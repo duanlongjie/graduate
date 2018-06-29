@@ -1,13 +1,7 @@
 package cn.edu.haue.graduate.utils;
 
-import cn.edu.haue.graduate.dao.CourseDao;
-import cn.edu.haue.graduate.dao.GradeDao;
-import cn.edu.haue.graduate.dao.MajorDao;
-import cn.edu.haue.graduate.dao.StudentDao;
-import cn.edu.haue.graduate.entity.Course;
-import cn.edu.haue.graduate.entity.Grade;
-import cn.edu.haue.graduate.entity.Major;
-import cn.edu.haue.graduate.entity.Student;
+import cn.edu.haue.graduate.dao.*;
+import cn.edu.haue.graduate.entity.*;
 import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
@@ -26,7 +20,6 @@ public class ExcelUtilTest {
 
     @Resource
     private StudentDao studentDao;
-
     @Resource
     private CourseDao courseDao;
 
@@ -35,25 +28,6 @@ public class ExcelUtilTest {
 
     @Resource
     private MajorDao majorDao;
-    //测试将  数据写入excel表格
-    @Test
-    public void test1() throws Exception{
-        List<Student> list=new ArrayList<>();
-        for(int i=0 ;i<10; i++){
-            list.add(new Student(""+(i+1),"tom"+i,"123"+i));
-        }
-        System.out.println("===========");
-        for(Student s:list){
-            System.out.println(s);
-        }
-        System.out.println("________________");
-        LinkedHashMap<String,String> filedMap=new LinkedHashMap<>();
-        filedMap.put("studentId","id");  filedMap.put("studentName","姓名");
-        filedMap.put("password","密码"); filedMap.put("gradeList","成绩");
-        File file=new File("C:/各种软件/学生表.xls");
-        OutputStream out=new FileOutputStream(file);
-        ExcelUtil.<Student> listToExcel(list,filedMap,"学生表",1000,out);
-    }
 
     @Test
     public void excelToListTest() throws Exception{
@@ -86,8 +60,7 @@ public class ExcelUtilTest {
     @Test
     public void testexcelToList02() throws Exception{
         //InputStream inputStream,T t,Integer columStart,Integer cloumEnd
-        InputStream in = new FileInputStream("C:/sorftwares/软工1641.xls");
-        List<Student> students = ExcelUtil.excelToList(in, new Student(), 0, 4);
+        List<Student> students = ExcelUtil.excelToList("C:/sorftwares/软工1641.xls", new Student(), 0, 4);
 //        for (Student s:students){
 //            System.out.println(s);
 //        }
@@ -102,11 +75,10 @@ public class ExcelUtilTest {
 
         //2、读取表首行，课程信息，如Java EE 开发技术/专业选修课/4和线性代数A/专业必修课/3
        //InputStream inputStream,T t,Integer columStart,Integer cloumEnd
-        InputStream in =new FileInputStream("C:/sorftwares/软工1641.xls");
 //        Integer cloums = ExcelUtil.getCloums(in);
 
 
-        List<String> filedNames = ExcelUtil.getFiledNames(in, 2,4,63);
+        List<String> filedNames = ExcelUtil.getFiledNames("C:/sorftwares/软工1641.xls", 2,4,ExcelUtil.getCloums( "C:/sorftwares/软工1641.xls"));
         for (String s:filedNames){
             System.out.println(s);
             String[] split = s.split("/");
@@ -137,26 +109,43 @@ public class ExcelUtilTest {
     }
 
     @Test
-    public void test03() throws  Exception{
-        InputStream in =new FileInputStream("C:/sorftwares/软工1641.xls");
+    public void testgetFiledName() throws  Exception {
+//        List<String> filedNames = ExcelUtil.getFiledNames("C:/sorftwares/2016本科新生数据.xls", 0);
+//        for(String s: filedNames){
+//            System.out.print(s+" ");
+//        }
+//        System.out.println();
+//        Workbook workbook = ExcelUtil.getWorkBookByFileAddress("C:/sorftwares/2016本科新生数据.xls");
+//        Sheet sheet = workbook.getSheet(0);
+//        for (int i = 0; i < sheet.getRows(); i++) {
+//            Cell[] cell = sheet.getRow(i);
+//            for (int j = 0; j < cell.length; j++) {
+//                System.out.print(cell[j].getContents() + " ");
+//            }
+//            System.out.println();
 
-//        ExcelUtil
+            Map<String, String> map = new HashMap<>();
+            map.put("stu_name", "name");
+            map.put("stu_card_no", "identityCard");
+            map.put("stu_home_in", "address");
+            map.put("stu_sex", "gender");
+            map.put("haue_major_name", "major");
+
+//            List<Students> students = ExcelUtil.getStudentsInfo(new Students(), "C:/sorftwares/2016本科新生数据.xls", 0, 0, ExcelUtil.getCloums("C:/sorftwares/2016本科新生数据.xls"), map);
+//            for (Students s : students) {
+//                studentsDao.save(s);
+//            }
+
     }
 
     //导入学生
     @Test
     public void  save() throws Exception{
-//        Student s =new Student();
-//        s.setIsDelete(0);s.setPassword("123");s.setStudentId("201612211122");
-//        Grade g= new Grade("高数","201612211122",89);
-//        s.getGradeList().add(g);
-//        studentDao.save(s);
 
-        InputStream in =new FileInputStream("C:/sorftwares/软工1641.xls");
         Map<String,String> map =new HashMap<>();
         map.put("学号","studentId"); map.put("姓名","studentName");
         map.put("获得学分","acquireCredit");
-        List<Student> students = ExcelUtil.getStudentsInfo(in, 2, 0, 4, map);
+        List<Student> students = ExcelUtil.getStudentsInfo("C:/sorftwares/软工1641.xls", 2, 0, 4, map);
         for(Student s:students){
             studentDao.save(s);
             if(s.getStudentName().equals("段龙杰")){
@@ -173,6 +162,34 @@ public class ExcelUtilTest {
             System.out.println("--------------------------------------------------------");
         }
 
+    }
+    @Test
+    public void importTest() throws Exception{
+        String path="C:/sorftwares/软工1641.xls";
+        Map<String,String> map =new HashMap<>();
+        map.put("学号","studentId"); map.put("姓名","studentName");
+        map.put("获得学分","acquireCredit");
+//        map.put("stu_name", "name");
+//        map.put("stu_card_no", "identityCard");
+//        map.put("stu_home_in", "address");
+//        map.put("stu_sex", "gender");
+//        map.put("haue_major_name", "major");
+        List<Student> students = ExcelUtil.getEntityList(new Student(), path, map);
+        List<Student> list = ExcelUtil.getEntityListIncludeGrade(students, path, "学号");
+        for(Student s:students){
+//            System.out.println(s.getStudentName()+"_________");
+//            System.out.println(s.getGradeList());
+            studentDao.save(s);
+        }
+    }
+    @Test
+    public void getCourseName(){
+        List<String> filedNames = ExcelUtil.getFiledNames("C:/sorftwares/软工1641.xls");
+        for(String s: filedNames){
+             Course c =new Course(s.split("/")[0],"软件工程",s.split("/")[1],
+                     Float.parseFloat(s.split("/")[2]));
+             courseDao.save(c);
+        }
     }
 
 }

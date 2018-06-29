@@ -8,45 +8,59 @@
     <script src="/static/admin/js/bootstrap.js"></script>
     <link rel="stylesheet" href="/static/admin/css/bootstrap-clearmin.css"/>
     <link rel="stylesheet" href="/static/admin/css/login.css"/>
-    <script type="text/javascript">
-        // $(function(){
-        //     $("#but").click(function(){
-        //         // +$("#file").val()
-        //         var path1=$("#file").val();
-        //         var path="";
-        //
-        //         for(var i=0;i<path1.length;i++){
-        //             if(path1[i]!="\\"){
-        //                 path+=path1[i]
-        //             }
-        //             if(path1[i]=="\\"){
-        //                 path+="/"
-        //             }
-        //
-        //      }
-        //         alert(path)
-        //         $.ajax({
-        //             url:'excel?path='+path,
-        //             type:'get',
-        //             success: function(data){
-        //             },
-        //             error: function (data) {
-        //
-        //             }
-        //         })
-        //     })
-        // });
-    </script>
+    <link rel="stylesheet" href="/static/admin/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/static/admin/css/bootstrap-fileinput.css"/>
 </head>
 <body id="particles">
     <h1 align="center">Excel导入</h1>
-    <#--<input type="file" name="excel" id="file">-->
-    <#--<input type="button" id="but" value="导入">-->
+    <div  style="width: 1400px;height: 200px;margin: 100px auto ;" >
 
-    <form action="uploadDeal" method="post" enctype="multipart/form-data" >
-        <input type="file"  name="file">
-        <input type="submit" id="but" value="导入">
-    </form>
+
+        <!--导航栏-->
+        <ul class="list-unstyled">
+
+            <li class=" ">
+                <form class="form-horizontal"  role="form" action="uploadDeal" method="post" enctype="multipart/form-data" >
+                    <div class="col-xs-1">
+                        <h4><i>导入学生</i></h4>
+                        <input class="form-control"  type="file"  name="file">
+                        <input  class="form-control" type="submit" id="but" value="导入学生">
+                    </div>
+                </form>
+            </li>
+
+            <li class=" ">
+                <form class="form-horizontal"  role="form" action="uploadDeal2" method="post" enctype="multipart/form-data" >
+                    <div class="col-xs-1">
+                        <h4><i>导入成绩</i></h4>
+                        <input class="form-control"  type="file"  name="file">
+                        <input  class="form-control" type="submit" id="but" value="导入成绩">
+                    </div>
+                </form>
+            </li>
+            <li class=" ">
+                <form class="form-horizontal"  role="form" action="uploadDeal3" method="post" enctype="multipart/form-data" >
+                    <div class="col-xs-1">
+                        <h4><i>导入课程</i></h4>
+                        <input class="form-control"  type="file"  name="file">
+                        <input  class="form-control" type="submit" id="but" value="导入课程">
+                    </div>
+                </form>
+        </li>
+        </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>

@@ -24,27 +24,397 @@ import java.util.*;
  * Excel 工具类
  */
 public class ExcelUtil {
+
+
     /**
+     * 获取将成绩设置到相应学生的学生集合
+     * @param t  学生集合
+     * @param address 文件路径
+     * @param xuehao 文件表头对应学号的列名称
+     * @return 学生集合
+     */
+    public static   List<Student> getEntityListIncludeGrade(List<Student> t,String address,String xuehao){
+        List<Student> students =new ArrayList<>();
+        Workbook book = getWorkBookByFileAddress(address);
+        Sheet sheet = book.getSheet(0);
+        //标志 映射的 名称和 excel表中表头是否一致
+        int flag=0;
+        //表头所在行数
+        int row=0;
+        //记录表头所在行
+        int k=0;
+        // 获取表头行
+        int cloums=sheet.getColumns();
+        for(int i=0; i<sheet.getRows();i++){
+            flag=0;
+            Cell[] c = sheet.getRow(i);
+            if(c.length == cloums){
+                for(int j=0;j<cloums;j++){
+                    if(c[j].getContents()!=""){
+                        flag++;
+                    }
+                }
+            }
+            if(flag==cloums){
+                row=i;
+                break;
+            }
+
+        }
+
+
+        Cell[] cells = sheet.getRow(row);
+        //存放 表头信息的数组
+        String [] fns = new String[cells.length];
+        List<String> ke=new ArrayList<>();
+        for(int i=0; i<cells.length; i++){
+            fns[i]=cells[i].getContents();
+            if(fns[i].contains("/")){
+                ke.add(fns[i]);
+            }
+        }
+        //存放学生信息的集合
+        //遍历学生成绩行
+        for(int i=row+1; i<sheet.getRows(); i++){
+            Cell[] cs = sheet.getRow(i);
+            for(int j= 0;j<sheet.getColumns();j++){
+                if(fns[j].equals(xuehao)){
+                    for(Student student: t){
+                        if(student.getStudentId().equals(cs[j].getContents())){
+                            for(int l=0; l<sheet.getColumns();l++){
+                                if(ke.contains(fns[l]) && ""!=cs[l].getContents()){
+                                    String goldstr = cs[l].getContents();
+                                    float gold;
+                                    //成绩非空
+                                    if(!"".equals(goldstr)){
+                                        if("优".equals(goldstr)){
+                                            gold=90;
+                                        }
+                                        else  if("良".equals(goldstr)){
+                                            gold=80;
+                                        }
+                                        else  if("中".equals(goldstr)){
+                                            gold=70;
+                                        }
+                                        else  if("及格".equals(goldstr)){
+                                            gold=60;
+                                        }
+                                        else {
+                                            gold = Float.parseFloat(goldstr);
+                                        }
+                                        Grade grade =new Grade(fns[l].split("/")[0],fns[l].split("/")[1],student.getStudentId(),gold);
+                                        student.getGradeList().add(grade);
+                                        students.add(student);
+                                    }
+                                }
+
+                            }
+
+                    }
+
+                }
+            }
+            }
+
+        }
+        return students;
+
+    }
+
+
+    /**
+     * 获取将成绩设置到相应学生的学生集合
+     * @param t  学生集合
+     * @param inputStream 文件路径
+     * @param xuehao 文件表头对应学号的列名称
+     * @return 学生集合
+     */
+    public static   List<Student> getEntityListIncludeGrade(List<Student> t,
+                                                            InputStream inputStream,String xuehao){
+        List<Student> students =new ArrayList<>();
+        Workbook book = getWorkBookByFileAddress(inputStream);
+        Sheet sheet = book.getSheet(0);
+        //标志 映射的 名称和 excel表中表头是否一致
+        int flag=0;
+        //表头所在行数
+        int row=0;
+        //记录表头所在行
+        int k=0;
+        // 获取表头行
+        int cloums=sheet.getColumns();
+        for(int i=0; i<sheet.getRows();i++){
+            flag=0;
+            Cell[] c = sheet.getRow(i);
+            if(c.length == cloums){
+                for(int j=0;j<cloums;j++){
+                    if(c[j].getContents()!=""){
+                        flag++;
+                    }
+                }
+            }
+            if(flag==cloums){
+                row=i;
+                break;
+            }
+
+        }
+
+
+        Cell[] cells = sheet.getRow(row);
+        //存放 表头信息的数组
+        String [] fns = new String[cells.length];
+        List<String> ke=new ArrayList<>();
+        for(int i=0; i<cells.length; i++){
+            fns[i]=cells[i].getContents();
+            if(fns[i].contains("/")){
+                ke.add(fns[i]);
+            }
+        }
+        //存放学生信息的集合
+        //遍历学生成绩行
+        for(int i=row+1; i<sheet.getRows(); i++){
+            Cell[] cs = sheet.getRow(i);
+            for(int j= 0;j<sheet.getColumns();j++){
+                if(fns[j].equals(xuehao)){
+                    for(Student student: t){
+                        if(student.getStudentId().equals(cs[j].getContents())){
+                            for(int l=0; l<sheet.getColumns();l++){
+                                if(ke.contains(fns[l]) && ""!=cs[l].getContents()){
+                                    String goldstr = cs[l].getContents();
+                                    float gold;
+                                    //成绩非空
+                                    if(!"".equals(goldstr)){
+                                        if("优".equals(goldstr)){
+                                            gold=90;
+                                        }
+                                        else  if("良".equals(goldstr)){
+                                            gold=80;
+                                        }
+                                        else  if("中".equals(goldstr)){
+                                            gold=70;
+                                        }
+                                        else  if("及格".equals(goldstr)){
+                                            gold=60;
+                                        }
+                                        else {
+                                            gold = Float.parseFloat(goldstr);
+                                        }
+                                        Grade grade =new Grade(fns[l].split("/")[0],fns[l].split("/")[1],student.getStudentId(),gold);
+                                        student.getGradeList().add(grade);
+                                        students.add(student);
+                                    }
+                                }
+
+                            }
+
+                        }
+
+                    }
+                }
+            }
+
+        }
+        return students;
+
+    }
+    /**
+     * 不带成绩导入的 （获取学生信息列表）
+     *  指定泛型，将指定Excel表头和实体属性的映射 关系  导入到list集合中
+     * @param t  指定的泛型
+     * @param address 文件所在地址
+     * @param mapping 表头和属性名的映射关系
+     * @return  数据集合
+     * @throws Exception
+     */
+    public static <T> List<T> getEntityList (T t,String address,
+                                                     Map<String,String> mapping) throws  Exception{
+        //标志 映射的 名称和 excel表中表头是否一致
+        int flag=0;
+        Workbook book = getWorkBookByFileAddress(address);
+        Sheet sheet = book.getSheet(0);
+        //表头所在行数
+        int row=0;
+        //记录表头所在行
+        int k=0;
+        for(int i=0; i<sheet.getRows();i++){
+            if(flag==mapping.size()) break;
+            k=i;
+            Cell[] c = sheet.getRow(i);
+            for (String s:mapping.keySet()){
+            for(int j=0;j<c.length;j++){
+                    if(c[j].getContents().equals(s)){
+                        flag++;
+                        break;
+                    }
+                }
+
+                if(flag==mapping.size()) break;
+            }
+        }
+
+        if(flag==mapping.size()){
+            row=k;
+        }
+        // 获取表头行
+        Cell[] cells = sheet.getRow(row);
+        //存放 表头信息的数组
+        String [] fns = new String[cells.length];
+
+        for(int i=0; i<cells.length; i++){
+            fns[i]=cells[i].getContents();
+        }
+        //存放学生信息的集合
+        List<T> lists =new ArrayList<>();
+        //遍历学生成绩行
+        for(int i=row+1; i<sheet.getRows(); i++){
+
+            Cell[] cs = sheet.getRow(i);
+            T o = (T)t.getClass().newInstance();
+            if(o instanceof Student){
+                ((Student) o).setIsDelete(StudentStatus.USEFUL);
+            }
+            for(int j= 0;j<sheet.getColumns();j++){
+                for(String ss:mapping.keySet()){
+                    //如果 表头信息
+                    if(fns[j].equals(ss)){
+                        String value = mapping.get(fns[j]);
+                        //将 属性和 excel表头 映射的信息值 set进去
+                        BeanUtils.setProperty(o,value,cs[j].getContents());
+                    }
+                }
+            }
+            lists.add(o);
+
+        }
+        return lists;
+    }
+
+    /**
+     * 不带成绩导入的 （获取学生信息列表）
+     *  指定泛型，将指定Excel表头和实体属性的映射 关系  导入到list集合中
+     * @param t  指定的泛型
+     * @param inputStream 文件所在地址
+     * @param mapping 表头和属性名的映射关系
+     * @return  数据集合
+     * @throws Exception
+     */
+    public static <T> List<T> getEntityList (T t,InputStream inputStream,
+                                             Map<String,String> mapping) throws  Exception{
+        //标志 映射的 名称和 excel表中表头是否一致
+        int flag=0;
+        Workbook book = getWorkBookByFileAddress(inputStream);
+        Sheet sheet = book.getSheet(0);
+        //表头所在行数
+        int row=0;
+        //记录表头所在行
+        int k=0;
+        for(int i=0; i<sheet.getRows();i++){
+            if(flag==mapping.size()) break;
+            k=i;
+            Cell[] c = sheet.getRow(i);
+            for (String s:mapping.keySet()){
+                for(int j=0;j<c.length;j++){
+                    if(c[j].getContents().equals(s)){
+                        flag++;
+                        break;
+                    }
+                }
+
+                if(flag==mapping.size()) break;
+            }
+        }
+
+        if(flag==mapping.size()){
+            row=k;
+        }
+        // 获取表头行
+        Cell[] cells = sheet.getRow(row);
+        //存放 表头信息的数组
+        String [] fns = new String[cells.length];
+
+        for(int i=0; i<cells.length; i++){
+            fns[i]=cells[i].getContents();
+        }
+        //存放学生信息的集合
+        List<T> lists =new ArrayList<>();
+        //遍历学生成绩行
+        for(int i=row+1; i<sheet.getRows(); i++){
+
+            Cell[] cs = sheet.getRow(i);
+            T o = (T)t.getClass().newInstance();
+            if(o instanceof Student){
+                ((Student) o).setIsDelete(StudentStatus.USEFUL);
+            }
+            for(int j= 0;j<sheet.getColumns();j++){
+                for(String ss:mapping.keySet()){
+                    //如果 表头信息
+                    if(fns[j].equals(ss)){
+                        String value = mapping.get(fns[j]);
+                        //将 属性和 excel表头 映射的信息值 set进去
+                        BeanUtils.setProperty(o,value,cs[j].getContents());
+                    }
+                }
+            }
+            lists.add(o);
+
+        }
+        return lists;
+    }
+
+    /**
+     *  根据文件地址 获取 工作簿对象
+     * @param address  文件地址
+     * @return  工作簿对象
+     */
+    public static Workbook getWorkBookByFileAddress(String address){
+        Workbook workbook = null;
+        try{
+            InputStream inputStream = new FileInputStream(address);
+            workbook= Workbook.getWorkbook(inputStream);
+        }catch (Exception e){
+            System.out.println("不存在对应的文件!");
+            e.printStackTrace();
+        }
+
+        return workbook;
+
+    }
+
+
+    /**
+     *  根据文件地址 获取 工作簿对象
+     * @param inputStream  文件地址
+     * @return  工作簿对象
+     */
+    public static Workbook getWorkBookByFileAddress(InputStream inputStream){
+        Workbook workbook = null;
+        try{
+            workbook= Workbook.getWorkbook(inputStream);
+        }catch (Exception e){
+            System.out.println("不存在对应的文件!");
+            e.printStackTrace();
+        }
+
+        return workbook;
+
+    }
+    /**
+     * 带成绩导入的
      *  获取 学生信息集合 以及 学生对应的 分数集合
-     * @param in  excel 表所对应的 输入流
-     * @param row  表头所在列数
+     * @param address  excel 表所对应物理地址
+     * @param row  表头所在行数
      * @param startCloum 学生信息开始列数
      * @param endCloum  学生信息结束列
-     * @param mapping  excel 表头和 学生 属性的映射关系 map
+     * @param mapping  excel 表头和 学生 属性的映射关系
      * @param <T>
      * @return  返回学生集合
      * @throws Exception
      */
-    public static <T> List<Student> getStudentsInfo (InputStream in ,
+    public static <T> List<Student> getStudentsInfo (String address,
                             Integer row,Integer startCloum,Integer endCloum,
                             Map<String,String> mapping) throws  Exception{
-        Workbook book= null;
-        try {
-            book=Workbook.getWorkbook(in);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
 
+        Workbook book = getWorkBookByFileAddress(address);
         Sheet sheet = book.getSheet(0);
 
         // 获取表头行
@@ -107,36 +477,25 @@ public class ExcelUtil {
 
     /**
      * 获取 excel表 的列数
-     * @param inputStream
+     * @param address
      * @return
      */
-    public static  Integer getCloums(InputStream inputStream){
-        Workbook book= null;
-        try {
-            book=Workbook.getWorkbook(inputStream);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+    public static  Integer getCloums(String address){
+        Workbook book= getWorkBookByFileAddress(address);
        return book.getSheet(0).getColumns();
     }
     /**
      * 获取 表头内容集合
-     * @param inputStream  文件的输入流
+     * @param address  文件所在物理路径
      * @param row  表头所在行
      * @param startCloum 起始列
      * @param endCloum 终止列
      * @return 表头内容的集合
      */
-    public static  List<String> getFiledNames(InputStream inputStream, Integer row,Integer startCloum,Integer endCloum){
+    public static  List<String> getFiledNames(String address, Integer row,Integer startCloum,Integer endCloum){
 
         List<String> fileds =new ArrayList<>();
-        Workbook book= null;
-        try {
-            book=Workbook.getWorkbook(inputStream);
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
+        Workbook book= getWorkBookByFileAddress(address);
 
         Sheet sheet = book.getSheet(0);
         Cell[] cells = sheet.getRow(row);
@@ -148,23 +507,108 @@ public class ExcelUtil {
         return fileds;
     }
 
+    /**
+     * 获取 课程表头
+     * @param address  文件所在物理路径
+     * @return 表头内容的集合
+     */
+    public static  List<String> getFiledNames(String address){
+        List<String> keNames=new ArrayList<>();
+        Workbook book = getWorkBookByFileAddress(address);
+        Sheet sheet = book.getSheet(0);
+        int flag=0;
+        //表头所在行数
+        int row=0;
+        //记录表头所在行
+        int k=0;
+        // 获取表头行
+        int cloums=sheet.getColumns();
+        for(int i=0; i<sheet.getRows();i++){
+            flag=0;
+            Cell[] c = sheet.getRow(i);
+            if(c.length == cloums){
+                for(int j=0;j<cloums;j++){
+                    if(c[j].getContents()!=""){
+                        flag++;
+                    }
+                }
+            }
+            if(flag==cloums){
+                row=i;
+                break;
+            }
+
+        }
+        Cell[] cells = sheet.getRow(row);
+        //存放 表头信息的数组
+        String [] fns = new String[cells.length];
+
+        for(int i=0; i<cells.length; i++){
+            fns[i]=cells[i].getContents();
+            if(fns[i].contains("/")){
+                keNames.add(fns[i]);
+            }
+        }
+        return keNames;
+    }
+
+
+
+
 
     /**
+     * 获取 课程表头
+     * @param inputStream  文件所在物理路径
+     * @return 表头内容的集合
+     */
+    public static  List<String> getFiledNames(InputStream inputStream){
+        List<String> keNames=new ArrayList<>();
+        Workbook book = getWorkBookByFileAddress(inputStream);
+        Sheet sheet = book.getSheet(0);
+        int flag=0;
+        //表头所在行数
+        int row=0;
+        //记录表头所在行
+        int k=0;
+        // 获取表头行
+        int cloums=sheet.getColumns();
+        for(int i=0; i<sheet.getRows();i++){
+            flag=0;
+            Cell[] c = sheet.getRow(i);
+            if(c.length == cloums){
+                for(int j=0;j<cloums;j++){
+                    if(c[j].getContents()!=""){
+                        flag++;
+                    }
+                }
+            }
+            if(flag==cloums){
+                row=i;
+                break;
+            }
+
+        }
+        Cell[] cells = sheet.getRow(row);
+        //存放 表头信息的数组
+        String [] fns = new String[cells.length];
+
+        for(int i=0; i<cells.length; i++){
+            fns[i]=cells[i].getContents();
+            if(fns[i].contains("/")){
+                keNames.add(fns[i]);
+            }
+        }
+        return keNames;
+    }
+    /**
      * 获取表头名称集合
-     * @param inputStream excel 文件输入流
+     * @param address excel 文件输入流
      * @param row 表头所在行
      * @return 表头集合
      */
-    public static  List<String> getFiledNames(InputStream inputStream, Integer row){
+    public static  List<String> getFiledNames(String address, Integer row){
         List<String> fileds =new ArrayList<>();
-        Workbook book= null;
-        try {
-            book=Workbook.getWorkbook(inputStream);
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-
+        Workbook book = getWorkBookByFileAddress(address);
         Sheet sheet = book.getSheet(0);
         Cell[] cells = sheet.getRow(row);
         for(int i =0; i<cells.length; i++){
@@ -178,23 +622,17 @@ public class ExcelUtil {
     /**
      *  将excel 文件 内容 转换成 list 集合
      *  指定 起始列终止列
-     * @param inputStream 含有 excel 文件信息的 输入流
+     * @param address 含有 excel 文件信息的 输入流
      * @param columStart  起始列数
      * @param cloumEnd 终止列数
      * @param t  要封装到 哪个实体类里面
      * @param <T> 实体类的类型
      * @return  返回 实体类List集合
      */
-    public static <T> List<T> excelToList(InputStream inputStream,T t,Integer columStart,Integer cloumEnd) {
+    public static <T> List<T> excelToList(String address,T t,Integer columStart,Integer cloumEnd) {
         //将 excel 表中 数据 存入List
         List<T> list =new ArrayList<>();
-        Workbook book =null;
-        try {
-            //获取工作簿
-            book=Workbook.getWorkbook(inputStream);
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
+        Workbook book = getWorkBookByFileAddress(address);
         Sheet sheet=book.getSheet(0);//取得第一个工作表，也可用sheet名字获得。
         //取得行数
         int len=sheet.getRows();
@@ -257,67 +695,61 @@ public class ExcelUtil {
 
     /**
      *  将excel 文件 内容 转换成 list 集合
-     * @param inputStream 含有 excel 文件信息的 输入流
+     * @param address 含有 excel 文件信息的 输入流
      * @param t  要封装到 哪个实体类里面
      * @param <T> 实体类的类型
      * @return  返回 实体类List集合
      */
-    public static <T> List<T> excelToList(InputStream inputStream,T t) {
-        //将 excel 表中 数据 存入List
-        List<T> list =new ArrayList<>();
-        Workbook book =null;
-        try {
-            //获取工作簿
-            book=Workbook.getWorkbook(inputStream);
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-        Sheet sheet=book.getSheet(0);//取得第一个工作表，也可用sheet名字获得。
-        int len=sheet.getRows();//取得行数
-        //列数
-        int cloum= sheet.getRow(1).length; //获取列数
-        // 几列 对应 几个 set方法
-        Method[] methods=new Method[cloum];
-
-        //存储所有的 set方法的集合
-//        List<Method> methods=new ArrayList<>();
-        Method[] methods1 = t.getClass().getMethods();
-        int index=0;
-        for(Method method:methods1){
-            if(method.getName().contains("set")){
-                //列数比 set方法 个数 少的情况
-                if(index == cloum){
-                    break;
-                }
-                else{
-                methods[index]=method;
-                index++;
-                }
-            }
-        }
-        for(int i=1;i<len;i++){//从1开始，避免插入标题  列名
-            //System.out.println(i);
-            Cell[] cells = sheet.getRow(i); //获取列数
-            T o=null;
-            try {
-                o = (T)t.getClass().newInstance();
-            } catch (Exception e){
-                System.out.println(e.getMessage());
-            }
-            for(int j=0;j<cells.length;j++){//打印每行信息
-                String contents = cells[j].getContents();
-                try {
-                    methods[j].invoke(o,contents);   //调用目标方法
-                } catch (Exception e){
-                    System.out.println(e.getMessage());
-                }
-
-            }
-            list.add(o);
-        }
-        book.close();
-        return list;
-    }
+//    public static <T> List<T> excelToList(String address,T t) {
+//        //将 excel 表中 数据 存入List
+//        List<T> list =new ArrayList<>();
+//        Workbook book = getWorkBookByFileAddress(address);
+//        Sheet sheet=book.getSheet(0);//取得第一个工作表，也可用sheet名字获得。
+//        int len=sheet.getRows();//取得行数
+//        //列数
+//        int cloum= sheet.getRow(1).length; //获取列数
+//        // 几列 对应 几个 set方法
+//        Method[] methods=new Method[cloum];
+//
+//        //存储所有的 set方法的集合
+////        List<Method> methods=new ArrayList<>();
+//        Method[] methods1 = t.getClass().getMethods();
+//        int index=0;
+//        for(Method method:methods1){
+//            if(method.getName().contains("set")){
+//                //列数比 set方法 个数 少的情况
+//                if(index == cloum){
+//                    break;
+//                }
+//                else{
+//                methods[index]=method;
+//                index++;
+//                }
+//            }
+//        }
+//        for(int i=1;i<len;i++){//从1开始，避免插入标题  列名
+//            //System.out.println(i);
+//            Cell[] cells = sheet.getRow(i); //获取列数
+//            T o=null;
+//            try {
+//                o = (T)t.getClass().newInstance();
+//            } catch (Exception e){
+//                System.out.println(e.getMessage());
+//            }
+//            for(int j=0;j<cells.length;j++){//打印每行信息
+//                String contents = cells[j].getContents();
+//                try {
+//                    methods[j].invoke(o,contents);   //调用目标方法
+//                } catch (Exception e){
+//                    System.out.println(e.getMessage());
+//                }
+//
+//            }
+//            list.add(o);
+//        }
+//        book.close();
+//        return list;
+//    }
 
 
 

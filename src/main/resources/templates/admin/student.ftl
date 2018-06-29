@@ -95,7 +95,7 @@
                         <table class="table table-condensed table-hover table-striped">
                             <thead>
                             <tr class="success">
-                                <td>id</td>
+                                <td>学号</td>
                                 <td>学生姓名</td>
                                 <td>当前获得学分</td>
                                 <td>操作</td>
