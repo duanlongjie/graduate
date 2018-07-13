@@ -12,15 +12,25 @@
     <link rel="stylesheet" href="/static/admin/css/bootstrap-fileinput.css"/>
 </head>
 <body id="particles">
+
     <h1 align="center">Excel导入</h1>
+    顺序：先导课程，再到学生，最好导成绩
     <div  style="width: 1400px;height: 200px;margin: 100px auto ;" >
 
 
         <!--导航栏-->
         <ul class="list-unstyled">
-
             <li class=" ">
-                <form class="form-horizontal"  role="form" action="uploadDeal" method="post" enctype="multipart/form-data" >
+                <form class="form-horizontal"  role="form" action="courseDeal" method="post" enctype="multipart/form-data" >
+                    <div class="col-xs-1">
+                        <h4><i>导入课程</i></h4>
+                        <input class="form-control"  type="file"  name="file">
+                        <input  class="form-control" type="submit" id="but" value="导入课程">
+                    </div>
+                </form>
+            </li>
+            <li class=" ">
+                <form class="form-horizontal"  role="form" action="studentDeal" method="post" enctype="multipart/form-data" >
                     <div class="col-xs-1">
                         <h4><i>导入学生</i></h4>
                         <input class="form-control"  type="file"  name="file">
@@ -30,7 +40,7 @@
             </li>
 
             <li class=" ">
-                <form class="form-horizontal"  role="form" action="uploadDeal2" method="post" enctype="multipart/form-data" >
+                <form class="form-horizontal"  role="form" action="gradeDeal" method="post" enctype="multipart/form-data" >
                     <div class="col-xs-1">
                         <h4><i>导入成绩</i></h4>
                         <input class="form-control"  type="file"  name="file">
@@ -38,15 +48,7 @@
                     </div>
                 </form>
             </li>
-            <li class=" ">
-                <form class="form-horizontal"  role="form" action="uploadDeal3" method="post" enctype="multipart/form-data" >
-                    <div class="col-xs-1">
-                        <h4><i>导入课程</i></h4>
-                        <input class="form-control"  type="file"  name="file">
-                        <input  class="form-control" type="submit" id="but" value="导入课程">
-                    </div>
-                </form>
-        </li>
+
         </ul>
     </div>
 

@@ -20,29 +20,33 @@
         </div>
         <div class="btn btn-primary md-menu-white" data-toggle="cm-menu"></div>
     </nav>
-    <#--<div id="cm-menu-content">-->
-        <#--<div` id="cm-menu-items-wrapper">-->
-        <#--<div id="cm-menu-scroller">-->
-            <#--<ul class="cm-menu-items">-->
-                    <#--<#assign firstMenuList=currentAdmin.permissionList/>-->
-                    <#--<#list firstMenuList as firstMenu>-->
-                        <#--<#if firstMenu.preferences?size==1>-->
-                        <#--<li><a href="${firstMenu.preferences[0].href}" class="${firstMenu.icon}">${firstMenu.preferences[0].title}</a></li>-->
-                        <#--<#else>-->
-                        <#--<li class="cm-submenu">-->
-                            <#--<a class="${firstMenu.icon}">${firstMenu.title} <span class="caret"></span></a>-->
-                            <#--<ul>-->
-                            <#--<#assign secondMenuList=firstMenu.preferences/>-->
-                            <#--<#list secondMenuList as secondMenu>-->
-                                <#--<li><a href="${secondMenu.href}">${secondMenu.title}</a></li>-->
-                            <#--</#list>-->
-                            <#--</ul>-->
-                        <#--</li>-->
-                        <#--</#if>-->
-                    <#--</#list>-->
-            <#--</ul>-->
-        <#--</div>-->
-    <#--</div>-->
+
+
+       <div id="cm-menu-content">
+        <div id="cm-menu-items-wrapper">
+            <div id="cm-menu-scroller">
+                <ul class="cm-menu-items">
+                    <#assign mainMenuList=currentAdmin.mainMenuList/>
+                    <#list mainMenuList as mainMenu>
+                        <#if mainMenu.subMenuList?size==1>
+                        <li><a href="${mainMenu.subMenuList[0].href}" class="${mainMenu.icon}">${mainMenu.subMenuList[0].name}</a></li>
+                        <#else>
+                        <li class="cm-submenu">
+                            <a class="${mainMenu.icon}">${mainMenu.title} <span class="caret"></span></a>
+                            <ul>
+                            <#assign subMenuList=mainMenu.subMenuList/>
+                            <#list subMenuList as submenu>
+                                <li><a href="${submenu.href}">${submenu.name}</a></li>
+                            </#list>
+                            </ul>
+                        </li>
+                        </#if>
+                    </#list>
+                </ul>
+            </div>
+        </div>
+    </div>
+
 </div>
 <header id="cm-header">
     <nav class="cm-navbar cm-navbar-primary">
@@ -83,7 +87,7 @@
 
                             <div align="right">
                             <button id="updateButton" type="button" class="btn btn-info text-right" data-toggle="modal"
-                                    data-target="#delete"
+                                    data-target="#add"
                                     data-whatever="">添加
                             </button>
                         </div>
@@ -107,17 +111,14 @@
                                 <td>${s.studentId}</td>
                                 <td>${s.studentName}</td>
                                 <td>${s.acquireCredit}</td>
+
                                 <td>
                                     <div class="btn-group">
                                         <a class="btn btn-success" href="studentGrade?id=${s.studentId}">成绩单</a>
-
-                                        <button id="updateButton" type="button" class="btn btn-info" data-toggle="modal"
+                                        <a id="updateButton"   class="btn btn-info" href="updateStu?id=${s.studentId}">修改</a>
+                                        <button  id="deleteBut" type="button" class="btn btn-danger" data-toggle="modal"
                                                 data-target="#delete"
-                                                data-whatever="">修改
-                                        </button>
-                                        <button id="updateButton" type="button" class="btn btn-danger" data-toggle="modal"
-                                                data-target="#delete"
-                                                data-whatever="">删除
+                                                data-whatever="${s.studentId}">删除
                                         </button>
 
                                         </div>
@@ -133,7 +134,76 @@
             </div>
         </div>
 
+        <!--添加学生-->
+        <div id="add" class="modal fade bs-example" tabindex="-1" role="dialog" aria-labelledby="admin_add_Modal_Label">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form class="form-horizontal"  method="post" id="form" action="addStu">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="close"><span
+                                    aria-hidden="true">&times</span></button>
+                            <h4 class="modal-title" id="myModal_Label" align="center">添加学生</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="stu_id" class="col-sm-2 control-label">学号</label>
+                                <div class="col-sm-5">
+                                    <input  required type="text" class="form-control"  name="studentId" placeholder="请输入学号">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="stu_name" class="col-sm-2 control-label">姓名</label>
+                                <div class="col-sm-5">
+                                    <input  required type="text" class="form-control"  name="studentName" placeholder="请输入姓名">
+                                </div>
+                            </div>
 
+                            <div class="form-group">
+                                <label for="stu_name" class="col-sm-2 control-label">专业</label>
+                                <div class="col-sm-5">
+                                    <input  required type="text" class="form-control"  name="major" placeholder="请输入专业">
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="reset" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="submit" class="btn btn-primary">是</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--修改学生-->
+        <div id="update" class="modal fade bs-example" tabindex="-1" role="dialog" aria-labelledby="admin_add_Modal_Label">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form class="form-horizontal"  method="post" id="form" action="">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="close"><span
+                                    aria-hidden="true">&times</span></button>
+                            <h4 class="modal-title" id="myModal_Label" align="center">是否修改?</h4>
+                        </div>
+                        <div class="modal-body">
+
+                            </div>
+
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="reset" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="submit" class="btn btn-primary">是</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
 
 
@@ -189,6 +259,25 @@
                     $("#current3").text(current)
                 }*/
             });
+
+
+            <!--删除弹窗-->
+            $("#delete").on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget)
+                var id = button.data('whatever')
+                $.ajax({
+                    type:'post',
+                    url:'deleteStu?id='+id,
+                    cache:false,
+                    dataType:'json',
+                    success:function(data){
+                        alert("删除成功!")
+                    },
+                    error:  function (data) {
+                    }
+                });
+            });
+
         })
     </script>
 

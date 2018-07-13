@@ -49,4 +49,6 @@ public interface StudentService {
 
     ResultInfo<Page<Student>> findAllByPage(Integer pageNo,Integer pageSize);
 
+    ResultInfo<Page<Student>> findAllByIsDelete(Integer pageNo,Integer pageSize);
+
 }

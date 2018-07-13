@@ -24,6 +24,7 @@ public class StudentServiceImpl implements StudentService {
     private StudentDao studentDao;
     @Override
     public ResultInfo<Student> addStudent(Student student) {
+        System.out.println("______________________________________________________");
         ResultInfo<Student> resultInfo=new ResultInfo<>();
         String message = checkStudentInfo(student);
         //信息不合法
@@ -35,6 +36,11 @@ public class StudentServiceImpl implements StudentService {
         else{
             //默认 添加的学生是可用的
             student.setIsDelete(StudentStatus.USEFUL);
+            if (student.getAcquireCredit()==null){
+                System.out.println("???????????????????????????????????????????????????????");
+                float ac=0;
+                student.setAcquireCredit(ac);
+            }
             studentDao.save(student);
             resultInfo.setResultObj(student);
             resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
@@ -51,7 +57,7 @@ public class StudentServiceImpl implements StudentService {
             Student student = optional.get();
             //逻辑删除
             student.setIsDelete(StudentStatus.DELETE);
-            studentDao.deleteById(id);
+            studentDao.save(student);
             resultInfo.setResultObj(optional.get());
             resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
             return resultInfo;
@@ -110,6 +116,16 @@ public class StudentServiceImpl implements StudentService {
         ResultInfo<Page<Student>> resultInfo =new ResultInfo<>();
         Pageable pageable =new PageRequest(pageNo,pageSize);
         Page<Student> page = studentDao.findAll(pageable);
+        resultInfo.setResultObj(page);
+        resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
+        return resultInfo;
+    }
+
+    @Override
+    public ResultInfo<Page<Student>> findAllByIsDelete(Integer pageNo, Integer pageSize) {
+        ResultInfo<Page<Student>> resultInfo =new ResultInfo<>();
+        Pageable pageable =new PageRequest(pageNo,pageSize);
+        Page<Student> page = studentDao.findAllByIsDelete(pageable,StudentStatus.USEFUL);
         resultInfo.setResultObj(page);
         resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
         return resultInfo;

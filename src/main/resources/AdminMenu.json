@@ -9,5 +9,35 @@
         "href": "/admin/home"
       }
     ]
+  },
+  {
+    "title": "学生数据",
+    "icon": "sf-house",
+    "role": "ROLE_DEFAULT",
+    "subMenuList": [
+      {
+        "name": "学生数据",
+        "href": "/admin/student_list"
+      }
+    ]
+  },
+  {
+    "title": "数据导入",
+    "icon": "sf-house",
+    "role": "ROLE_DEFAULT",
+    "subMenuList": [
+      {
+        "name": "导入课程",
+        "href": "/admin/course"
+      },
+      {
+        "name": "导入学生",
+        "href": "/admin/student"
+      },
+      {
+        "name": "导入成绩",
+        "href": "/admin/grade"
+      }
+    ]
   }
 ]

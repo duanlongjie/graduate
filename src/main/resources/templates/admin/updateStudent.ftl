@@ -63,7 +63,7 @@
             <div class="cm-breadcrumb-container">
                 <ol class="breadcrumb">
                     <li><a href="#">学生数据</a></li>
-                    <li><a href="#">学生数据展示</a></li>
+                    <li><a href="#">学生信息修改</a></li>
                 </ol>
             </div>
         </div>
@@ -78,6 +78,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
+                        <input  type="hidden" id="hi" value="${student.studentId}">
 
                         <div>
                             <span style="font-size: 19px">
@@ -88,98 +89,71 @@
                                 <td>学生姓名:</td>
                                 <td>${student.studentName}</td>
                                    </span>
-
-
                         </div>
-
-                        <div align="right">
-                            <button id="updateButton" type="button" class="btn btn-info text-right" data-toggle="modal"
-                                    data-target="#add"
-                                    data-whatever="${student.studentId}">添加课程
-                            </button>
-                        </div>
-
                     </div>
 
                     <div class="table-responsive">
-                        <table class="table table-condensed table-hover table-striped">
-                            <thead>
-                            <tr class="success">
-                                <td>课程</td>
-                                <td>课程类型</td>
-                                <td>分数</td>
-                            </tr>
-                            </thead>
-                            <tbody id="tbody">
+                        <form role="form" class="form-horizontal" method="post">
+                            <table class="table table-condensed table-hover table-striped">
+                                <thead>
+                                <tr class="success">
+                                    <td>课程</td>
+                                    <td>课程类型</td>
+                                    <td>分数</td>
+                                </tr>
+                                </thead>
+                                <tbody id="tbody">
                             <#list grades as g>
                             <tr>
-                                <td>${g.courseName}</td>
-                                <td>${g.courseType}</td>
-                                <td>${g.score}</td>
+                                <td>
+                                    ${g.courseName}
+                                </td>
+                                <td>
+                                    ${g.courseType}
+                                </td>
+                                <td>
+
+                                            <input name="${g.courseName}" type="text" class="in" value="${g.score}"/>
+                                </td>
                             </tr>
                             </#list>
-                            </tbody>
-                        </table>
-                        <center><div id="pagination3" class="page fl"></div></center>
+                                </tbody>
+                            </table>
+                        </form>
+                        <#--<input class="btn btn-success" id="b"  type="button" value="修改">-->
+                        <button  id="b" type="button" class="btn btn-danger" data-toggle="modal"
+                                 data-target="#update">修改
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!--修改学生-->
+        <#--<div id="update" class="modal fade bs-example" tabindex="-1" role="dialog" aria-labelledby="admin_add_Modal_Label">-->
+            <#--<div class="modal-dialog" role="document">-->
+                <#--<div class="modal-content">-->
+                    <#--<form class="form-horizontal"  method="post" id="form" action="">-->
+                        <#--<div class="modal-header">-->
+                            <#--<button type="button" class="close" data-dismiss="modal" aria-label="close"><span-->
+                                    <#--aria-hidden="true">&times</span></button>-->
+                            <#--<h4 class="modal-title" id="myModal_Label" align="center">是否修改?</h4>-->
+                        <#--</div>-->
+                        <#--<div class="modal-body">-->
+
+                        <#--</div>-->
 
 
 
-        <!--添加课程-->
-        <div id="add" class="modal fade bs-example" tabindex="-1" role="dialog" aria-labelledby="admin_add_Modal_Label">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <form class="form-horizontal"  method="post" id="form" action="addCourse">
-                        <input type="hidden" name="id" id="sid"/>
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="close"><span
-                                    aria-hidden="true">&times</span></button>
-                            <h4 class="modal-title" id="myModal_Label" align="center">添加课程</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="stu_id" class="col-sm-2 control-label">课程名称</label>
-                                <div class="col-sm-5">
-                                    <input  required type="text" class="form-control"  name="courseName" placeholder="请输入课程名称">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="stu_name" class="col-sm-2 control-label">课程类型</label>
-                                <div class="col-sm-5">
-                                    <input   type="text" class="form-control"  name="courseType" placeholder="请输入课程类型">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="stu_name" class="col-sm-2 control-label">课程学分</label>
-                                <div class="col-sm-5">
-                                    <input  required type="text" class="form-control"  name="courseCredit" placeholder="请输入课程学分">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="stu_name" class="col-sm-2 control-label">成绩</label>
-                                <div class="col-sm-5">
-                                    <input  required type="text" class="form-control"  name="score" placeholder="请输入成绩">
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="reset" class="btn btn-default" data-dismiss="modal">取消</button>
-                            <button type="submit" class="btn btn-primary">是</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-
-
-
+                <#--</div>-->
+                <#--<div class="modal-footer">-->
+                    <#--<button type="reset" class="btn btn-default" data-dismiss="modal">取消</button>-->
+                    <#--<button type="submit" class="btn btn-primary">是</button>-->
+                <#--</div>-->
+                <#--</form>-->
+            <#--</div>-->
+        <#--</div>-->
+    <#--</div>-->
 
 
 
@@ -196,11 +170,33 @@
     <script src="${request.contextPath}/static/admin/js/select2.min.js"></script>
     <script src="${request.contextPath}/static/admin/js/studentPager.js"></script>
     <script  type="text/javascript">
-        $("#add").on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget)
-            var id = button.data('whatever')
-            $("#sid").attr("value",id);
-        });
+        $(function () {
+            var ns=$(".in")
+            var names=new Array();
+            var id=$("#hi").attr("value")
+            $("#b").click(function () {
+                for(var i=0;i<ns.length;i++){
+                        var name=ns[i].name+":"+ns[i].value;
+                        names.push(name)
+                }
+
+                $.ajax({
+                    url: "/updateStudent",
+                    type: "post",
+                    data: {
+                        "id":id,
+                        "names":names
+                    },
+                    traditional: true,
+                    success: function(data) {
+                        alert("修改成功!")
+                        window.location.href="student_list";
+
+                    }
+                });
+            })
+
+        })
     </script>
 
 

@@ -1,6 +1,7 @@
 package cn.edu.haue.graduate.service;
 
 import cn.edu.haue.graduate.entity.Grade;
+import cn.edu.haue.graduate.entity.Major;
 import cn.edu.haue.graduate.entity.ResultInfo;
 import cn.edu.haue.graduate.entity.Student;
 import org.junit.Test;
@@ -26,10 +27,12 @@ public class StudentServiceTest {
 
     @Test
     public void getStudentGradeByIdTest(){
-        ResultInfo<Student> re = studentService.getStudentById("201612211106");
+        ResultInfo<Student> re = studentService.getStudentById("201612211122");
         Student student = re.getResultObj();
 
         System.out.println(student);
+        Major major = student.getMajor();
+        System.out.println(major.getMajorName());
         List<Grade> gradeList = student.getGradeList();
         for (Grade g:gradeList){
             System.out.println(g);

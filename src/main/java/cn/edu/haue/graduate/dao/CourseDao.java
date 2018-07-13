@@ -10,4 +10,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface CourseDao extends JpaRepository<Course, CourseKey> {
     Course findCourseByCourseName(String courseName);
+    Course findByCourseNameAndCourseType(String name,String type);
 }
