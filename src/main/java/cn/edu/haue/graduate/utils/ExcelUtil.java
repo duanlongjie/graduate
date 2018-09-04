@@ -2,6 +2,7 @@ package cn.edu.haue.graduate.utils;
 
 import cn.edu.haue.graduate.constant.StudentStatus;
 import cn.edu.haue.graduate.entity.Grade;
+import cn.edu.haue.graduate.entity.Major;
 import cn.edu.haue.graduate.entity.Student;
 import cn.edu.haue.graduate.exceptions.ExcelException;
 import jxl.Cell;
@@ -292,13 +293,13 @@ public class ExcelUtil {
     /**
      * 不带成绩导入的 （获取学生信息列表）
      *  指定泛型，将指定Excel表头和实体属性的映射 关系  导入到list集合中
-     * @param t  指定的泛型
+     *      * @param t  指定的泛型
      * @param inputStream 文件所在地址
      * @param mapping 表头和属性名的映射关系
      * @return  数据集合
      * @throws Exception
      */
-    public static <T> List<T> getEntityList (T t,InputStream inputStream,
+    public static <T> List<T> getEntityList (T t, InputStream inputStream,
                                              Map<String,String> mapping) throws  Exception{
         //标志 映射的 名称和 excel表中表头是否一致
         int flag=0;

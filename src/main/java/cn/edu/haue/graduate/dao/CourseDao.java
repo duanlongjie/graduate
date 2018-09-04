@@ -5,6 +5,8 @@ import cn.edu.haue.graduate.entity.CourseKey;
 import cn.edu.haue.graduate.entity.Major;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 /**
  * Created by 杨晋升 on 2018/5/29.
  */

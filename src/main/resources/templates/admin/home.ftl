@@ -73,8 +73,10 @@
     </nav>
 </header>
 <div id="global">
-    <div class="container-fluid">
     <#--请自己修改-->
+        <div class="container-fluid cm-container-white">
+            <h2 style="margin-top: 0">毕业预警系统</h2>
+            <h3>${message!''}</h3>
     </div>
     <footer class="cm-footer"><span class="pull-right">&copy; HAUE edu.</span></footer>
 </div>

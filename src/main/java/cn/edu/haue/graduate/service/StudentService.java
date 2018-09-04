@@ -1,6 +1,7 @@
 package cn.edu.haue.graduate.service;
 
 
+import cn.edu.haue.graduate.entity.Course;
 import cn.edu.haue.graduate.entity.ResultInfo;
 import cn.edu.haue.graduate.entity.Student;
 import org.springframework.data.domain.Page;
@@ -50,5 +51,75 @@ public interface StudentService {
     ResultInfo<Page<Student>> findAllByPage(Integer pageNo,Integer pageSize);
 
     ResultInfo<Page<Student>> findAllByIsDelete(Integer pageNo,Integer pageSize);
+
+    /**
+     * 获取公共选修课获得 学分和
+     * @return
+     */
+    ResultInfo<Float> getObtainPublicElectiveCourse(String id);
+    /**
+     * 获取公共选修课挂科 学分和
+     * @return
+     */
+    ResultInfo<Float> getLosePublicElectiveCourse(String id);
+
+    /**
+     * 获取体育课获得 学分和
+     * @return
+     */
+    ResultInfo<Float> getObtainPECourse(String id);
+    /**
+     * 获取体育课挂科 学分和
+     * @return
+     */
+    ResultInfo<Float> getLosePECourse(String id);
+    /**
+     * 获取公共基础课获得 学分和
+     * @return
+     */
+    ResultInfo<Float> getObtainPublicBasicCourses(String id);
+    /**
+     * 获取公共基础课挂科 学分和
+     * @return
+     */
+    ResultInfo<Float> getLosePublicBasicCourses(String id);
+    /**
+     * 获取实践课获得 学分和
+     * @return
+     */
+    ResultInfo<Float> getObtainPracticeCourse(String id);
+    /**
+     * 获取实践课挂科 学分和
+     * @return
+     */
+    ResultInfo<Float> getLosePracticeCourse(String id);
+    /**
+     * 获取专业必修课获得 学分和
+     * @return
+     */
+    ResultInfo<Float> getObtainMajorCompulsoryCourses(String id);
+    /**
+     * 获取专业必修课挂科 学分和
+     * @return
+     */
+    ResultInfo<Float> getLoseMajorCompulsoryCourses(String id);
+    /**
+     * 获取专业选修课获得 学分和
+     * @return
+     */
+    ResultInfo<Float> getObtainMajorElectiveCourse(String id);
+    /**
+     * 获取专业选修课挂科 学分和
+     * @return
+     */
+    ResultInfo<Float> getLoseMajorElectiveCourse(String id);
+
+    /**
+     * 获取挂掉分数超过 一定分数的同学
+     * @param score
+     * @return
+     */
+    ResultInfo<List<Student>> getLoseCourseCreditOver(float score);
+
 
 }

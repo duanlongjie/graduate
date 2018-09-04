@@ -92,12 +92,6 @@
 
                         </div>
 
-                        <div align="right">
-                            <button id="updateButton" type="button" class="btn btn-info text-right" data-toggle="modal"
-                                    data-target="#add"
-                                    data-whatever="${student.studentId}">添加课程
-                            </button>
-                        </div>
 
                     </div>
 
@@ -105,28 +99,27 @@
                         <table class="table table-condensed table-hover table-striped">
                             <thead>
                             <tr class="success">
-                                <td>课程</td>
-                                <td>课程类型</td>
-                                <td>分数</td>
+                                <td>专业名称</td>
+                                <td>允许挂掉分数</td>
+                                <td>挂掉的学分</td>
+                                <td>需要选修课学分</td>
+                                <td>选修课学分</td>
+                                <td>需要体育课学分</td>
+                                <td>体育课学分</td>
+                                <td>专业课学分</td>
                             </tr>
                             </thead>
                             <tbody id="tbody">
-                            <#list grades as g>
-                            <#if g.score lt 60>
-                             <tr class="danger">
-                                 <td>${g.courseName}</td>
-                                 <td>${g.courseType}</td>
-                                 <td>${g.score}</td>
-                             </tr>
-                            <#else >
                              <tr >
-                                 <td>${g.courseName}</td>
-                                 <td>${g.courseType}</td>
-                                 <td>${g.score}</td>
+                                 <td>${major.majorName}</td>
+                                 <td>${major.maxFailCredit}</td>
+                                 <td>${loseMajorCredit}</td>
+                                 <td>${major.needPublicCredit}</td>
+                                 <td>${publicCredit}</td>
+                                 <td>${major.needPeCredit}</td>
+                                 <td>${PECredit}</td>
+                                 <td>${majorCredit}</td>
                              </tr>
-                            </#if>
-
-                            </#list>
                             </tbody>
                         </table>
                         <center><div id="pagination3" class="page fl"></div></center>

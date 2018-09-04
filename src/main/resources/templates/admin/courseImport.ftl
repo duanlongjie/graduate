@@ -78,12 +78,29 @@
             <div >
                 <div class="panel panel-default">
                     <div class="panel-body">
-                                <form class="form-horizontal"  role="form" action="courseDeal" method="post" enctype="multipart/form-data" >
-                                    <div >
-                                        <h4><i>导入课程</i></h4>
-                                        <input    type="file"  name="file"> <br>
-                                        <input    type="submit" id="but" value="导入课程">
-                                    </div>
+                                <form class="form-horizontal"  role="form" action="courseDeal" method="post" enctype="multipart/form-data">
+                                    <h4 align="center"><i>导入课程</i></h4>
+                                    <table>
+                                        <tr>
+                                            <div style="width: 100%;" >
+                                                <label  class="col-sm-6 control-label">选择专业</label>
+                                                <select id="major_select" class="form-control" name="majorName" style="width: 20%" required >
+                                        <#list names as name>
+                                            <option value="${name}">${name}</option>
+                                        </#list>
+                                                </select>
+                                            </div>
+
+                                        </tr>
+                                        <tr>
+                                            <input   type="file"  name="file"> <br>
+                                        </tr>
+                                        <tr>
+                                            <input    type="submit" id="but" value="导入课程">
+                                        </tr>
+
+                                    </table>
+
                                 </form>
                     </div>
 

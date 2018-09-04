@@ -71,11 +71,11 @@
 						<td>学分</td>
 						<td>成绩</td>
 					</tr>
-					<#list gradeList as gl>
+					<#list gradeInfos as gl>
 					<tr>
-						<td>${gl.course.courseName}</td>
-						<td>${gl.course.courseType}</td>
-						<td>${gl.course.courseCredit}</td>
+						<td>${(gl.courseName)!}</td>
+						<td>${(gl.courseType)!}</td>
+						<td>${(gl.courseCredit)!}</td>
 						<td >${gl.score}</td>
 					</tr>
 					</#list>

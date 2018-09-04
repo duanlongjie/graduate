@@ -3,7 +3,7 @@ package cn.edu.haue.graduate.entity;
 /**
  * Author: lnp
  * Date: 2018/6/19
- * 学生毕业条件返回结果信息
+ * 学生毕业条件返回结果信息 值对象
  **/
 public class StudentCreditResult {
     //学生姓名

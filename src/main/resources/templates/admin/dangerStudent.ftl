@@ -20,7 +20,9 @@
         </div>
         <div class="btn btn-primary md-menu-white" data-toggle="cm-menu"></div>
     </nav>
-    <div id="cm-menu-content">
+
+
+       <div id="cm-menu-content">
         <div id="cm-menu-items-wrapper">
             <div id="cm-menu-scroller">
                 <ul class="cm-menu-items">
@@ -44,11 +46,12 @@
             </div>
         </div>
     </div>
+
 </div>
 <header id="cm-header">
     <nav class="cm-navbar cm-navbar-primary">
         <div class="btn btn-primary md-menu-white hidden-md hidden-lg" data-toggle="cm-menu"></div>
-        <div class="cm-flex"><h1>学生导入</h1></div>
+        <div class="cm-flex"><h1>学生数据列表</h1></div>
         <div class="dropdown pull-right">
             <button class="btn btn-primary md-notifications-white" data-toggle="dropdown"><span
                     class="label label-danger">0</span></button>
@@ -62,8 +65,8 @@
         <div class="cm-flex">
             <div class="cm-breadcrumb-container">
                 <ol class="breadcrumb">
-                    <li><a href="#">数据导入</a></li>
-                    <li><a href="#">学生导入</a></li>
+                    <li><a href="#">学生数据</a></li>
+                    <li><a href="#">学生数据展示</a></li>
                 </ol>
             </div>
         </div>
@@ -75,58 +78,71 @@
     <div class="container-fluid">
         <!--完成此部分-->
         <div class="row">
-            <div >
+            <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
 
-                        <form class="form-horizontal"  role="form" action="studentDeal" method="post" enctype="multipart/form-data" >
-                            <div >
-                                <h4 align="center"><i>学生导入</i></h4>
+                        <div>
+                            <span style="font-size: 19px">毕业预警</span>
 
+                                <input width="300px" type="text" name="select_score" placeholder="请输入挂科学分" id="input01">
+                                <a id="a01">查询</a>
+                            <br>
+                            人数: ${len}
+                            <div align="right">
+                        </div>
+                        </div>
 
-                                <table>
-                                    <tr>
-                                        <div style="width: 100%;" >
-                                            <label  class="col-sm-6 control-label">选择专业</label>
-                                            <select id="major_select" class="form-control" name="majorName" style="width: 20%" required >
-                                        <#list names as name>
-                                            <option value="${name}">${name}</option>
-                                        </#list>
-                                            </select>
-                                        </div>
-
-                                    </tr>
-
-                                    <tr>
-                                        <div style="width: 100%;" >
-                                            <label  class="col-sm-6 control-label">年级</label>
-                                            <select id="major_select" class="form-control" name="majorYears" style="width: 20%" required >
-                                                <#list years as y>
-                                                    <option value="${y}">${y}</option>
-                                                </#list>
-                                            </select>
-                                        </div>
-                                    </tr>
-                                    <tr>
-                                        <input    type="file"  name="file"> <br>
-                                    </tr>
-                                    <tr>
-                                        <input    type="submit" id="but" value="导入学生">
-                                    </tr>
-
-                                </table>
-
-
-
-
-
-                            </div>
-                        </form>
                     </div>
 
+                    <div class="table-responsive">
+                        <table class="table table-condensed table-hover table-striped">
+                            <thead>
+                            <tr class="success">
+                                <td>学号</td>
+                                <td>学生姓名</td>
+                                <td>当前获得学分</td>
+                                <td>挂掉的专业课学分</td>
+                                <td>操作</td>
+                            </tr>
+                            </thead>
+                            <tbody id="tbody">
+                            <#list students as s>
+                            <tr>
+                                <td>${s.studentId}</td>
+                                <td>${s.studentName}</td>
+                                <td>${s.acquireCredit}</td>
+                                <td></td>
+
+                                <td>
+                                    <div class="btn-group">
+                                        <a class="btn btn-success" href="studentGrade?id=${s.studentId}">成绩单</a>
+                                        <a class="btn btn-info" href="studentDetails?id=${s.studentId}">详情</a>
+                                        </div>
+
+                                </td>
+                            </tr>
+                            </#list>
+                            </tbody>
+                        </table>
+                        <center><div id="pagination3" class="page fl"></div></center>
+                    </div>
                 </div>
             </div>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <footer class="cm-footer"><span class="pull-right">&copy; HAUE edu.</span></footer>
     </div>
@@ -141,6 +157,15 @@
     <script src="${request.contextPath}/static/admin/js/select2.min.js"></script>
     <script src="${request.contextPath}/static/admin/js/studentPager.js"></script>
     <script  type="text/javascript">
+        $(function() {
+
+
+            $("#a01").click(function () {
+                var score=$("#input01").val()
+                $("#a01").attr("href","select_score?score="+score);
+            })
+
+        })
     </script>
 
 

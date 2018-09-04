@@ -83,7 +83,10 @@
                     <div class="panel-body">
 
                         <div>
-                            <span style="font-size: 19px">学生数据展示</span>
+                            <span style="font-size: 19px">毕业预警</span>
+
+                                <input width="300px" type="text" name="select_score" placeholder="请输入挂科学分" id="input01">
+                                <a id="a01">查询</a>
 
                             <div align="right">
                             <button id="updateButton" type="button" class="btn btn-info text-right" data-toggle="modal"
@@ -160,9 +163,25 @@
 
                             <div class="form-group">
                                 <label for="stu_name" class="col-sm-2 control-label">专业</label>
-                                <div class="col-sm-5">
-                                    <input  required type="text" class="form-control"  name="major" placeholder="请输入专业">
-                                </div>
+                                <select id="major_select" class="form-control" name="majorName" style="width: 40%" required >
+                                        <#list names as name>
+                                            <option value="${name}">${name}</option>
+                                        </#list>
+                                </select>
+                                <#--<div class="col-sm-5">-->
+                                    <#--<input  required type="text" class="form-control"  name="major" placeholder="请输入专业">-->
+                                <#--</div>-->
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="stu_grade" class="col-sm-2 control-label">年级</label>
+                                    <#--<input  required type="text" class="form-control"  name="grade" placeholder="请输入年级">-->
+                                    <select id="major_select" class="form-control" name="majorYear" style="width: 40%" required >
+                                        <#list years as year>
+                                            <option value="${year}">${year}</option>
+                                        </#list>
+                                    </select>
                             </div>
 
 
@@ -277,6 +296,12 @@
                     }
                 });
             });
+
+
+            $("#a01").click(function () {
+                var score=$("#input01").val()
+                $("#a01").attr("href","select_score?score="+score);
+            })
 
         })
     </script>

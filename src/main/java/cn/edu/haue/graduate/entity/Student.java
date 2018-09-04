@@ -22,6 +22,16 @@ public class Student {
     private Integer isDelete;
     /**学生已经获得的学分*/
     private Float acquireCredit;
+    /**该学生的年级*/
+    private String grade;
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
 
     //所属专业
     @ManyToOne(cascade = CascadeType.ALL)

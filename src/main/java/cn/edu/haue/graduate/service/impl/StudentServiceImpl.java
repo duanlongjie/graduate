@@ -1,9 +1,11 @@
 package cn.edu.haue.graduate.service.Impl;
 
+import cn.edu.haue.graduate.constant.CourseType;
 import cn.edu.haue.graduate.constant.ResultCode;
 import cn.edu.haue.graduate.constant.StudentResultMessage;
 import cn.edu.haue.graduate.constant.StudentStatus;
 import cn.edu.haue.graduate.dao.StudentDao;
+import cn.edu.haue.graduate.entity.Grade;
 import cn.edu.haue.graduate.entity.ResultInfo;
 import cn.edu.haue.graduate.entity.Student;
 import cn.edu.haue.graduate.service.StudentService;
@@ -13,18 +15,22 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
 import javax.transaction.Transactional;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 @Transactional
 public class StudentServiceImpl implements StudentService {
     @Resource
+    private  ServletContext application;
+    @Resource
     private StudentDao studentDao;
+    private  Map<String,Float> courseMap =new HashMap<>();
+
+
     @Override
     public ResultInfo<Student> addStudent(Student student) {
-        System.out.println("______________________________________________________");
         ResultInfo<Student> resultInfo=new ResultInfo<>();
         String message = checkStudentInfo(student);
         //信息不合法
@@ -37,7 +43,6 @@ public class StudentServiceImpl implements StudentService {
             //默认 添加的学生是可用的
             student.setIsDelete(StudentStatus.USEFUL);
             if (student.getAcquireCredit()==null){
-                System.out.println("???????????????????????????????????????????????????????");
                 float ac=0;
                 student.setAcquireCredit(ac);
             }
@@ -127,6 +132,343 @@ public class StudentServiceImpl implements StudentService {
         Pageable pageable =new PageRequest(pageNo,pageSize);
         Page<Student> page = studentDao.findAllByIsDelete(pageable,StudentStatus.USEFUL);
         resultInfo.setResultObj(page);
+        resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
+        return resultInfo;
+    }
+
+
+    @Override
+    public ResultInfo<Float> getObtainPublicElectiveCourse(String id) {
+        Object object = application.getAttribute("courseMap");
+        if(object instanceof Map){
+            courseMap=(Map<String,Float>)object;
+        }
+
+        ResultInfo<Float> resultInfo=new ResultInfo<>();
+        Optional<Student> optional = studentDao.findById(id);
+        Float sum=0f;
+        Student student = optional.get();
+        List<Grade> gradeList = student.getGradeList();
+        for(Grade g:gradeList){
+            if(g.getCourseType().equals(CourseType.Public_Elective_Course)){
+                float score = g.getScore();
+                if(score>=60){
+                    Float c = courseMap.get(g.getCourseName());
+                    sum+=c;
+                }
+            }
+        }
+        resultInfo.setResultObj(sum);
+        resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
+        return resultInfo;
+    }
+
+    @Override
+    public ResultInfo<Float> getLosePublicElectiveCourse(String id) {
+        Object object = application.getAttribute("courseMap");
+        if(object instanceof Map){
+            courseMap=(Map<String,Float>)object;
+        }
+        ResultInfo<Float> resultInfo=new ResultInfo<>();
+        Optional<Student> optional = studentDao.findById(id);
+        Float sum=0f;
+        Student student = optional.get();
+        List<Grade> gradeList = student.getGradeList();
+        for(Grade g:gradeList){
+            if(g.getCourseType().equals(CourseType.Public_Elective_Course)){
+                float score = g.getScore();
+                if(score<60){
+                    Float c = courseMap.get(g.getCourseName());
+                    sum+=c;
+                }
+            }
+        }
+        resultInfo.setResultObj(sum);
+        resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
+        return resultInfo;
+    }
+
+    @Override
+    public ResultInfo<Float> getObtainPECourse(String id) {
+        Object object = application.getAttribute("courseMap");
+        if(object instanceof Map){
+            courseMap=(Map<String,Float>)object;
+        }
+
+        ResultInfo<Float> resultInfo=new ResultInfo<>();
+        Optional<Student> optional = studentDao.findById(id);
+        Float sum=0f;
+        Student student = optional.get();
+        List<Grade> gradeList = student.getGradeList();
+        for(Grade g:gradeList){
+            if(g.getCourseType().equals(CourseType.PE)){
+                float score = g.getScore();
+                if(score>=60){
+                    Float c = courseMap.get(g.getCourseName());
+                    sum+=c;
+                }
+            }
+        }
+        resultInfo.setResultObj(sum);
+        resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
+        return resultInfo;
+    }
+
+    @Override
+    public ResultInfo<Float> getLosePECourse(String id) {
+        Object object = application.getAttribute("courseMap");
+        if(object instanceof Map){
+            courseMap=(Map<String,Float>)object;
+        }
+
+        ResultInfo<Float> resultInfo=new ResultInfo<>();
+        Optional<Student> optional = studentDao.findById(id);
+        Float sum=0f;
+        Student student = optional.get();
+        List<Grade> gradeList = student.getGradeList();
+        for(Grade g:gradeList){
+            if(g.getCourseType().equals(CourseType.PE)){
+                float score = g.getScore();
+                if(score<60){
+                    Float c = courseMap.get(g.getCourseName());
+                    sum+=c;
+                }
+            }
+        }
+        resultInfo.setResultObj(sum);
+        resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
+        return resultInfo;
+    }
+
+    @Override
+    public ResultInfo<Float> getObtainPublicBasicCourses(String id) {
+        Object object = application.getAttribute("courseMap");
+        if(object instanceof Map){
+            courseMap=(Map<String,Float>)object;
+        }
+
+        ResultInfo<Float> resultInfo=new ResultInfo<>();
+        Optional<Student> optional = studentDao.findById(id);
+        Float sum=0f;
+        Student student = optional.get();
+        List<Grade> gradeList = student.getGradeList();
+        for(Grade g:gradeList){
+            if(g.getCourseType().equals(CourseType.Public_Basic_Course)){
+                float score = g.getScore();
+                if(score>=60){
+                    Float c = courseMap.get(g.getCourseName());
+                    sum+=c;
+                }
+            }
+        }
+        resultInfo.setResultObj(sum);
+        resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
+        return resultInfo;
+    }
+
+    @Override
+    public ResultInfo<Float> getLosePublicBasicCourses(String id) {
+        Object object = application.getAttribute("courseMap");
+        if(object instanceof Map){
+            courseMap=(Map<String,Float>)object;
+        }
+
+        ResultInfo<Float> resultInfo=new ResultInfo<>();
+        Optional<Student> optional = studentDao.findById(id);
+        Float sum=0f;
+        Student student = optional.get();
+        List<Grade> gradeList = student.getGradeList();
+        for(Grade g:gradeList){
+            if(g.getCourseType().equals(CourseType.Public_Basic_Course)){
+                float score = g.getScore();
+                if(score<60){
+                    Float c = courseMap.get(g.getCourseName());
+                    sum+=c;
+                }
+            }
+        }
+        resultInfo.setResultObj(sum);
+        resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
+        return resultInfo;
+    }
+
+    @Override
+    public ResultInfo<Float> getObtainPracticeCourse(String id) {
+        Object object = application.getAttribute("courseMap");
+        if(object instanceof Map){
+            courseMap=(Map<String,Float>)object;
+        }
+
+        ResultInfo<Float> resultInfo=new ResultInfo<>();
+        Optional<Student> optional = studentDao.findById(id);
+        Float sum=0f;
+        Student student = optional.get();
+        List<Grade> gradeList = student.getGradeList();
+        for(Grade g:gradeList){
+            if(g.getCourseType().equals(CourseType.Practice_Course)){
+                float score = g.getScore();
+                if(score>=60){
+                    Float c = courseMap.get(g.getCourseName());
+                    sum+=c;
+                }
+            }
+        }
+        resultInfo.setResultObj(sum);
+        resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
+        return resultInfo;
+    }
+
+    @Override
+    public ResultInfo<Float> getLosePracticeCourse(String id) {
+        Object object = application.getAttribute("courseMap");
+        if(object instanceof Map){
+            courseMap=(Map<String,Float>)object;
+        }
+
+        ResultInfo<Float> resultInfo=new ResultInfo<>();
+        Optional<Student> optional = studentDao.findById(id);
+        Float sum=0f;
+        Student student = optional.get();
+        List<Grade> gradeList = student.getGradeList();
+        for(Grade g:gradeList){
+            if(g.getCourseType().equals(CourseType.Practice_Course)){
+                float score = g.getScore();
+                if(score<60){
+                    Float c = courseMap.get(g.getCourseName());
+                    sum+=c;
+                }
+            }
+        }
+        resultInfo.setResultObj(sum);
+        resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
+        return resultInfo;
+    }
+
+    @Override
+    public ResultInfo<Float> getObtainMajorCompulsoryCourses(String id) {
+        Object object = application.getAttribute("courseMap");
+        if(object instanceof Map){
+            courseMap=(Map<String,Float>)object;
+        }
+
+        ResultInfo<Float> resultInfo=new ResultInfo<>();
+        Optional<Student> optional = studentDao.findById(id);
+        Float sum=0f;
+        Student student = optional.get();
+        List<Grade> gradeList = student.getGradeList();
+        for(Grade g:gradeList){
+            if(g.getCourseType().equals(CourseType.Required_Course)){
+                float score = g.getScore();
+                if(score>=60){
+                    Float c = courseMap.get(g.getCourseName());
+                    sum+=c;
+                }
+            }
+        }
+        resultInfo.setResultObj(sum);
+        resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
+        return resultInfo;
+    }
+
+    @Override
+    public ResultInfo<Float> getLoseMajorCompulsoryCourses(String id) {
+        Object object = application.getAttribute("courseMap");
+        if(object instanceof Map){
+            courseMap=(Map<String,Float>)object;
+        }
+
+        ResultInfo<Float> resultInfo=new ResultInfo<>();
+        Optional<Student> optional = studentDao.findById(id);
+        Float sum=0f;
+        Student student = optional.get();
+        List<Grade> gradeList = student.getGradeList();
+        for(Grade g:gradeList){
+            if(g.getCourseType().equals(CourseType.Required_Course)){
+                float score = g.getScore();
+                if(score<60){
+                    Float c = courseMap.get(g.getCourseName());
+                    sum+=c;
+                }
+            }
+        }
+        resultInfo.setResultObj(sum);
+        resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
+        return resultInfo;
+    }
+
+    @Override
+    public ResultInfo<Float> getObtainMajorElectiveCourse(String id) {
+        Object object = application.getAttribute("courseMap");
+        if(object instanceof Map){
+            courseMap=(Map<String,Float>)object;
+        }
+
+        ResultInfo<Float> resultInfo=new ResultInfo<>();
+        Optional<Student> optional = studentDao.findById(id);
+        Float sum=0f;
+        Student student = optional.get();
+        List<Grade> gradeList = student.getGradeList();
+        for(Grade g:gradeList){
+            if(g.getCourseType().equals(CourseType.Elective_Course)){
+                float score = g.getScore();
+                if(score>=60){
+                    Float c = courseMap.get(g.getCourseName());
+                    sum+=c;
+                }
+            }
+        }
+        resultInfo.setResultObj(sum);
+        resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
+        return resultInfo;
+    }
+
+    @Override
+    public ResultInfo<Float> getLoseMajorElectiveCourse(String id) {
+        Object object = application.getAttribute("courseMap");
+        if(object instanceof Map){
+            courseMap=(Map<String,Float>)object;
+        }
+
+        ResultInfo<Float> resultInfo=new ResultInfo<>();
+        Optional<Student> optional = studentDao.findById(id);
+        Float sum=0f;
+        Student student = optional.get();
+        List<Grade> gradeList = student.getGradeList();
+        for(Grade g:gradeList){
+            if(g.getCourseType().equals(CourseType.Elective_Course)){
+                float score = g.getScore();
+                if(score<60){
+                    Float c = courseMap.get(g.getCourseName());
+                    sum+=c;
+                }
+            }
+        }
+        resultInfo.setResultObj(sum);
+        resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
+        return resultInfo;
+    }
+
+    @Override
+    public ResultInfo<List<Student>> getLoseCourseCreditOver(float score) {
+        ResultInfo<List<Student>> resultInfo =new ResultInfo<>();
+        //用于存放 挂科的同学
+        List<Student> students =new ArrayList<>();
+        List<Student> studentList = studentDao.findAll();
+
+        for(Student s:studentList){
+            ResultInfo<Float> r1 = getLoseMajorCompulsoryCourses(s.getStudentId());//获取 挂掉专业必修课学分和
+            ResultInfo<Float> r2 = getLoseMajorElectiveCourse(s.getStudentId());//获取 挂掉专业选修课学分和
+            ResultInfo<Float> r3=getLosePracticeCourse(s.getStudentId());//获取 挂掉实践课学分和
+            float sum=0l;
+            sum=r1.getResultObj()+r2.getResultObj()+r3.getResultObj();
+            if(sum>=score){
+            students.add(s);
+            }
+        }
+        if(students.size()==0){
+            System.out.println("没有符合以上要求的学生!");
+        }
+        resultInfo.setResultObj(students);
         resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
         return resultInfo;
     }

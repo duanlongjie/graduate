@@ -1,10 +1,7 @@
 package cn.edu.haue.graduate.web;
 
 import cn.edu.haue.graduate.entity.*;
-import cn.edu.haue.graduate.service.AdminService;
-import cn.edu.haue.graduate.service.CourseService;
-import cn.edu.haue.graduate.service.GraduateOrNotService;
-import cn.edu.haue.graduate.service.StudentService;
+import cn.edu.haue.graduate.service.*;
 import cn.edu.haue.graduate.utils.ExcelUtil;
 import org.springframework.data.domain.Page;
 import org.springframework.security.core.Authentication;
@@ -18,7 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,7 +26,6 @@ import java.util.List;
  **/
 @Controller
 public class StudentController {
-
     @Resource
     GraduateOrNotService graduateOrNotService;
     @Resource
@@ -36,6 +34,8 @@ public class StudentController {
     private AdminService adminService;
     @Resource
     private CourseService courseService;
+    @Resource
+    private MajorService majorService;
 
     @RequestMapping("/student/graduationCon")
     public ModelAndView goToGraduationConditionsPage(@RequestParam(value = "studentId") String id,HttpSession session) {
@@ -56,9 +56,18 @@ public class StudentController {
 //        Student student = (Student) resultInfo.getResultObj();
         Student student = (Student)session.getAttribute("student");
         List<Grade> gradeList = student.getGradeList();
-        model.addAttribute("gradeList", gradeList);
+        List<GradeInfo> gradeInfos=new ArrayList<>();//传到前端的结果
+        for(Grade grade:gradeList){
+            String courseName=grade.getCourseName();
+            String courseType=grade.getCourseType();
+            Course course=courseService.findCouseByNameAndType(courseName, courseType).getResultObj();
+            float courseCredit=course.getCourseCredit();
+            GradeInfo gradeInfo=new GradeInfo(courseName,courseType,courseCredit,grade.getScore());
+            gradeInfos.add(gradeInfo);
+        }
+        model.addAttribute("gradeInfos", gradeInfos);
         model.addAttribute("student", student);
-        System.out.println(gradeList);
+        System.out.println(gradeInfos);
         return "/student/grade";
     }
 
@@ -69,18 +78,24 @@ public class StudentController {
             pager = 0;
         }
         ResultInfo<Page<Student>> resultInfo = studentService.findAllByIsDelete(pager, 10);
-//        ResultInfo<Page<Student>> resultInfo = studentService.findAllByPage(pager, 10);
         Page<Student> page = resultInfo.getResultObj();
         List<Student> students = page.getContent();
         int totalPages = page.getTotalPages();
+        ResultInfo<List<Major>> resultInfo1 = majorService.getAllMajors();
+        List<Major> majors = resultInfo1.getResultObj();
+        model.addAttribute("majors",majors);
         model.addAttribute("students",students);
         model.addAttribute("currentPage", pager + 1);
         model.addAttribute("totalPage", totalPages);
-
+        ResultInfo<List<String>> resultInfo2 = majorService.getMajorNames();
+        ResultInfo<List<String>> resultInfo3 = majorService.getMajorYears();
+        List<String> names = resultInfo2.getResultObj();
+        List<String> years = resultInfo3.getResultObj();
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Admin admin = adminService.getAdminByUsername(authentication.getName());
         model.addAttribute("currentAdmin", admin);
-
+        model.addAttribute("names", names);
+        model.addAttribute("years", years);
         return "/admin/student";
     }
 
@@ -91,7 +106,9 @@ public class StudentController {
         List<Grade> grades = student.getGradeList();
         model.addAttribute("student",student);
         model.addAttribute("grades",grades);
-
+        ResultInfo<List<String>> resultInfo1 = courseService.findAllType();
+        List<String> types = resultInfo1.getResultObj();
+        model.addAttribute("types",types);
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Admin admin = adminService.getAdminByUsername(authentication.getName());
         model.addAttribute("currentAdmin", admin);
@@ -99,13 +116,13 @@ public class StudentController {
     }
 
     @RequestMapping("admin/addStu")
-    public String addStu(String studentId,String studentName,String major){
-        System.out.println(studentName+""+major);
-        Major major1=new Major(major,"4");
+    public String addStu(String studentId,String studentName,String majorName,String majorYear){
+        ResultInfo<Major> resultInfo1= majorService.getByMajorkey(majorName,majorYear);
+        Major major = resultInfo1.getResultObj();
         Student student =new Student();
         student.setStudentId(studentId);
         student.setStudentName(studentName);
-        student.setMajor(major1);
+        student.setMajor(major);
         ResultInfo<Student> resultInfo = studentService.addStudent(student);
         return "redirect:student_list";
     }
@@ -155,20 +172,23 @@ public class StudentController {
     @RequestMapping("admin/addCourse")
     public String addCourse(String id,String courseName,
                           String courseType,float courseCredit,float score){
+
+        String[] split = courseType.split(",");
+        System.out.println(split[1]);
         /**记录学生当前获得学分*/
         float sum=0;
         Course course=null;
         ResultInfo<Student> resultInfo = studentService.getStudentById(id);
         Student student = resultInfo.getResultObj();
-        Grade grade =new Grade(courseName,courseType,id,score);
+        Grade grade =new Grade(courseName,split[1],id,score);
         if(student.getMajor()==null){
-              course =new Course(courseName,"软件工程",courseType,courseCredit);
+              course =new Course(courseName,"软件工程",split[1],courseCredit);
         }
         else{
-              course =new Course(courseName,student.getMajor().getMajorName(),courseType,courseCredit);
+              course =new Course(courseName,student.getMajor().getMajorName(),split[1],courseCredit);
         }
 
-        ResultInfo<Course> resultInfo1 = courseService.findCouseByNameAndType(courseName, courseType);
+        ResultInfo<Course> resultInfo1 = courseService.findCouseByNameAndType(courseName, split[1]);
         Course resultObj = resultInfo1.getResultObj();
         System.out.println(resultObj);
         if(resultObj==null){
@@ -185,4 +205,60 @@ public class StudentController {
         studentService.updateStudent(student);
         return "studentGrade";
     }
+
+    /**
+     * 筛选挂科分数 大于该分的同学 并显示到页面 点击详情 查看信息
+     * @param score
+     */
+    @RequestMapping("admin/select_score")
+    public String select_score(float score,Model model,HttpSession session){
+        ResultInfo<List<Student>> resultInfo = studentService.getLoseCourseCreditOver(score);
+        List<Student> students = resultInfo.getResultObj();
+        int len = students.size();
+        model.addAttribute("students",students);
+        model.addAttribute("len",len);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Admin admin = adminService.getAdminByUsername(authentication.getName());
+        model.addAttribute("currentAdmin", admin);
+        return "/admin/dangerStudent";
+
+    }
+    @RequestMapping("admin/studentDetails")
+    public String studentDetails(String id,Model model,HttpSession session){
+        ResultInfo<Student> resultInfo = studentService.getStudentById(id);
+        Student student = resultInfo.getResultObj();
+        Major major = student.getMajor();
+        ResultInfo<Float> r1 = studentService.getObtainPublicElectiveCourse(id);
+        ResultInfo<Float> r2 = studentService.getLosePublicElectiveCourse(id);
+        ResultInfo<Float> r3 = studentService.getObtainPECourse(id);
+        ResultInfo<Float> r4 = studentService.getLosePECourse(id);
+        ResultInfo<Float> r5 = studentService.getObtainPublicBasicCourses(id);
+        ResultInfo<Float> r6 = studentService.getLosePublicBasicCourses(id);
+        ResultInfo<Float> r7 = studentService.getObtainPracticeCourse(id);
+        ResultInfo<Float> r8 = studentService.getLosePracticeCourse(id);
+        ResultInfo<Float> r9 = studentService.getObtainMajorCompulsoryCourses(id);
+        ResultInfo<Float> r10 = studentService.getLoseMajorCompulsoryCourses(id);
+        ResultInfo<Float> r11 = studentService.getObtainMajorElectiveCourse(id);
+        ResultInfo<Float> r12 = studentService.getLoseMajorElectiveCourse(id);
+        //挂掉的学分总和  专业必修+专业选修+实践
+        float loseMajorCredit= r10.getResultObj()+r12.getResultObj()+r8.getResultObj();
+       //公共课学分
+        float publicCredit=r1.getResultObj()+r5.getResultObj();
+        //获得体育课学分
+        float PECredit=r3.getResultObj();
+        //专业课学分
+        float majorCredit= r9.getResultObj()+r11.getResultObj()+r7.getResultObj();
+        model.addAttribute("major",major);
+        model.addAttribute("student",student);
+        model.addAttribute("loseMajorCredit",loseMajorCredit);
+        model.addAttribute("publicCredit",publicCredit);
+        model.addAttribute("PECredit",PECredit);
+        model.addAttribute("majorCredit",majorCredit);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Admin admin = adminService.getAdminByUsername(authentication.getName());
+        model.addAttribute("currentAdmin", admin);
+        return "/admin/studentDetail";
+
+    }
+
 }

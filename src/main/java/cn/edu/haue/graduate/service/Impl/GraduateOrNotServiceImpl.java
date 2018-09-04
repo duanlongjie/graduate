@@ -2,6 +2,7 @@ package cn.edu.haue.graduate.service.Impl;
 
 
 import cn.edu.haue.graduate.constant.ResultCode;
+import cn.edu.haue.graduate.dao.CourseDao;
 import cn.edu.haue.graduate.dao.MajorDao;
 import cn.edu.haue.graduate.dao.StudentDao;
 import cn.edu.haue.graduate.entity.*;
@@ -12,11 +13,9 @@ import javax.annotation.Resource;
 import javax.transaction.Transactional;
 import java.util.List;
 
+import static cn.edu.haue.graduate.constant.CourseType.*;
 import static cn.edu.haue.graduate.constant.StudentCreditMessage.GraduateOrNot_No;
 import static cn.edu.haue.graduate.constant.StudentCreditMessage.GraduateOrNot_Yes;
-import static cn.edu.haue.graduate.constant.CourseType.Elective_Course;
-import static cn.edu.haue.graduate.constant.CourseType.PE;
-import static cn.edu.haue.graduate.constant.CourseType.Required_Course;
 
 
 /**
@@ -31,6 +30,8 @@ public class GraduateOrNotServiceImpl implements GraduateOrNotService {
     private StudentDao studentDao;
     @Resource
     private MajorDao majorDao;
+    @Resource
+    private CourseDao courseDao;
 
     /**
      * 毕业条件审核
@@ -41,44 +42,43 @@ public class GraduateOrNotServiceImpl implements GraduateOrNotService {
     @Override
     public ResultInfo<StudentCreditResult> GraduateOrNot(String id) {
         ResultInfo<StudentCreditResult> resultInfo = new ResultInfo<>();
-        /*
+
         Student student = studentDao.getOne(id);
         //获取学生的专业，根据专业的标准来审核毕业条件
-        String majorId = student.getMajor().getMajorID();
+        String majorName = student.getMajor().getMajorName();
+        String majorYear = student.getMajor().getMajorYears();
         //根据专业id去查找出该专业毕业的标准
-        Major major = majorDao.getOne(majorId);
+        Major major = majorDao.findMajorByMajorNameAndMajorYears(majorName, majorYear);
 
-        List<Course> courseList = major.getRequiredCourses();
-        float requiredCoursesCredit = 0;                      //必修课学分标准
-        for (Course course : courseList) {
-            if (Required_Course.equals(course.getCourseType())) { //必修课
-                requiredCoursesCredit += course.getCourseCredit();
-            }
-        }
+        float requiredCoursesCredit = 0;                      //专业课学分标准
         float max_fail_credit = major.getMaxFailCredit();     //最多补考学分标准
         float needPeCredit = major.getNeedPeCredit();       //体育课学分标准
-        float needPublicCredit = major.getNeedPublicCredit(); //公共选修课学分标准
+        float needPublicCredit = major.getNeedPublicCredit(); //选修课学分标准
 
         List<Grade> gradeList = student.getGradeList();
         float studentPeCredit = 0;       //该学生体育课学分
         float studentElectiveCredit = 0; //该学生选修课学分
-        float studentRequiredCredit = 0; //该学生必修课学分
+        float studentRequiredCredit = 0; //该学生专业课学分
         float studentFailCredit = 0;     //该学生补考学分
         for (Grade grade : gradeList) {
-            String courseType = grade.getCourse().getCourseType();
+            String courseType = grade.getCourseType();
+            String courseName=grade.getCourseName();
+            Course course=courseDao.findByCourseNameAndCourseType(courseName, courseType);
+            if (Required_Course.equals(courseType)|| Elective_Course.equals(courseType)|| Practice_Course.equals(courseType)) {
+                requiredCoursesCredit += course.getCourseCredit(); //获取专业课学分标准
+            }
             if (grade.getScore() >= 60) {
                 if (PE.equals(courseType)) {             //体育课
-                    studentPeCredit += grade.getCourse().getCourseCredit();
+                    studentPeCredit += course.getCourseCredit();
                 }
-                if (Elective_Course.equals(courseType)) { //选修课
-                    studentElectiveCredit += grade.getCourse().getCourseCredit();
-
-                } else if (Required_Course.equals(courseType)) { //必修课
-                    studentRequiredCredit += grade.getCourse().getCourseCredit();
+                if (Public_Basic_Course.equals(courseType)||Public_Elective_Course.equals(courseType)) { //选修课
+                    studentElectiveCredit += course.getCourseCredit();
+                } else if (Required_Course.equals(courseType)|| Elective_Course.equals(courseType)|| Practice_Course.equals(courseType)) { //专业课课
+                    studentRequiredCredit += course.getCourseCredit();
                 }
             } else {
-                if (Required_Course.equals(courseType)) { //必修课
-                    studentFailCredit += grade.getCourse().getCourseCredit();
+                if (Required_Course.equals(courseType)|| Elective_Course.equals(courseType)|| Practice_Course.equals(courseType)) { //专业课
+                    studentFailCredit += course.getCourseCredit();
                 }
             }
         }
@@ -99,9 +99,6 @@ public class GraduateOrNotServiceImpl implements GraduateOrNotService {
         studentCreditResult.setStudentPeCredit(studentPeCredit);
         resultInfo.setResultObj(studentCreditResult);
         resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
-        */
         return resultInfo;
-
     }
-
 }

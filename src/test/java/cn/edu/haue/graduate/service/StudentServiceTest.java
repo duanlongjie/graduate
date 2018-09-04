@@ -82,4 +82,11 @@ public class StudentServiceTest {
             System.out.println(s);
         }
     }
+
+    @Test
+    public void getObtainPublicElectiveCourse(){
+        ResultInfo<Float> resultInfo = studentService.getLosePublicElectiveCourse("201612211122");
+        Float resultObj = resultInfo.getResultObj();
+        System.out.println((float)resultObj);
+    }
 }

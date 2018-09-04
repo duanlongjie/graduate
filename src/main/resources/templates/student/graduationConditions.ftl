@@ -51,7 +51,7 @@
 					<tbody>
 					<tr>
 							<td>毕业资格和学位资格</td>
-							<td>${studentCreditResult.name}同学</td>
+							<td>${studentCreditResult.name}</td>
 						</tr>
 					<tr>
                         <td>专业必修课：<span id="requiredCoursesCredit">${studentCreditResult.requiredCoursesCredit}</span>学分</td>
@@ -75,7 +75,7 @@
 					</tr>
 					<tr>
 						<td>相关处分</td>
-                        <td><span id="chufen">有处分</span></td>
+                        <td><span id="chufen">无处分</span></td>
 					</tr>
 					</tbody>			
 				</table>

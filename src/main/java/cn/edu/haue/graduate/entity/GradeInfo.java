@@ -1,35 +1,24 @@
 package cn.edu.haue.graduate.entity;
 
-
-import javax.persistence.*;
-
-@Entity
-@IdClass(CourseKey.class)
-public class    Course {
-    @Id
-    @Column(length = 32)
+/**
+ * Author: lnp
+ * Date: 2018/9/4
+ * 成绩详情页 值对象
+ **/
+public class GradeInfo {
     private String courseName;
-
-    @Id
-    @Column(length = 32)
-    private String majorName;
-
-    //课程类型
-    @Id
-    @Column(length = 32)
     private String courseType;
-
-    //课程学分
     private float courseCredit;
+    private float score;
 
-    public Course() {
+    public GradeInfo() {
     }
 
-    public Course(String courseName, String majorName, String courseType, float courseCredit) {
+    public GradeInfo(String courseName, String courseType, float courseCredit, float score) {
         this.courseName = courseName;
-        this.majorName = majorName;
         this.courseType = courseType;
         this.courseCredit = courseCredit;
+        this.score = score;
     }
 
     public String getCourseName() {
@@ -38,14 +27,6 @@ public class    Course {
 
     public void setCourseName(String courseName) {
         this.courseName = courseName;
-    }
-
-    public String getMajorName() {
-        return majorName;
-    }
-
-    public void setMajorName(String majorName) {
-        this.majorName = majorName;
     }
 
     public String getCourseType() {
@@ -64,13 +45,21 @@ public class    Course {
         this.courseCredit = courseCredit;
     }
 
+    public float getScore() {
+        return score;
+    }
+
+    public void setScore(float score) {
+        this.score = score;
+    }
+
     @Override
     public String toString() {
-        return "Course{" +
+        return "GradeInfo{" +
                 "courseName='" + courseName + '\'' +
-                ", majorName='" + majorName + '\'' +
                 ", courseType='" + courseType + '\'' +
                 ", courseCredit=" + courseCredit +
+                ", score=" + score +
                 '}';
     }
 }
