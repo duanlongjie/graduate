@@ -42,10 +42,10 @@ public class StudentServiceImpl implements StudentService {
         else{
             //默认 添加的学生是可用的
             student.setIsDelete(StudentStatus.USEFUL);
-            if (student.getAcquireCredit()==null){
-                float ac=0;
-                student.setAcquireCredit(ac);
-            }
+//            if (student.getAcquireCredit()==null){
+//                float ac=0;
+//                student.setAcquireCredit(ac);
+//            }
             studentDao.save(student);
             resultInfo.setResultObj(student);
             resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
@@ -76,12 +76,13 @@ public class StudentServiceImpl implements StudentService {
         ResultInfo<Student> resultInfo=new ResultInfo<>();
         if(id!= null){
             Optional<Student> optional = studentDao.findById(id);
+
             Student student = optional.get();
             resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
             resultInfo.setResultObj(student);
             return resultInfo;
         }
-        return null;
+        return resultInfo;
     }
 
     @Override
@@ -469,6 +470,19 @@ public class StudentServiceImpl implements StudentService {
             System.out.println("没有符合以上要求的学生!");
         }
         resultInfo.setResultObj(students);
+        resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
+        return resultInfo;
+    }
+
+    @Override
+    public ResultInfo<List<String>> getAllId() {
+        ResultInfo<List<String>> resultInfo =new ResultInfo<>();
+        List<String>  ids =new ArrayList<>();
+         List<Student> students = studentDao.findAll();
+         for(Student s:students){
+             ids.add(s.getStudentId());
+         }
+         resultInfo.setResultObj(ids);
         resultInfo.setResultCode(ResultCode.RESULT_CODE_SUCCESS);
         return resultInfo;
     }

@@ -2,7 +2,6 @@ package cn.edu.haue.graduate.utils;
 
 import cn.edu.haue.graduate.constant.StudentStatus;
 import cn.edu.haue.graduate.entity.Grade;
-import cn.edu.haue.graduate.entity.Major;
 import cn.edu.haue.graduate.entity.Student;
 import cn.edu.haue.graduate.exceptions.ExcelException;
 import jxl.Cell;
@@ -164,6 +163,7 @@ public class ExcelUtil {
         Cell[] cells = sheet.getRow(row);
         //存放 表头信息的数组
         String [] fns = new String[cells.length];
+        //存放课程名称数组
         List<String> ke=new ArrayList<>();
         for(int i=0; i<cells.length; i++){
             fns[i]=cells[i].getContents();
@@ -184,7 +184,7 @@ public class ExcelUtil {
                                     String goldstr = cs[l].getContents();
                                     float gold;
                                     //成绩非空
-                                    if(!"".equals(goldstr)){
+                                    if(goldstr!=null  && !"".equals(goldstr)){
                                         if("优".equals(goldstr)){
                                             gold=90;
                                         }
@@ -340,7 +340,6 @@ public class ExcelUtil {
         List<T> lists =new ArrayList<>();
         //遍历学生成绩行
         for(int i=row+1; i<sheet.getRows(); i++){
-
             Cell[] cs = sheet.getRow(i);
             T o = (T)t.getClass().newInstance();
             if(o instanceof Student){

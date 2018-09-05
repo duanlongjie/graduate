@@ -109,23 +109,21 @@
                             </tr>
                             </thead>
                             <tbody id="tbody">
-                            <#list students as s>
+                            <#list o as s>
                             <tr>
-                                <td>${s.studentId}</td>
-                                <td>${s.studentName}</td>
-                                <td>${s.acquireCredit}</td>
-
+                                <td>${s[1].studentId}</td>
+                                <td>${s[1].studentName}</td>
+                                 <td>${s[0]}</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a class="btn btn-success" href="studentGrade?id=${s.studentId}">成绩单</a>
-                                        <a id="updateButton"   class="btn btn-info" href="updateStu?id=${s.studentId}">修改</a>
+                                        <a class="btn btn-success" href="studentGrade?id=${s[1].studentId}">成绩单</a>
+                                        <a id="updateButton"   class="btn btn-info" href="updateStu?id=${s[1].studentId}">修改</a>
                                         <button  id="deleteBut" type="button" class="btn btn-danger" data-toggle="modal"
                                                 data-target="#delete"
-                                                data-whatever="${s.studentId}">删除
+                                                data-whatever="${s[1].studentId}">删除
                                         </button>
 
                                         </div>
-
                                 </td>
                             </tr>
                             </#list>

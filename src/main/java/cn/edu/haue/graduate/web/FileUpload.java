@@ -61,19 +61,24 @@ public class FileUpload {
         InputStream inputStream =null;
         Map<String,String> map =new HashMap<>();
         map.put("学号","studentId"); map.put("姓名","studentName");
-        map.put("获得学分","acquireCredit");
         List<Student> students=null;
         try{
             inputStream = file.getInputStream();
             students= ExcelUtil.getEntityList(new Student(), inputStream, map);
+            System.out.println("-------------------------------");
+            System.out.println(students.size());
           // 获取 excel 文件 的 输入流对象
 
         }catch (Exception e){
             e.printStackTrace();
         }
         for(Student s:students){
-            s.setMajor(major);
-            studentService.addStudent(s);
+            ResultInfo<List<String>> resultInfo = studentService.getAllId();
+            List<String> ids = resultInfo.getResultObj();
+            if(!ids.contains(s.getStudentId())){
+                s.setMajor(major);
+                studentService.addStudent(s);
+            }
         }
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Admin admin = adminService.getAdminByUsername(authentication.getName());
@@ -131,9 +136,23 @@ public class FileUpload {
             e.printStackTrace();
         }
         for(String s:filedNames){
-            Course c =new Course(s.split("/")[0],majorName,s.split("/")[1],
-                    Float.parseFloat(s.split("/")[2]));
-            courseService.addCourse(c);
+            ResultInfo<Boolean> resultInfo = courseService.judgeCouseExist(s.split("/")[0], s.split("/")[1], majorName);
+            Boolean flag = resultInfo.getResultObj();
+            //如果 课程不存在数据库 更新数据库
+            if(flag == false){
+                Course c =new Course(s.split("/")[0],majorName,s.split("/")[1],
+                        Float.parseFloat(s.split("/")[2]));
+                courseService.addCourse(c);
+                //课程表更新  将 课程数据同步到缓存
+                ResultInfo<List<Course>> resultInfo2 = courseService.getAll();
+                Map<String,Float> courseMap=new HashMap<>();
+                List<Course> courses = resultInfo2.getResultObj();
+                for(Course c2:courses){
+                    courseMap.put(c2.getCourseName(),c2.getCourseCredit());
+                }
+                application.setAttribute("courses",courses);
+                application.setAttribute("courseMap",courseMap);
+            }
         }
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -141,14 +160,7 @@ public class FileUpload {
         model.addAttribute("currentAdmin", admin);
 
         //导入数据后 将课程数据放入  应用缓存
-        ResultInfo<List<Course>> resultInfo = courseService.getAll();
-        Map<String,Float> courseMap=new HashMap<>();
-        List<Course> courses = resultInfo.getResultObj();
-        for(Course c:courses){
-            courseMap.put(c.getCourseName(),c.getCourseCredit());
-        }
-        application.setAttribute("courses",courses);
-        application.setAttribute("courseMap",courseMap);
+
         model.addAttribute("message","导入成功!");
         return "admin/home";
 

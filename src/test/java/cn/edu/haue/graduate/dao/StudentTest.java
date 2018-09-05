@@ -12,6 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -69,5 +70,10 @@ public class StudentTest {
                 System.out.println(grade);
             }
         }
+    }
+    @Test
+    public void t(){
+        Optional<Student> op = studentDao.findById("2016112211122");
+        System.out.println(op);
     }
 }

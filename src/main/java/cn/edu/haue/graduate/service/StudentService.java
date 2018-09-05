@@ -121,5 +121,9 @@ public interface StudentService {
      */
     ResultInfo<List<Student>> getLoseCourseCreditOver(float score);
 
-
+    /**
+     * 获取所有学生id
+     * @return
+     */
+    ResultInfo<List<String>> getAllId();
 }

@@ -18,7 +18,9 @@ import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Author: lnp
@@ -26,6 +28,8 @@ import java.util.List;
  **/
 @Controller
 public class StudentController {
+    @Resource
+    private ServletContext application;
     @Resource
     GraduateOrNotService graduateOrNotService;
     @Resource
@@ -74,16 +78,29 @@ public class StudentController {
     // 跳转 学生列表页   分页显示
     @RequestMapping("admin/student_list")
     public String getStudentList(Model model,HttpSession session, Integer pager){
+        //存放 学生和 学分集合
+        List<Object[]> list =new ArrayList<>();
         if (pager == null) {
             pager = 0;
         }
         ResultInfo<Page<Student>> resultInfo = studentService.findAllByIsDelete(pager, 10);
         Page<Student> page = resultInfo.getResultObj();
         List<Student> students = page.getContent();
+        for(Student s:students){
+            String id = s.getStudentId();
+            ResultInfo<Float> r7 = studentService.getObtainPracticeCourse(id);
+            ResultInfo<Float> r9 = studentService.getObtainMajorCompulsoryCourses(id);
+            ResultInfo<Float> r11 = studentService.getObtainMajorElectiveCourse(id);
+            float sum=r7.getResultObj()+r9.getResultObj()+r11.getResultObj();
+           Object[] o=new Object[2];
+           o[0]=sum; o[1]=s;
+            list.add(o);
+        }
         int totalPages = page.getTotalPages();
         ResultInfo<List<Major>> resultInfo1 = majorService.getAllMajors();
         List<Major> majors = resultInfo1.getResultObj();
         model.addAttribute("majors",majors);
+        model.addAttribute("o",list);
         model.addAttribute("students",students);
         model.addAttribute("currentPage", pager + 1);
         model.addAttribute("totalPage", totalPages);
@@ -174,35 +191,35 @@ public class StudentController {
                           String courseType,float courseCredit,float score){
 
         String[] split = courseType.split(",");
-        System.out.println(split[1]);
-        /**记录学生当前获得学分*/
-        float sum=0;
+
         Course course=null;
         ResultInfo<Student> resultInfo = studentService.getStudentById(id);
         Student student = resultInfo.getResultObj();
-        Grade grade =new Grade(courseName,split[1],id,score);
-        if(student.getMajor()==null){
-              course =new Course(courseName,"软件工程",split[1],courseCredit);
-        }
-        else{
-              course =new Course(courseName,student.getMajor().getMajorName(),split[1],courseCredit);
-        }
-
-        ResultInfo<Course> resultInfo1 = courseService.findCouseByNameAndType(courseName, split[1]);
-        Course resultObj = resultInfo1.getResultObj();
-        System.out.println(resultObj);
-        if(resultObj==null){
+        ResultInfo<Boolean> resultInfo2 = courseService.judgeCouseExist(courseName, split[1], student.getMajor().getMajorName());
+        Boolean flag = resultInfo2.getResultObj();
+        //课程不存在数据库
+        if(flag == false){
+            Grade grade =new Grade(courseName,split[1],id,score);
+            course =new Course(courseName,student.getMajor().getMajorName(),split[1],courseCredit);
             courseService.addCourse(course);
+            student.getGradeList().add(grade);
+            studentService.updateStudent(student);
+            //课程发送变动  将数据 同步到缓存
+            Map<String,Float> courseMap=new HashMap<>();
+            ResultInfo<List<Course>> resultInfo5 = courseService.getAll();
+            List<Course> courses = resultInfo5.getResultObj();
+            for(Course c:courses){
+                courseMap.put(c.getCourseName(),c.getCourseCredit());
+            }
+            application.setAttribute("courses",courses);
+            application.setAttribute("courseMap",courseMap);
         }
-        student.getGradeList().add(grade);
-        for(Grade g:student.getGradeList()){
-            ResultInfo<Course> resultInfo2 = courseService.findCouseByNameAndType(g.getCourseName(), g.getCourseType());
-            Course c = resultInfo2.getResultObj();
-            float cs = c.getCourseCredit();
-            sum+=cs;
+        else {
+            Grade grade =new Grade(courseName,split[1],id,score);
+            course =new Course(courseName,student.getMajor().getMajorName(),split[1],courseCredit);
+            student.getGradeList().add(grade);
+            studentService.updateStudent(student);
         }
-        student.setAcquireCredit(sum);
-        studentService.updateStudent(student);
         return "studentGrade";
     }
 
@@ -212,11 +229,28 @@ public class StudentController {
      */
     @RequestMapping("admin/select_score")
     public String select_score(float score,Model model,HttpSession session){
+        List<Object[]> list =new ArrayList<>();
         ResultInfo<List<Student>> resultInfo = studentService.getLoseCourseCreditOver(score);
         List<Student> students = resultInfo.getResultObj();
+        for(Student s:students){
+            String id = s.getStudentId();
+            ResultInfo<Float> r7 = studentService.getObtainPracticeCourse(id);
+            ResultInfo<Float> r9 = studentService.getObtainMajorCompulsoryCourses(id);
+            ResultInfo<Float> r11 = studentService.getObtainMajorElectiveCourse(id);
+
+            ResultInfo<Float> r1 = studentService.getLosePracticeCourse(id);
+            ResultInfo<Float> r2 = studentService.getLoseMajorCompulsoryCourses(id);
+            ResultInfo<Float> r3 = studentService.getLoseMajorElectiveCourse(id);
+            float sum=r7.getResultObj()+r9.getResultObj()+r11.getResultObj();
+            float loseSum=r1.getResultObj()+r2.getResultObj()+r3.getResultObj();
+            Object[] o=new Object[3];
+            o[0]=sum; o[1]=s; o[2]=loseSum;
+            list.add(o);
+        }
         int len = students.size();
         model.addAttribute("students",students);
         model.addAttribute("len",len);
+        model.addAttribute("kes",list);
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Admin admin = adminService.getAdminByUsername(authentication.getName());
         model.addAttribute("currentAdmin", admin);

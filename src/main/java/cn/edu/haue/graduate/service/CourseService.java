@@ -22,4 +22,16 @@ public interface CourseService {
      * @return
      */
     ResultInfo<List<Course>> getAll();
+
+    /**
+     * 根据课程 联合主键查询
+     * @return
+     */
+    ResultInfo<Course> findByKey(String name,String type,String majorName);
+
+    /**
+     * 判断一个课程是否存在数据库
+     */
+    ResultInfo<Boolean> judgeCouseExist(String name,String type,String majorName);
+
 }

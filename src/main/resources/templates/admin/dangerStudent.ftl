@@ -107,17 +107,17 @@
                             </tr>
                             </thead>
                             <tbody id="tbody">
-                            <#list students as s>
+                            <#list kes as s>
                             <tr>
-                                <td>${s.studentId}</td>
-                                <td>${s.studentName}</td>
-                                <td>${s.acquireCredit}</td>
-                                <td></td>
+                                <td>${s[1].studentId}</td>
+                                <td>${s[1].studentName}</td>
+                                <td>${s[0]}</td>
+                                <td>${s[2]}</td>
 
                                 <td>
                                     <div class="btn-group">
-                                        <a class="btn btn-success" href="studentGrade?id=${s.studentId}">成绩单</a>
-                                        <a class="btn btn-info" href="studentDetails?id=${s.studentId}">详情</a>
+                                        <a class="btn btn-success" href="studentGrade?id=${s[1].studentId}">成绩单</a>
+                                        <a class="btn btn-info" href="studentDetails?id=${s[1].studentId}">详情</a>
                                         </div>
 
                                 </td>
