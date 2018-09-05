@@ -43,9 +43,9 @@ public class StudentController {
 
     @RequestMapping("/student/graduationCon")
     public ModelAndView goToGraduationConditionsPage(@RequestParam(value = "studentId") String id,HttpSession session) {
-        ResultInfo resultInfo= studentService.getStudentById(id);
-        Student student = (Student) resultInfo.getResultObj();
-        session.setAttribute("student",student);
+//        ResultInfo resultInfo= studentService.getStudentById(id);
+//        Student student = (Student) resultInfo.getResultObj();
+//        session.setAttribute("student",student);
         ModelAndView modelAndView = new ModelAndView("/student/graduationConditions");
         ResultInfo<StudentCreditResult> resultResultInfo = graduateOrNotService.GraduateOrNot(id);
         modelAndView.addObject("studentCreditResult", resultResultInfo.getResultObj());
@@ -54,7 +54,7 @@ public class StudentController {
     }
 
 
-    @RequestMapping("/grade")
+    @RequestMapping("/student/grade")
     public String goToGradePage(HttpSession session, Model model) {
 //        ResultInfo resultInfo= studentService.getStudentById(id);
 //        Student student = (Student) resultInfo.getResultObj();

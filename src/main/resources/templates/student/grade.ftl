@@ -18,9 +18,8 @@
 					<ul>
 						<li>
 							<dl>
-								<dt><a href="#">...</a></dt>
-								<dd><a href="graduationWarning.html">返回</a></dd>
-								<dd><a href="#">退出</a></dd>
+                                <dt><a href="#">...</a></dt>
+                                <dd><a href="/student/logout">退出登录</a></dd>
 							</dl>
 						</li>
 					</ul>

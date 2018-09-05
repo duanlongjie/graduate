@@ -25,17 +25,19 @@ public class StudentLoginController {
     private StudentLoginService studentLoginService;
 
     //主页
-    @RequestMapping("/")
+    @RequestMapping("/toLogin")
     public String studentToLogin(){
-        return "student/login";
+        return "student/toLogin";
     }
 
     //登陆
     @ResponseBody
     @RequestMapping("login")
-    public  ResultInfo<Student> studentLogin(@RequestParam("username") String studentId, @RequestParam("passwords")String passwords){
+    public  ResultInfo<Student> studentLogin(@RequestParam(defaultValue="",value="username") String studentId, @RequestParam(defaultValue="",value = "passwords")String passwords,HttpSession session){
         System.out.println(studentId +"--" +passwords);
         ResultInfo<Student> studentResultInfo = studentLoginService.studentLogin(studentId, passwords);
+        if(studentResultInfo.getResultObj()!=null)
+            session.setAttribute("student", studentResultInfo.getResultObj());
         return studentResultInfo;
     }
 
@@ -51,5 +53,10 @@ public class StudentLoginController {
     public ResultInfo<Student> studentUpdate(@RequestParam("username")String studentId,@RequestParam("oldpasswords")String oldpasswords,@RequestParam("passwords")String passwords){
         ResultInfo<Student> studentResultInfo = studentLoginService.studentUpdate(studentId, oldpasswords, passwords);
         return studentResultInfo;
+    }
+    @RequestMapping("logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "student/toLogin";
     }
 }

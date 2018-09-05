@@ -84,7 +84,7 @@
 				<font><i class="iconfont" id="icon"></i> <span id="tip">警告：您还没有获得毕业资格</span></font>
 			</div>
 			<div>
-				<a href="/grade" id="dianji">点击查询成绩详情</a>
+				<a href="/student/grade" id="dianji">点击查询成绩详情</a>
 			</div>
 
 		</section>
